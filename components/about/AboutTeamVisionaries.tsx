@@ -13,6 +13,12 @@ const leaders = [
     image: "/images/about-cto.png",
     alt: "Portrait of Arpan, Chief Technology Officer",
   },
+  {
+    name: "Shivam Yadav",
+    role: "Chief Strategy Partner",
+    image: "/images/shivam-yadav.png",
+    alt: "Portrait of Shivam Yadav, Chief Strategy Partner",
+  },
 ] as const;
 
 export function AboutTeamVisionaries() {
@@ -26,9 +32,16 @@ export function AboutTeamVisionaries() {
           Our diverse team of strategists, designers, and developers are united by
           a single goal: your success.
         </p>
-        <ul className="mx-auto mt-14 grid max-w-3xl gap-10 sm:grid-cols-2 sm:gap-12">
-          {leaders.map((person) => (
-            <li key={person.name}>
+        <ul className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-3 lg:gap-10">
+          {leaders.map((person, index) => (
+            <li
+              key={person.name}
+              className={
+                index === leaders.length - 1
+                  ? "sm:col-span-2 sm:flex sm:justify-center lg:col-span-1 lg:block"
+                  : undefined
+              }
+            >
               <article className="text-center">
                 <div className="relative mx-auto aspect-square w-full max-w-[13.5rem] overflow-hidden rounded-full border-[5px] border-white bg-slate-200 shadow-lg shadow-slate-900/20 ring-1 ring-slate-200/90 sm:max-w-[15rem] md:max-w-[16.5rem]">
                   <Image
