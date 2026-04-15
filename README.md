@@ -11,7 +11,7 @@ Built with [Next.js](https://nextjs.org) (App Router), TypeScript, and Tailwind 
 - Home, Services, Pricing, About, and Contact pages
 - One-time pricing tiers (INR) and capability comparison
 - Mobile navigation drawer, accessible header/footer
-- Static assets (logos, portfolio, team photos) under `public/images/`—served the same locally and on [Vercel](https://vercel.com)
+- Static assets under `public/images/` (logos, team, portfolio)—served the same locally and on [Vercel](https://vercel.com)
 
 ## Getting started
 
@@ -34,15 +34,13 @@ npm run start   # run production server locally
 3. Framework preset: **Next.js** (auto-detected). Root directory: project root.
 4. Deploy. No extra env vars are required for the current static build.
 
-**Images on Vercel:** Files in `public/` (e.g. `public/images/logo.png`) are included in the deployment and available at `/images/logo.png`, same as locally. Use `next/image` with paths like `/images/...`—no remote host needed for those assets.
+**Images on Vercel:** Files in `public/` (e.g. `public/images/logo.png`) ship with the deployment and are available at `/images/logo.png`, same as locally. Use `next/image` with `src="/images/..."`.
 
-## Push to GitHub
+## Git remote
 
 ```bash
 git remote add origin https://github.com/krypton4149/NextGen_DigitalService.git
-git branch -M main
-git add -A
-git commit -m "Your message"
+# or: git remote set-url origin https://github.com/krypton4149/NextGen_DigitalService.git
 git push -u origin main
 ```
 
@@ -52,7 +50,7 @@ git push -u origin main
 |------|---------|
 | `app/` | Routes: `/`, `/about`, `/services`, `/pricing`, `/contact` |
 | `components/` | UI sections (Header, Footer, Hero, etc.) |
-| `public/images/` | Logos, photos, portfolio images |
+| `public/images/` | Logos, photos, portfolio images, `app/icon.png` for favicon |
 | `lib/contact.ts` | Shared contact email / phone constants |
 
 ## License
