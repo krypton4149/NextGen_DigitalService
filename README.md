@@ -6,6 +6,11 @@ Built with [Next.js](https://nextjs.org) (App Router), TypeScript, and Tailwind 
 
 **Repository:** [github.com/krypton4149/NextGen_DigitalService](https://github.com/krypton4149/NextGen_DigitalService)
 
+## Live demo
+
+- **Production:** add your Vercel URL here after the first deploy (Project → **Domains**), e.g. `https://<your-project>.vercel.app`.
+- **Deploy in one step:** [Import this repo on Vercel](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkrypton4149%2FNextGen_DigitalService&project-name=nextgen-digital-service&repository-name=NextGen_DigitalService) (sign in, then confirm to build and go live).
+
 ## Features
 
 - Home, Services, Pricing, About, and Contact pages
