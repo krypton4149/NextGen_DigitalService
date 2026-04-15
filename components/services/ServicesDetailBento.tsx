@@ -1,4 +1,4 @@
-import { Check, Code2, Mail, Paintbrush, Play, Share2 } from "lucide-react";
+import { Check, CloudCog, Code2, Mail, Paintbrush, Play, Share2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -51,6 +51,48 @@ export function ServicesDetailBento() {
                 clients using the latest frameworks.
               </p>
             </div>
+          </article>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-stretch">
+          <article className="flex h-full min-h-[280px] flex-col rounded-2xl border border-slate-200/80 bg-white p-8 shadow-sm lg:col-span-7">
+            <IconTile>
+              <CloudCog className="size-6" strokeWidth={2} aria-hidden />
+            </IconTile>
+            <h2 className="mt-6 text-xl font-bold text-slate-900 sm:text-2xl">
+              SaaS platforms &amp; product delivery
+            </h2>
+            <p className="mt-4 flex-1 text-sm leading-relaxed text-muted sm:text-base">
+              We design and build subscription-ready software: secure multi-tenant
+              architecture, payments and entitlements, admin dashboards, and DevOps
+              pipelines so you can grow recurring revenue without reinventing the
+              stack.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-6 inline-flex w-fit items-center gap-1 text-xs font-bold uppercase tracking-wide text-brand transition hover:text-blue-700"
+            >
+              Discuss your SaaS
+              <span aria-hidden>→</span>
+            </Link>
+          </article>
+          <article className="relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/80 bg-gradient-to-br from-slate-900 via-[#0f172a] to-brand-navy p-8 text-white shadow-lg shadow-slate-900/25 lg:col-span-5">
+            <div
+              className="pointer-events-none absolute -right-8 top-1/2 size-48 -translate-y-1/2 rounded-full bg-white/5 blur-2xl"
+              aria-hidden
+            />
+            <p className="relative text-xs font-semibold uppercase tracking-[0.2em] text-blue-200/90">
+              Ship faster
+            </p>
+            <p className="relative mt-4 text-lg font-semibold leading-snug">
+              From MVP to scale-ready SaaS — one partner for product, cloud, and
+              growth.
+            </p>
+            <CloudCog
+              className="relative mt-8 size-16 text-white/25 sm:size-20"
+              strokeWidth={1.25}
+              aria-hidden
+            />
           </article>
         </div>
 

@@ -13,6 +13,7 @@ import {
 } from "@/lib/contact";
 
 const services = [
+  "SaaS / Product platforms",
   "Web Development",
   "Mobile Applications",
   "SEO & Performance",

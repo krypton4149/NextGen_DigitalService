@@ -13,6 +13,7 @@ import {
 
 const subjects = [
   "Digital Transformation",
+  "SaaS / Product platforms",
   "Web Development",
   "Mobile Applications",
   "SEO & Performance",
@@ -32,6 +33,11 @@ const hqLocations = [
     city: "Noida",
     title: "NCR office",
     detail: "Noida region — by appointment",
+  },
+  {
+    city: "Shikohabad",
+    title: "Regional office",
+    detail: "Western UP — by appointment",
   },
 ] as const;
 
@@ -243,19 +249,19 @@ export function ContactPageView() {
         </div>
 
         <div className="relative mt-16 overflow-hidden rounded-2xl border border-slate-200/80 bg-gradient-to-br from-slate-100 via-sky-50/80 to-brand/10 p-10 sm:p-14 lg:mt-20">
-          <div className="relative z-[1] max-w-2xl">
+          <div className="relative z-[1] max-w-4xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand">
               Headquarters
             </p>
             <p className="mt-2 text-lg font-semibold text-slate-900 sm:text-xl">
-              Agra & Noida
+              Agra, Noida &amp; Shikohabad
             </p>
-            <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
-              We operate from both cities across Uttar Pradesh and the NCR. Our team
-              is remote-first — schedule a call or meet in person by appointment at
-              either location.
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
+              We operate from three locations across Uttar Pradesh and the NCR. Our
+              team is remote-first — schedule a call or meet in person by appointment
+              at any of our offices.
             </p>
-            <ul className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5">
+            <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
               {hqLocations.map((loc) => (
                 <li
                   key={loc.city}

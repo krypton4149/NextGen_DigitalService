@@ -1,8 +1,7 @@
 import { AtSign, Award } from "lucide-react";
 import Link from "next/link";
 import { CONTACT_EMAIL } from "@/lib/contact";
-
-const INSTAGRAM_URL = "https://www.instagram.com/nextgen_digital._/";
+import { SOCIAL_LINKS } from "@/lib/social";
 
 function InstagramGlyph({ className }: { className?: string }) {
   return (
@@ -30,6 +29,7 @@ function InstagramGlyph({ className }: { className?: string }) {
 }
 
 const solutions = [
+  "SaaS & product platforms",
   "Web Development",
   "Mobile Applications",
   "SEO & Performance",
@@ -67,7 +67,7 @@ export function Footer() {
               <Award className="size-5" />
             </a>
             <a
-              href={INSTAGRAM_URL}
+              href={SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow NextGen on Instagram (opens in a new tab)"
