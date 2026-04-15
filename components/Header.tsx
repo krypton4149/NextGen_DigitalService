@@ -73,14 +73,14 @@ export function Header() {
             className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-3 md:gap-3.5"
             prefetch
           >
-            <span className="relative flex h-10 shrink-0 items-center sm:h-11 md:h-12">
+            <span className="relative flex h-12 shrink-0 items-center sm:h-14 md:h-16">
               <Image
                 src="/images/logo.png"
                 alt=""
                 aria-hidden
-                width={240}
-                height={60}
-                className="h-10 w-auto max-w-[7.25rem] object-contain object-left sm:h-11 sm:max-w-[9.5rem] md:h-12 md:max-w-[11rem]"
+                width={320}
+                height={80}
+                className="h-12 w-auto max-w-[9.5rem] object-contain object-left sm:h-14 sm:max-w-[12.5rem] md:h-16 md:max-w-[15rem]"
                 priority
               />
             </span>
@@ -147,13 +147,13 @@ export function Header() {
         <>
           <button
             type="button"
-            className="fixed bottom-0 left-0 right-0 top-[4.5rem] z-30 bg-slate-900/40 backdrop-blur-[2px] md:hidden"
+            className="fixed bottom-0 left-0 right-0 top-[5rem] z-30 bg-slate-900/40 backdrop-blur-[2px] md:hidden"
             aria-label="Close menu"
             onClick={() => setMenuOpen(false)}
           />
           <div
             id="mobile-nav"
-            className="fixed bottom-0 left-0 right-0 top-[4.5rem] z-50 flex max-h-[min(100dvh,100vh)] flex-col border-t border-slate-200 bg-white shadow-2xl md:hidden"
+            className="fixed bottom-0 left-0 right-0 top-[5rem] z-50 flex max-h-[min(100dvh,100vh)] flex-col border-t border-slate-200 bg-white shadow-2xl md:hidden"
             style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
           >
             <nav className="flex flex-1 flex-col overflow-y-auto px-2 py-3" aria-label="Mobile">

@@ -70,11 +70,10 @@ export function Footer() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Follow NextGen on Instagram @nextgen_digital._ (opens in a new tab)"
-              className="inline-flex min-h-10 items-center gap-2.5 rounded-full border border-sky-200/90 bg-sky-50 px-4 py-2 text-sm font-bold text-brand shadow-sm transition hover:border-sky-300 hover:bg-sky-100/80"
+              aria-label="Follow NextGen on Instagram (opens in a new tab)"
+              className="flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white text-brand transition hover:border-brand/40"
             >
-              <InstagramGlyph className="size-5 shrink-0" />
-              <span>@nextgen_digital._</span>
+              <InstagramGlyph className="size-5" />
             </a>
             <a
               href="#"

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Button } from "./Button";
 
-const heroImage = "/images/hero.png";
+const heroVisual = "/images/hero-workspace.jpg";
 
 export function Hero() {
   return (
@@ -9,7 +9,7 @@ export function Hero() {
       id="home"
       className="bg-gradient-to-b from-[#f8f9ff] via-[#f7f8fb] to-[#f4f6f9] pb-12 pt-10 sm:pb-16 sm:pt-12 lg:pb-20 lg:pt-16"
     >
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:gap-12 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-8">
+      <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:gap-12 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8 xl:gap-16">
         <div className="min-w-0 max-w-xl lg:max-w-none">
           <p className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-brand">
             <span
@@ -34,16 +34,26 @@ export function Hero() {
             </Button>
           </div>
         </div>
-        <div className="relative min-w-0 w-full max-w-md justify-self-end sm:max-w-xl md:max-w-2xl lg:max-w-none lg:justify-self-stretch">
-          <div className="group relative aspect-[3/4] w-full sm:aspect-[3/4] lg:aspect-[4/5]">
-            <Image
-              src={heroImage}
-              alt="Isometric 3D illustration of a laptop with charts on tiered teal platforms, floating data panels, rocket, and spheres"
-              fill
-              sizes="(max-width: 1024px) 90vw, 42vw"
-              priority
-              className="object-contain object-center opacity-100 contrast-[1.08] brightness-[1.04] saturate-[1.1] transition-[transform,filter] duration-500 ease-out [transform:translateZ(0)] group-hover:scale-[1.02] group-hover:drop-shadow-[0_18px_40px_rgba(15,60,68,0.12)] motion-reduce:transition-none motion-reduce:group-hover:scale-100 motion-reduce:group-hover:drop-shadow-none"
-            />
+
+        <div className="relative mx-auto w-full max-w-md justify-self-center [perspective:1400px] lg:mx-0 lg:max-w-none lg:justify-self-end">
+          <div
+            className="pointer-events-none absolute inset-0 -z-10 scale-110 rounded-[40%] bg-[radial-gradient(ellipse_at_center,rgba(0,82,204,0.1),transparent_72%)] blur-2xl"
+            aria-hidden
+          />
+          <div
+            className="group relative isolate overflow-hidden rounded-[1.75rem] bg-white shadow-[0_22px_56px_-24px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/90 sm:rounded-[2rem] [transform-style:preserve-3d] [transform:translateZ(0)] transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform hover:shadow-[0_40px_88px_-32px_rgba(15,23,42,0.32)] hover:[transform:translateY(-0.5rem)_rotateX(5deg)_rotateY(-7deg)_scale(1.02)_translateZ(24px)] motion-reduce:transition-none motion-reduce:hover:shadow-[0_22px_56px_-24px_rgba(15,23,42,0.18)] motion-reduce:hover:[transform:translateZ(0)]"
+            style={{ transformOrigin: "50% 85% 0" }}
+          >
+            <div className="relative aspect-[3/2] w-full max-w-[min(100%,24rem)] overflow-hidden rounded-[inherit] mx-auto sm:max-w-none">
+              <Image
+                src={heroVisual}
+                alt="Desk with laptop, phone, and devices showing apps — creative digital workspace"
+                fill
+                sizes="(max-width: 1024px) 90vw, 46vw"
+                priority
+                className="object-cover object-center transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+              />
+            </div>
           </div>
         </div>
       </div>
