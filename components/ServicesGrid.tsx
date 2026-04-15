@@ -1,4 +1,5 @@
 import { CloudCog, Code2, Paintbrush, Play, Share2, Smartphone } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
@@ -15,8 +16,8 @@ type BrandIcon = "google" | "google-seo" | null;
 type ServiceItem = {
   id: string;
   wide: boolean;
-  /** Full-width card across the 4-column grid on md+ */
-  fullWidth?: boolean;
+  /** Centered card spanning 2 of 4 columns (md+) */
+  centerSpan2?: boolean;
   title: string;
   body: string;
   featured: boolean;
@@ -71,17 +72,17 @@ const services: ServiceItem[] = [
     wide: false,
     icon: CloudCog,
     title: "SaaS Solutions",
-    body: "Multi-tenant platforms, billing, auth, and analytics dashboards — engineered so you can ship subscription products and scale with confidence.",
+    body: "Multi-tenant apps, billing, auth, and analytics — engineered so you can ship subscription products and scale with confidence.",
     cta: "Plan your platform",
     featured: false,
   },
   {
     id: "logo",
     wide: false,
-    fullWidth: true,
+    centerSpan2: true,
     icon: Paintbrush,
     title: "Logo Design",
-    body: "Visual identity and banner designs.",
+    body: "Visual identity, banners, and channel assets that stay consistent across every customer touchpoint.",
     featured: false,
   },
 ];
@@ -94,7 +95,8 @@ function ServiceIcon({ icon: Icon }: { icon: LucideIcon }) {
   );
 }
 
-function LogoCardIcon({ icon: Icon }: { icon: LucideIcon }) {
+/** Shared elevated icon tile for SaaS + Logo cards */
+function AccentServiceIcon({ icon: Icon }: { icon: LucideIcon }) {
   return (
     <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-100 via-blue-50 to-indigo-100 text-brand shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] ring-1 ring-blue-200/50">
       <Icon className="size-7" strokeWidth={2} aria-hidden />
@@ -241,27 +243,29 @@ export function ServicesGrid() {
               );
             }
 
-            const colClass = item.fullWidth
-              ? "md:col-span-4"
+            const colClass = item.centerSpan2
+              ? "md:col-span-2 md:col-start-2"
               : item.wide
                 ? "md:col-span-2"
                 : "md:col-span-1";
             const isLogoCard = item.id === "logo";
+            const isSaasCard = item.id === "saas";
+            const useAccentIcon = isLogoCard || isSaasCard;
 
             return (
               <div
                 key={item.id}
-                className={`flex h-full min-h-[280px] flex-col rounded-2xl border bg-white p-7 shadow-md sm:p-8 ${colClass} ${
-                  isLogoCard
-                    ? "border-slate-200/90 shadow-lg shadow-slate-300/25 ring-1 ring-slate-200/70"
+                className={`flex h-full min-h-[280px] w-full min-w-0 flex-col rounded-2xl border bg-white p-7 shadow-md sm:p-8 ${colClass} ${
+                  isLogoCard || isSaasCard
+                    ? "border-slate-200/90 shadow-lg shadow-slate-300/20 ring-1 ring-slate-200/70"
                     : "border-slate-200/80 shadow-slate-200/40"
                 }`}
               >
                 {item.brandIcon ? (
                   <ServiceBrandIcon variant={item.brandIcon} />
                 ) : item.icon ? (
-                  isLogoCard ? (
-                    <LogoCardIcon icon={item.icon} />
+                  useAccentIcon ? (
+                    <AccentServiceIcon icon={item.icon} />
                   ) : (
                     <ServiceIcon icon={item.icon} />
                   )
@@ -269,36 +273,49 @@ export function ServicesGrid() {
                 <h3 className="mt-5 text-lg font-bold text-slate-900">
                   {item.title}
                 </h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+                <p className="mt-3 flex-1 text-pretty text-sm leading-relaxed text-muted">
                   {item.body}
                 </p>
                 {isLogoCard ? (
                   <div className="mt-auto border-t border-slate-100 pt-6">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-400">
-                      Social &amp; brand touchpoints
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-2.5">
-                      <SocialLinkOnLight
-                        href={SOCIAL_LINKS.instagram}
-                        label="Instagram (opens in a new tab)"
-                        className="border-pink-200/80 bg-gradient-to-br from-pink-50 to-purple-50 text-pink-600 hover:border-pink-300/90"
-                      >
-                        <InstagramIcon className="size-5" />
-                      </SocialLinkOnLight>
-                      <SocialLinkOnLight
-                        href={SOCIAL_LINKS.youtube}
-                        label="YouTube (opens in a new tab)"
-                        className="border-red-200/80 bg-red-50 text-red-600 hover:border-red-300/90"
-                      >
-                        <YoutubeIcon className="size-5" />
-                      </SocialLinkOnLight>
-                      <SocialLinkOnLight
-                        href={SOCIAL_LINKS.facebook}
-                        label="Facebook (opens in a new tab)"
-                        className="border-blue-200/80 bg-blue-50 text-[#1877F2] hover:border-blue-300/90"
-                      >
-                        <FacebookIcon className="size-5" />
-                      </SocialLinkOnLight>
+                    <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+                      <div className="min-w-0">
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-400">
+                          Social &amp; brand touchpoints
+                        </p>
+                        <div className="mt-3 flex flex-wrap gap-2.5">
+                          <SocialLinkOnLight
+                            href={SOCIAL_LINKS.instagram}
+                            label="Instagram (opens in a new tab)"
+                            className="border-pink-200/80 bg-gradient-to-br from-pink-50 to-purple-50 text-pink-600 hover:border-pink-300/90"
+                          >
+                            <InstagramIcon className="size-5" />
+                          </SocialLinkOnLight>
+                          <SocialLinkOnLight
+                            href={SOCIAL_LINKS.youtube}
+                            label="YouTube (opens in a new tab)"
+                            className="border-red-200/80 bg-red-50 text-red-600 hover:border-red-300/90"
+                          >
+                            <YoutubeIcon className="size-5" />
+                          </SocialLinkOnLight>
+                          <SocialLinkOnLight
+                            href={SOCIAL_LINKS.facebook}
+                            label="Facebook (opens in a new tab)"
+                            className="border-blue-200/80 bg-blue-50 text-[#1877F2] hover:border-blue-300/90"
+                          >
+                            <FacebookIcon className="size-5" />
+                          </SocialLinkOnLight>
+                        </div>
+                      </div>
+                      <div className="flex shrink-0 items-center justify-center rounded-xl border border-slate-200/90 bg-slate-50/90 px-5 py-3 ring-1 ring-slate-200/60 sm:justify-end">
+                        <Image
+                          src="/images/logo.png"
+                          alt="NextGen Digital Service"
+                          width={132}
+                          height={36}
+                          className="h-8 w-auto max-w-[9.5rem] object-contain object-right"
+                        />
+                      </div>
                     </div>
                   </div>
                 ) : item.cta ? (
