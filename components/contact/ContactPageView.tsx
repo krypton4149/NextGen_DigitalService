@@ -22,6 +22,19 @@ const subjects = [
   "Other",
 ] as const;
 
+const hqLocations = [
+  {
+    city: "Agra",
+    title: "Main HQ",
+    detail: "Digital Park",
+  },
+  {
+    city: "Noida",
+    title: "NCR office",
+    detail: "Noida region — by appointment",
+  },
+] as const;
+
 export function ContactPageView() {
   const [sent, setSent] = useState(false);
 
@@ -230,14 +243,34 @@ export function ContactPageView() {
         </div>
 
         <div className="relative mt-16 overflow-hidden rounded-2xl border border-slate-200/80 bg-gradient-to-br from-slate-100 via-sky-50/80 to-brand/10 p-10 sm:p-14 lg:mt-20">
-          <div className="relative z-[1] max-w-md">
-            <p className="text-xs font-bold tracking-[0.2em] text-brand">agra</p>
+          <div className="relative z-[1] max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand">
+              Headquarters
+            </p>
             <p className="mt-2 text-lg font-semibold text-slate-900 sm:text-xl">
-              Main HQ, Digital Park
+              Agra & Noida
             </p>
-            <p className="mt-2 text-sm text-muted">
-              Remote-first team — schedule a call or meet by appointment.
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
+              We operate from both cities across Uttar Pradesh and the NCR. Our team
+              is remote-first — schedule a call or meet in person by appointment at
+              either location.
             </p>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5">
+              {hqLocations.map((loc) => (
+                <li
+                  key={loc.city}
+                  className="rounded-xl border border-slate-200/90 bg-white/70 px-5 py-4 shadow-sm shadow-slate-900/5 backdrop-blur-sm"
+                >
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand">
+                    {loc.city}
+                  </p>
+                  <p className="mt-2 text-base font-semibold text-slate-900">
+                    {loc.title}
+                  </p>
+                  <p className="mt-1 text-sm text-muted">{loc.detail}</p>
+                </li>
+              ))}
+            </ul>
           </div>
           <div
             className="pointer-events-none absolute -bottom-6 -right-6 flex size-40 items-center justify-center rounded-full bg-brand/15 sm:size-48 lg:size-56"
