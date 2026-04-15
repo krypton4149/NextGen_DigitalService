@@ -1,19 +1,32 @@
 import {
   Code2,
-  LineChart,
-  MapPin,
   Paintbrush,
   Play,
   Share2,
   Smartphone,
 } from "lucide-react";
 import Link from "next/link";
+import type { LucideIcon } from "lucide-react";
+import { BrandIconGoogle, BrandIconGoogleSeo } from "@/components/icons/BrandMarks";
 
-const services = [
+type BrandIcon = "google" | "google-seo" | null;
+
+type ServiceItem = {
+  id: string;
+  wide: boolean;
+  title: string;
+  body: string;
+  featured: boolean;
+  icon?: LucideIcon;
+  brandIcon?: BrandIcon;
+  cta?: string;
+};
+
+const services: ServiceItem[] = [
   {
     id: "gmb",
     wide: true,
-    icon: MapPin,
+    brandIcon: "google",
     title: "Google Business Setup",
     body: "Put your business on the map. We optimize your local SEO and GMB presence for maximum visibility.",
     cta: "Maximize visibility",
@@ -38,7 +51,7 @@ const services = [
   {
     id: "seo",
     wide: false,
-    icon: LineChart,
+    brandIcon: "google-seo",
     title: "SEO",
     body: "Data-driven strategies to rank higher on search engines.",
     featured: false,
@@ -46,7 +59,6 @@ const services = [
   {
     id: "content",
     wide: true,
-    icon: null,
     title: "Content & Social Scaling",
     body: "YouTube channel setup, content strategy, and Social Media Management that drives engagement and brand loyalty.",
     featured: true,
@@ -59,18 +71,19 @@ const services = [
     body: "Visual identity and banner designs.",
     featured: false,
   },
-] as const;
+];
 
-function ServiceIcon({
-  icon: Icon,
-}: {
-  icon: NonNullable<(typeof services)[number]["icon"]>;
-}) {
+function ServiceIcon({ icon: Icon }: { icon: LucideIcon }) {
   return (
-    <span className="flex size-12 items-center justify-center rounded-xl bg-blue-100 text-brand">
+    <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-brand">
       <Icon className="size-6" strokeWidth={2} aria-hidden />
     </span>
   );
+}
+
+function ServiceBrandIcon({ variant }: { variant: Exclude<BrandIcon, null> }) {
+  if (variant === "google") return <BrandIconGoogle />;
+  return <BrandIconGoogleSeo />;
 }
 
 export function ServicesGrid() {
@@ -86,13 +99,13 @@ export function ServicesGrid() {
         <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-muted">
           Strategic services designed to accelerate your digital growth.
         </p>
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-4 md:grid-rows-2">
+        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-4 md:grid-rows-2 md:items-stretch md:auto-rows-fr">
           {services.map((item) => {
             if (item.featured) {
               return (
                 <div
                   key={item.id}
-                  className="relative flex min-h-[220px] flex-col justify-between overflow-hidden rounded-2xl bg-[#1e3a8a] p-8 text-white shadow-lg shadow-blue-950/20 md:col-span-2"
+                  className="relative flex h-full min-h-[280px] flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/60 bg-[#1e3a8a] p-7 text-white shadow-lg shadow-blue-950/20 sm:p-8 md:col-span-2"
                 >
                   <div
                     className="pointer-events-none absolute -right-6 bottom-0 opacity-25"
@@ -119,7 +132,7 @@ export function ServicesGrid() {
                       {item.body}
                     </p>
                   </div>
-                  <div className="relative mt-8 flex gap-3">
+                  <div className="relative mt-8 flex gap-3 md:mt-auto md:pt-8">
                     <button
                       type="button"
                       className="flex size-11 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur transition hover:bg-white/20"
@@ -144,24 +157,30 @@ export function ServicesGrid() {
             return (
               <div
                 key={item.id}
-                className={`flex flex-col rounded-2xl border border-slate-200/80 bg-white p-7 shadow-md shadow-slate-200/40 ${colClass}`}
+                className={`flex h-full min-h-[280px] flex-col rounded-2xl border border-slate-200/80 bg-white p-7 shadow-md shadow-slate-200/40 sm:p-8 ${colClass}`}
               >
-                {item.icon ? <ServiceIcon icon={item.icon} /> : null}
+                {item.brandIcon ? (
+                  <ServiceBrandIcon variant={item.brandIcon} />
+                ) : item.icon ? (
+                  <ServiceIcon icon={item.icon} />
+                ) : null}
                 <h3 className="mt-5 text-lg font-bold text-slate-900">
                   {item.title}
                 </h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
                   {item.body}
                 </p>
-                {"cta" in item && item.cta ? (
+                {item.cta ? (
                   <Link
                     href="/contact"
-                    className="mt-6 inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wide text-brand hover:text-blue-700"
+                    className="mt-auto inline-flex items-center gap-1 pt-6 text-xs font-bold uppercase tracking-wide text-brand hover:text-blue-700"
                   >
                     {item.cta}
                     <span aria-hidden>→</span>
                   </Link>
-                ) : null}
+                ) : (
+                  <div className="mt-auto pt-6" aria-hidden />
+                )}
               </div>
             );
           })}

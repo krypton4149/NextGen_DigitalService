@@ -1,16 +1,8 @@
-import {
-  Check,
-  Code2,
-  LineChart,
-  Mail,
-  MapPin,
-  Paintbrush,
-  Play,
-  Share2,
-} from "lucide-react";
+import { Check, Code2, Mail, Paintbrush, Play, Share2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { BrandIconGoogle, BrandIconGoogleSeo } from "@/components/icons/BrandMarks";
 
 function IconTile({ children }: { children: ReactNode }) {
   return (
@@ -24,11 +16,9 @@ export function ServicesDetailBento() {
   return (
     <section className="border-t border-slate-200/80 bg-[#f4f4f9] py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-6xl space-y-6 px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-6 lg:grid-cols-12">
-          <article className="flex flex-col rounded-2xl border border-slate-200/80 bg-white p-8 shadow-sm lg:col-span-7">
-            <IconTile>
-              <MapPin className="size-6" strokeWidth={2} aria-hidden />
-            </IconTile>
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-stretch">
+          <article className="flex h-full min-h-[300px] flex-col rounded-2xl border border-slate-200/80 bg-white p-8 shadow-sm lg:col-span-7">
+            <BrandIconGoogle />
             <h2 className="mt-6 text-xl font-bold text-slate-900 sm:text-2xl">
               Google Business Profile Setup
             </h2>
@@ -37,12 +27,12 @@ export function ServicesDetailBento() {
               appear in the &quot;Local 3-Pack,&quot; driving immediate foot traffic and
               phone calls from customers ready to buy.
             </p>
-            <p className="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-brand">
+            <p className="mt-auto pt-8 text-xs font-bold uppercase tracking-[0.2em] text-brand">
               Local dominance
             </p>
           </article>
 
-          <article className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm lg:col-span-5">
+          <article className="flex h-full min-h-[300px] flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm lg:col-span-5">
             <div className="relative aspect-[16/10] w-full bg-slate-200">
               <Image
                 src="/images/portfolio-business.jpg"
@@ -52,11 +42,11 @@ export function ServicesDetailBento() {
                 sizes="(max-width: 1024px) 100vw, 40vw"
               />
             </div>
-            <div className="p-8">
+            <div className="flex flex-1 flex-col p-8">
               <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">
                 Web Development
               </h2>
-              <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
+              <p className="mt-4 flex-1 text-sm leading-relaxed text-muted sm:text-base">
                 Custom, high-performance websites that convert visitors into loyal
                 clients using the latest frameworks.
               </p>
@@ -64,21 +54,19 @@ export function ServicesDetailBento() {
           </article>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-12">
-          <article className="flex flex-col rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm lg:col-span-5">
-            <IconTile>
-              <LineChart className="size-6" strokeWidth={2} aria-hidden />
-            </IconTile>
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-stretch">
+          <article className="flex h-full min-h-[280px] flex-col rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm lg:col-span-5">
+            <BrandIconGoogleSeo />
             <h2 className="mt-6 text-xl font-bold text-slate-900 sm:text-2xl">
               Search Engine Optimization
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
+            <p className="mt-4 flex-1 text-sm leading-relaxed text-muted sm:text-base">
               Data-driven keyword strategies and technical audits to climb the
               rankings and maintain long-term organic visibility.
             </p>
           </article>
 
-          <article className="flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm sm:flex-row lg:col-span-7">
+          <article className="flex h-full min-h-[280px] flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm sm:flex-row lg:col-span-7">
             <div className="flex flex-1 flex-col p-8">
               <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">
                 Logo &amp; Banner Design
@@ -98,8 +86,8 @@ export function ServicesDetailBento() {
           </article>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          <article className="flex flex-col rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm">
+        <div className="grid gap-6 md:grid-cols-3 md:items-stretch">
+          <article className="flex h-full min-h-[260px] flex-col rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm">
             <h2 className="text-lg font-bold text-slate-900">App Development</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted">
               Custom iOS and Android solutions that put your business directly into
@@ -117,7 +105,7 @@ export function ServicesDetailBento() {
             </ul>
           </article>
 
-          <article className="flex flex-col rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm">
+          <article className="flex h-full min-h-[260px] flex-col rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm">
             <IconTile>
               <Share2 className="size-6" strokeWidth={2} aria-hidden />
             </IconTile>
@@ -128,7 +116,7 @@ export function ServicesDetailBento() {
             </p>
           </article>
 
-          <article className="flex flex-col rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm">
+          <article className="flex h-full min-h-[260px] flex-col rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm">
             <IconTile>
               <Play className="size-6 fill-current" strokeWidth={0} aria-hidden />
             </IconTile>
