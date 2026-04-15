@@ -43,7 +43,7 @@ export default function AboutPage() {
             </div>
             <div className="mt-6 w-full max-w-[15rem] rounded-2xl border border-slate-200/90 bg-gradient-to-br from-white via-white to-slate-100/95 p-5 text-center shadow-lg shadow-slate-900/10 sm:p-6">
               <p className="text-2xl font-bold tracking-tight text-brand sm:text-3xl">
-                3+ Years
+                5+ Years
               </p>
               <p className="mt-1.5 text-[0.65rem] font-semibold uppercase leading-snug tracking-[0.16em] text-slate-600 sm:text-xs">
                 Of proven digital excellence

@@ -11,7 +11,7 @@ export function AboutJourneyGrid() {
           </h2>
           <div className="mt-6 space-y-4 text-sm leading-relaxed text-slate-600 sm:text-base">
             <p>
-              Founded over three years ago, NextGen Digital Service emerged from
+              Founded over five years ago, NextGen Digital Service emerged from
               a simple observation: small businesses were being left behind in the
               rapid shift to digital-first commerce. We saw high-quality digital
               solutions were often priced out of reach or over-engineered for the

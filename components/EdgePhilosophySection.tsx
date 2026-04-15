@@ -19,7 +19,7 @@ const features = [
   },
   {
     icon: Clock3,
-    title: "3+ Years",
+    title: "5+ Years",
     body: "Experienced developers and designers at your service.",
   },
   {
