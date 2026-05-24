@@ -3,15 +3,15 @@ import { Quote, Star } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "The Google Business setup was a game-changer. Within weeks, we saw a 40% increase in store visits. NextGen truly understands local search.",
-    name: "Rahul Sharma",
-    role: "Retail store owner",
+      "NextGen built our WhatsApp bot and online presence. Table bookings and delivery inquiries are handled automatically—we answer faster and serve more guests every day.",
+    name: "Maa Jaanki Restaurant",
+    role: "Restaurant",
   },
   {
     quote:
-      "Extremely happy with my new website. It's fast, looks premium, and most importantly, it converts visitors into clients.",
-    name: "Anita Desai",
-    role: "Consultant",
+      "Our website and WhatsApp updates help patients book appointments and find us easily. NextGen made us visible locally and cut repetitive calls at the front desk.",
+    name: "Lord Krishna Hospital",
+    role: "Hospital & healthcare",
   },
   {
     quote:

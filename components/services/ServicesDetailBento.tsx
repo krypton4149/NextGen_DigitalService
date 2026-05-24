@@ -1,4 +1,13 @@
-import { Check, CloudCog, Code2, Mail, Paintbrush, Play, Share2 } from "lucide-react";
+import {
+  Check,
+  CloudCog,
+  Code2,
+  Mail,
+  MessageCircle,
+  Paintbrush,
+  Play,
+  Share2,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -128,7 +137,25 @@ export function ServicesDetailBento() {
           </article>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3 md:items-stretch">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 md:items-stretch">
+          <article className="flex h-full min-h-[260px] flex-col rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm">
+            <IconTile>
+              <MessageCircle className="size-6" strokeWidth={2} aria-hidden />
+            </IconTile>
+            <h2 className="mt-6 text-lg font-bold text-slate-900">WhatsApp Bot Service</h2>
+            <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+              Automated greetings, FAQs, bookings, and order updates on WhatsApp so
+              customers get instant replies without tying up your team.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-6 inline-flex w-fit items-center gap-1 text-xs font-bold uppercase tracking-wide text-brand transition hover:text-blue-700"
+            >
+              Launch your bot
+              <span aria-hidden>→</span>
+            </Link>
+          </article>
+
           <article className="flex h-full min-h-[260px] flex-col rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm">
             <h2 className="text-lg font-bold text-slate-900">App Development</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted">

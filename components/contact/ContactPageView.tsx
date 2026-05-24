@@ -19,6 +19,7 @@ const subjects = [
   "SEO & Performance",
   "UI/UX Design",
   "Google Business / Local SEO",
+  "WhatsApp Bot Service",
   "Content & Social",
   "Other",
 ] as const;

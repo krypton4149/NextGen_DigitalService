@@ -1,4 +1,12 @@
-import { CloudCog, Code2, Paintbrush, Play, Share2, Smartphone } from "lucide-react";
+import {
+  CloudCog,
+  Code2,
+  MessageCircle,
+  Paintbrush,
+  Play,
+  Share2,
+  Smartphone,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
@@ -58,6 +66,15 @@ const services: ServiceItem[] = [
     brandIcon: "google-seo",
     title: "SEO",
     body: "Data-driven strategies to rank higher on search engines.",
+    featured: false,
+  },
+  {
+    id: "whatsapp",
+    wide: false,
+    icon: MessageCircle,
+    title: "WhatsApp Bot Service",
+    body: "Automated replies, bookings, order updates, and lead capture on WhatsApp — instant support 24/7.",
+    cta: "Automate conversations",
     featured: false,
   },
   {
