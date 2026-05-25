@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Button } from "./Button";
 
-const heroVisual = "/images/hero-workspace.jpg";
+const heroVisual = "/images/hero-dashboard.png";
 
 export function Hero() {
   return (
@@ -47,7 +47,7 @@ export function Hero() {
             <div className="relative aspect-[3/2] w-full max-w-[min(100%,24rem)] overflow-hidden rounded-[inherit] mx-auto sm:max-w-none">
               <Image
                 src={heroVisual}
-                alt="Desk with laptop, phone, and devices showing apps — creative digital workspace"
+                alt="Dashboard analytics with laptop, phone, charts, and growth metrics"
                 fill
                 sizes="(max-width: 1024px) 90vw, 46vw"
                 priority
