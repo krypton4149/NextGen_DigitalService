@@ -28,13 +28,10 @@ export function Footer() {
               <img
                 src="/images/Logo1.png"
                 alt="Shikohabad Creative Co."
-                width={150}
-                height={56}
+                width={200}
+                height={72}
               />
             </Link>
-            <p className="mt-4 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-accent">
-              Local Roots. Creative Reach.
-            </p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
               Creative studio in Shikohabad — social media, branding, websites
               and events for brands that want to be noticed.

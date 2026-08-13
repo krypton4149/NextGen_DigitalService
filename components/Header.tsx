@@ -66,9 +66,9 @@ export function Header() {
             <img
               src="/images/Logo1.png"
               alt="Shikohabad Creative Co."
-              width={120}
-              height={44}
-              className="h-9 w-auto sm:h-11"
+              width={170}
+              height={62}
+              className="h-10 w-auto sm:h-12"
             />
           </Link>
 
