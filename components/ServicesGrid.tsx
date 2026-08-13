@@ -1,174 +1,115 @@
-import {
-  CloudCog,
-  Code2,
-  MessageCircle,
-  Paintbrush,
-  Play,
-  Share2,
-  Smartphone,
-} from "lucide-react";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import type { LucideIcon } from "lucide-react";
-import type { ReactNode } from "react";
-import { BrandIconGoogle, BrandIconGoogleSeo } from "@/components/icons/BrandMarks";
-import {
-  FacebookIcon,
-  InstagramIcon,
-  YoutubeIcon,
-} from "@/components/icons/SocialBrandIcons";
-import { SOCIAL_LINKS } from "@/lib/social";
+import { useState } from "react";
+import { CORE_SERVICES, type CoreService } from "@/lib/services";
+import { Button } from "@/components/Button";
+import { Reveal } from "@/components/Reveal";
 
-type BrandIcon = "google" | "google-seo" | null;
-
-type ServiceItem = {
-  id: string;
-  wide: boolean;
-  /** Centered card spanning 2 of 4 columns (md+) */
-  centerSpan2?: boolean;
-  title: string;
-  body: string;
-  featured: boolean;
-  icon?: LucideIcon;
-  brandIcon?: BrandIcon;
-  cta?: string;
-};
-
-const services: ServiceItem[] = [
-  {
-    id: "gmb",
-    wide: true,
-    brandIcon: "google",
-    title: "Google Business Setup",
-    body: "Put your business on the map. We optimize your local SEO and GMB presence for maximum visibility.",
-    cta: "Maximize visibility",
-    featured: false,
-  },
-  {
-    id: "web",
-    wide: false,
-    icon: Code2,
-    title: "Web Dev",
-    body: "Modern, responsive websites built with high performance.",
-    featured: false,
-  },
-  {
-    id: "app",
-    wide: false,
-    icon: Smartphone,
-    title: "App Dev",
-    body: "Native & cross-platform mobile experiences.",
-    featured: false,
-  },
-  {
-    id: "seo",
-    wide: false,
-    brandIcon: "google-seo",
-    title: "SEO",
-    body: "Data-driven strategies to rank higher on search engines.",
-    featured: false,
-  },
-  {
-    id: "whatsapp",
-    wide: false,
-    icon: MessageCircle,
-    title: "WhatsApp Bot Service",
-    body: "Automated replies, bookings, order updates, and lead capture on WhatsApp — instant support 24/7.",
-    cta: "Automate conversations",
-    featured: false,
-  },
-  {
-    id: "content",
-    wide: true,
-    title: "Content & Social Scaling",
-    body: "YouTube channel setup, content strategy, and Social Media Management that drives engagement and brand loyalty.",
-    featured: true,
-  },
-  {
-    id: "saas",
-    wide: false,
-    icon: CloudCog,
-    title: "SaaS Solutions",
-    body: "Multi-tenant apps, billing, auth, and analytics — engineered so you can ship subscription products and scale with confidence.",
-    cta: "Plan your platform",
-    featured: false,
-  },
-  {
-    id: "logo",
-    wide: false,
-    centerSpan2: true,
-    icon: Paintbrush,
-    title: "Logo Design",
-    body: "Visual identity, banners, and channel assets that stay consistent across every customer touchpoint.",
-    featured: false,
-  },
-];
-
-function ServiceIcon({ icon: Icon }: { icon: LucideIcon }) {
-  return (
-    <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-brand">
-      <Icon className="size-6" strokeWidth={2} aria-hidden />
-    </span>
-  );
-}
-
-/** Shared elevated icon tile for SaaS + Logo cards */
-function AccentServiceIcon({ icon: Icon }: { icon: LucideIcon }) {
-  return (
-    <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-100 via-blue-50 to-indigo-100 text-brand shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] ring-1 ring-blue-200/50">
-      <Icon className="size-7" strokeWidth={2} aria-hidden />
-    </div>
-  );
-}
-
-function ServiceBrandIcon({ variant }: { variant: Exclude<BrandIcon, null> }) {
-  if (variant === "google") return <BrandIconGoogle />;
-  return <BrandIconGoogleSeo />;
-}
-
-function SocialLinkOnDark({
-  href,
-  label,
-  children,
+function ServiceRow({
+  service,
+  index,
 }: {
-  href: string;
-  label: string;
-  children: ReactNode;
+  service: CoreService;
+  index: number;
 }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={label}
-      className="flex size-11 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur transition hover:border-white/45 hover:bg-white/20"
-    >
-      {children}
-    </a>
-  );
-}
+  const [hovered, setHovered] = useState(false);
 
-function SocialLinkOnLight({
-  href,
-  label,
-  className,
-  children,
-}: {
-  href: string;
-  label: string;
-  className: string;
-  children: ReactNode;
-}) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={label}
-      className={`flex size-10 items-center justify-center rounded-xl border shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${className}`}
-    >
-      {children}
-    </a>
+    <Reveal delayMs={index * 60} as="li">
+      <article
+        data-cursor="hover"
+        className="group relative border-b border-border"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        <Link
+          href={service.href}
+          className="relative grid gap-4 py-8 outline-none transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:grid-cols-12 sm:items-center sm:gap-6 sm:py-10"
+        >
+          <span
+            aria-hidden
+            className={`absolute left-0 top-0 h-px bg-accent transition-all duration-500 ${
+              hovered ? "w-full opacity-100" : "w-8 opacity-40"
+            }`}
+          />
+
+          <div className="sm:col-span-1">
+            <span
+              className={`font-mono text-xs tracking-[0.18em] transition-colors duration-300 ${
+                hovered ? "text-accent" : "text-muted"
+              }`}
+            >
+              {service.num}
+            </span>
+          </div>
+
+          <div className="sm:col-span-4">
+            <h3
+              className={`font-display text-xl font-semibold tracking-tight transition duration-300 sm:text-2xl lg:text-[1.75rem] ${
+                hovered ? "text-accent" : "text-foreground"
+              }`}
+            >
+              {service.title}
+            </h3>
+          </div>
+
+          <div className="sm:col-span-5">
+            <p className="max-w-md text-sm leading-relaxed text-muted">
+              {service.description}
+            </p>
+            <ul className="mt-3 flex flex-wrap gap-x-3 gap-y-1">
+              {service.tags.map((tag) => (
+                <li
+                  key={tag}
+                  className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-muted/80"
+                >
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="sm:col-span-2 sm:text-right">
+            <span
+              className={`inline-flex items-center gap-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] transition duration-300 ${
+                hovered ? "text-accent" : "text-foreground"
+              }`}
+            >
+              Explore
+              <span
+                className={`transition-transform duration-300 ${
+                  hovered ? "translate-x-0.5 -translate-y-0.5" : ""
+                }`}
+                aria-hidden
+              >
+                ↗
+              </span>
+            </span>
+          </div>
+
+          <div
+            aria-hidden
+            className={`pointer-events-none absolute right-4 top-1/2 z-10 hidden w-36 -translate-y-1/2 overflow-hidden border border-border bg-surface transition-all duration-400 lg:block ${
+              hovered
+                ? "rotate-[-3deg] scale-100 opacity-100"
+                : "rotate-[-6deg] scale-95 opacity-0"
+            }`}
+          >
+            <div className="relative aspect-[4/5] w-full">
+              <Image
+                src={service.image}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="144px"
+              />
+            </div>
+          </div>
+        </Link>
+      </article>
+    </Reveal>
   );
 }
 
@@ -176,180 +117,68 @@ export function ServicesGrid() {
   return (
     <section
       id="services"
-      className="border-t border-slate-200/80 bg-[#f8f9fb] py-20 sm:py-24"
+      className="scroll-mt-24 border-b border-border bg-background"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-          Core Digital Ecosystem
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-muted">
-          Strategic services designed to accelerate your digital growth.
-        </p>
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-4 md:items-stretch md:auto-rows-fr">
-          {services.map((item) => {
-            if (item.featured) {
-              return (
-                <div
-                  key={item.id}
-                  className="relative flex h-full min-h-[280px] flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/60 bg-[#1e3a8a] p-7 text-white shadow-lg shadow-blue-950/20 sm:p-8 md:col-span-2"
-                >
-                  <div
-                    className="pointer-events-none absolute -right-6 bottom-0 opacity-25"
-                    aria-hidden
-                  >
-                    <svg
-                      width="200"
-                      height="100"
-                      viewBox="0 0 200 100"
-                      fill="none"
-                      className="text-white"
-                    >
-                      <path
-                        d="M0 80 L30 60 L55 75 L85 40 L110 65 L140 35 L170 55 L200 25"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <div className="relative max-w-xl">
-                    <h3 className="text-xl font-bold">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-blue-100">
-                      {item.body}
-                    </p>
-                  </div>
-                  <div className="relative mt-8 flex flex-wrap items-center gap-2.5 md:mt-auto md:pt-8">
-                    <button
-                      type="button"
-                      className="flex size-11 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur transition hover:bg-white/20"
-                      aria-label="Play reel"
-                    >
-                      <Play className="size-5 fill-current" aria-hidden />
-                    </button>
-                    <button
-                      type="button"
-                      className="flex size-11 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur transition hover:bg-white/20"
-                      aria-label="Share"
-                    >
-                      <Share2 className="size-5" aria-hidden />
-                    </button>
-                    <span
-                      className="hidden h-8 w-px shrink-0 bg-white/25 sm:block"
-                      aria-hidden
-                    />
-                    <SocialLinkOnDark
-                      href={SOCIAL_LINKS.instagram}
-                      label="Instagram (opens in a new tab)"
-                    >
-                      <InstagramIcon className="size-[1.35rem]" />
-                    </SocialLinkOnDark>
-                    <SocialLinkOnDark
-                      href={SOCIAL_LINKS.youtube}
-                      label="YouTube (opens in a new tab)"
-                    >
-                      <YoutubeIcon className="size-[1.35rem]" />
-                    </SocialLinkOnDark>
-                    <SocialLinkOnDark
-                      href={SOCIAL_LINKS.facebook}
-                      label="Facebook (opens in a new tab)"
-                    >
-                      <FacebookIcon className="size-[1.35rem]" />
-                    </SocialLinkOnDark>
-                  </div>
-                </div>
-              );
-            }
+      <div className="mx-auto max-w-6xl px-4 pt-16 sm:px-6 sm:pt-20 lg:px-8">
+        <Reveal>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
+                What we do
+              </p>
+              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+                We build brands
+                <br />
+                people <span className="text-accent">notice.</span>
+              </h2>
+            </div>
+            <p className="max-w-xs text-sm leading-relaxed text-muted sm:text-right">
+              Social, branding, websites and events — built to help local brands
+              stand out.
+            </p>
+          </div>
+        </Reveal>
 
-            const colClass = item.centerSpan2
-              ? "md:col-span-2 md:col-start-2"
-              : item.wide
-                ? "md:col-span-2"
-                : "md:col-span-1";
-            const isLogoCard = item.id === "logo";
-            const isSaasCard = item.id === "saas";
-            const useAccentIcon = isLogoCard || isSaasCard;
+        <ul className="mt-10 border-t border-border">
+          {CORE_SERVICES.map((service, index) => (
+            <ServiceRow key={service.num} service={service} index={index} />
+          ))}
+        </ul>
 
-            return (
-              <div
-                key={item.id}
-                className={`flex h-full min-h-[280px] w-full min-w-0 flex-col rounded-2xl border bg-white p-7 shadow-md sm:p-8 ${colClass} ${
-                  isLogoCard || isSaasCard
-                    ? "border-slate-200/90 shadow-lg shadow-slate-300/20 ring-1 ring-slate-200/70"
-                    : "border-slate-200/80 shadow-slate-200/40"
-                }`}
-              >
-                {item.brandIcon ? (
-                  <ServiceBrandIcon variant={item.brandIcon} />
-                ) : item.icon ? (
-                  useAccentIcon ? (
-                    <AccentServiceIcon icon={item.icon} />
-                  ) : (
-                    <ServiceIcon icon={item.icon} />
-                  )
-                ) : null}
-                <h3 className="mt-5 text-lg font-bold text-slate-900">
-                  {item.title}
-                </h3>
-                <p className="mt-3 flex-1 text-pretty text-sm leading-relaxed text-muted">
-                  {item.body}
-                </p>
-                {isLogoCard ? (
-                  <div className="mt-auto border-t border-slate-100 pt-6">
-                    <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-                      <div className="min-w-0">
-                        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-400">
-                          Social &amp; brand touchpoints
-                        </p>
-                        <div className="mt-3 flex flex-wrap gap-2.5">
-                          <SocialLinkOnLight
-                            href={SOCIAL_LINKS.instagram}
-                            label="Instagram (opens in a new tab)"
-                            className="border-pink-200/80 bg-gradient-to-br from-pink-50 to-purple-50 text-pink-600 hover:border-pink-300/90"
-                          >
-                            <InstagramIcon className="size-5" />
-                          </SocialLinkOnLight>
-                          <SocialLinkOnLight
-                            href={SOCIAL_LINKS.youtube}
-                            label="YouTube (opens in a new tab)"
-                            className="border-red-200/80 bg-red-50 text-red-600 hover:border-red-300/90"
-                          >
-                            <YoutubeIcon className="size-5" />
-                          </SocialLinkOnLight>
-                          <SocialLinkOnLight
-                            href={SOCIAL_LINKS.facebook}
-                            label="Facebook (opens in a new tab)"
-                            className="border-blue-200/80 bg-blue-50 text-[#1877F2] hover:border-blue-300/90"
-                          >
-                            <FacebookIcon className="size-5" />
-                          </SocialLinkOnLight>
-                        </div>
-                      </div>
-                      <div className="flex shrink-0 items-center justify-center rounded-xl border border-slate-200/90 bg-slate-50/90 px-5 py-3 ring-1 ring-slate-200/60 sm:justify-end">
-                        <Image
-                          src="/images/logo.png"
-                          alt="NextGen Digital Service"
-                          width={132}
-                          height={36}
-                          className="h-8 w-auto max-w-[9.5rem] object-contain object-right"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                ) : item.cta ? (
-                  <Link
-                    href="/contact"
-                    className="mt-auto inline-flex items-center gap-1 pt-6 text-xs font-bold uppercase tracking-wide text-brand hover:text-blue-700"
-                  >
-                    {item.cta}
-                    <span aria-hidden>→</span>
-                  </Link>
-                ) : (
-                  <div className="mt-auto pt-6" aria-hidden />
-                )}
-              </div>
-            );
-          })}
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border py-8">
+          <p className="text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-muted">
+            Services / 01—04
+          </p>
+          <Link
+            href="/services"
+            className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-accent transition hover:text-foreground"
+          >
+            View all services →
+          </Link>
         </div>
+      </div>
+
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+        <Reveal>
+          <h3 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+            Have a brand that deserves
+            <br />
+            <span className="text-accent">more attention?</span>
+          </h3>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Button href="/contact" className="px-6 py-3 text-[0.65rem]">
+              Start a project
+            </Button>
+            <Button
+              href="/work"
+              variant="secondary"
+              arrow={false}
+              className="px-6 py-3 text-[0.65rem]"
+            >
+              View our work
+            </Button>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

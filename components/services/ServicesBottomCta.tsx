@@ -19,10 +19,10 @@ export function ServicesBottomCta() {
               Consult now
             </Link>
             <Link
-              href="/pricing"
+              href="/work"
               className="inline-flex items-center justify-center rounded-full border-2 border-brand-navy bg-transparent px-8 py-3.5 text-sm font-semibold uppercase tracking-wide text-brand-navy transition hover:bg-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-navy"
             >
-              View pricing
+              View our work
             </Link>
           </div>
         </div>

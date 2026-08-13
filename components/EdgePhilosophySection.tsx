@@ -70,7 +70,7 @@ export function EdgePhilosophySection() {
               </span>
               <div>
                 <h3 className="text-xl font-bold text-brand-navy sm:text-2xl">
-                  NextGen Philosophy
+                  Shikohabad Creative Co. Philosophy
                 </h3>
                 <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-muted">
                   Digital first, always

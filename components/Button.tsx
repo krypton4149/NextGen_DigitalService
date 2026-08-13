@@ -1,16 +1,18 @@
 import Link from "next/link";
 import type { ComponentProps } from "react";
 
-type Variant = "primary" | "secondary";
+type Variant = "primary" | "secondary" | "ghost";
 
 const base =
-  "inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold uppercase tracking-wide transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
+  "group inline-flex items-center justify-center gap-2 rounded-none px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-brand text-white shadow-md shadow-brand/30 hover:brightness-110 focus-visible:outline-brand",
+    "bg-accent text-accent-ink hover:bg-white focus-visible:outline-accent",
   secondary:
-    "border border-slate-200 bg-white text-brand hover:border-brand/40 hover:bg-slate-50 focus-visible:outline-brand",
+    "border border-foreground/25 bg-transparent text-foreground hover:border-accent hover:text-accent focus-visible:outline-accent",
+  ghost:
+    "bg-transparent text-foreground underline-offset-4 hover:text-accent hover:underline focus-visible:outline-accent",
 };
 
 type ButtonProps = {
@@ -18,6 +20,7 @@ type ButtonProps = {
   href: string;
   children: React.ReactNode;
   className?: string;
+  arrow?: boolean;
 } & Omit<ComponentProps<typeof Link>, "href" | "className">;
 
 export function Button({
@@ -25,6 +28,7 @@ export function Button({
   href,
   children,
   className,
+  arrow = true,
   ...props
 }: ButtonProps) {
   return (
@@ -34,7 +38,17 @@ export function Button({
       className={`${base} ${variants[variant]} ${className ?? ""}`}
       {...props}
     >
-      {children}
+      <span>{children}</span>
+      {arrow ? (
+        <span className="relative inline-grid size-[1em] place-items-center" aria-hidden>
+          <span className="col-start-1 row-start-1 transition duration-300 group-hover:opacity-0">
+            →
+          </span>
+          <span className="col-start-1 row-start-1 opacity-0 transition duration-300 group-hover:opacity-100">
+            ↗
+          </span>
+        </span>
+      ) : null}
     </Link>
   );
 }

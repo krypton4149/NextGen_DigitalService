@@ -1,74 +1,176 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { useMemo, useState } from "react";
+import {
+  PORTFOLIO_FILTERS,
+  PORTFOLIO_PROJECTS,
+  type PortfolioFilter,
+  type PortfolioProject,
+} from "@/lib/portfolio";
+import { Button } from "@/components/Button";
+import { Reveal } from "@/components/Reveal";
+import { CaseStudyOverlay } from "@/components/portfolio/CaseStudyOverlay";
 
-const projects = [
-  {
-    title: "School & learning campus",
-    subtitle: "Brand refresh, site rebuild & SEO for admissions and parent engagement",
-    image: "/images/portfolio-school.jpg",
-    alt: "Child reading and learning at a desk with school supplies",
-  },
-  {
-    title: "Boutique hotel group",
-    subtitle: "Hospitality brand systems & local SEO for bookings and events",
-    image: "/images/portfolio-hotel.jpg",
-    alt: "Luxury hotel pool and lounge at sunset",
-  },
-  {
-    title: "Growing business hub",
-    subtitle: "Corporate brand identity & SEO services for B2B lead generation",
-    image: "/images/portfolio-business.jpg",
-    alt: "Modern open-plan office with desks and natural light",
-  },
-] as const;
+function ProjectRow({
+  project,
+  onOpen,
+}: {
+  project: PortfolioProject;
+  onOpen: (project: PortfolioProject) => void;
+}) {
+  return (
+    <article className="group border-b border-border">
+      <button
+        type="button"
+        data-cursor="hover"
+        onClick={() => onOpen(project)}
+        className="grid w-full gap-5 py-8 text-left transition sm:grid-cols-12 sm:items-center sm:gap-6 sm:py-9"
+      >
+        <div className="relative aspect-[16/10] overflow-hidden border border-border bg-surface sm:col-span-4 sm:aspect-[4/3]">
+          <Image
+            src={project.image}
+            alt={`Creative presentation for ${project.name}`}
+            fill
+            className="object-cover transition duration-500 group-hover:scale-[1.03]"
+            sizes="(max-width: 640px) 100vw, 33vw"
+          />
+        </div>
+        <div className="sm:col-span-7">
+          <p className="font-mono text-xs tracking-[0.18em] text-accent">
+            {project.num}
+          </p>
+          <h3 className="mt-2 font-display text-lg font-semibold tracking-tight transition group-hover:text-accent sm:text-xl">
+            {project.name}
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-muted">
+            {project.industry}
+          </p>
+          <p className="mt-3 line-clamp-2 max-w-lg text-sm text-muted/90">
+            {project.approach}
+          </p>
+        </div>
+        <div className="hidden sm:col-span-1 sm:flex sm:justify-end">
+          <span className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-accent transition group-hover:translate-x-0.5">
+            ↗
+          </span>
+        </div>
+      </button>
+    </article>
+  );
+}
 
 export function PortfolioSection() {
+  const [filter, setFilter] = useState<PortfolioFilter>("ALL");
+  const [active, setActive] = useState<PortfolioProject | null>(null);
+
+  const projects = useMemo(() => {
+    if (filter === "ALL") return PORTFOLIO_PROJECTS;
+    return PORTFOLIO_PROJECTS.filter((p) => p.filters.includes(filter));
+  }, [filter]);
+
   return (
     <section
-      id="portfolio"
-      className="scroll-mt-24 border-t border-slate-200/80 bg-slate-100/70 py-20 sm:py-24"
+      id="work"
+      className="scroll-mt-24 border-b border-border bg-background"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Portfolio
-            </h2>
-            <p className="mt-2 text-lg text-muted">
-              Selected digital transformations
+      <div className="mx-auto max-w-6xl px-4 pt-16 sm:px-6 sm:pt-20 lg:px-8">
+        <Reveal>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
+                Selected work · 2024—2026
+              </p>
+              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+                Work that
+                <br />
+                people <span className="text-accent">notice.</span>
+              </h2>
+            </div>
+            <p className="max-w-xs text-sm leading-relaxed text-muted sm:text-right">
+              Hospitality, beauty, fashion, products and local brands.
             </p>
           </div>
-          <Link
-            href="#portfolio"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-blue-800"
-          >
-            View All Projects
-            <ArrowRight className="size-4" aria-hidden />
-          </Link>
+        </Reveal>
+
+        <div
+          className="mt-8 flex gap-2 overflow-x-auto pb-1"
+          role="tablist"
+          aria-label="Portfolio filters"
+        >
+          {PORTFOLIO_FILTERS.map((item) => {
+            const selected = filter === item;
+            return (
+              <button
+                key={item}
+                type="button"
+                role="tab"
+                aria-selected={selected}
+                onClick={() => setFilter(item)}
+                className={`shrink-0 border px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.16em] transition ${
+                  selected
+                    ? "border-accent bg-accent text-accent-ink"
+                    : "border-border text-muted hover:border-foreground/40 hover:text-foreground"
+                }`}
+              >
+                {item}
+              </button>
+            );
+          })}
         </div>
-        <ul className="mt-12 grid gap-8 md:grid-cols-3">
-          {projects.map((p) => (
-            <li key={p.title}>
-              <article className="group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-md shadow-slate-200/50 transition hover:shadow-lg">
-                <div className="relative aspect-[4/3] overflow-hidden bg-slate-200">
-                  <Image
-                    src={p.image}
-                    alt={p.alt}
-                    fill
-                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-slate-900">{p.title}</h3>
-                  <p className="mt-1 text-sm text-muted">{p.subtitle}</p>
-                </div>
-              </article>
-            </li>
+
+        <ul className="mt-6 border-t border-border">
+          {projects.map((project, index) => (
+            <Reveal key={project.id} as="li" delayMs={Math.min(index * 40, 160)}>
+              <ProjectRow project={project} onOpen={setActive} />
+            </Reveal>
           ))}
         </ul>
+
+        {projects.length === 0 ? (
+          <p className="py-10 text-sm text-muted">
+            No projects in this category yet — try another filter.
+          </p>
+        ) : null}
+
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border py-8">
+          <p className="text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-muted">
+            Trusted by local brands
+          </p>
+          <Link
+            href="/work"
+            className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-accent transition hover:text-foreground"
+          >
+            Browse all work →
+          </Link>
+        </div>
       </div>
+
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+        <Reveal>
+          <h3 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+            Your brand could
+            <br />
+            <span className="text-accent">be next.</span>
+          </h3>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Button href="/contact" className="px-6 py-3 text-[0.65rem]">
+              Start a project
+            </Button>
+            <Button
+              href="/work"
+              variant="secondary"
+              arrow={false}
+              className="px-6 py-3 text-[0.65rem]"
+            >
+              View all work
+            </Button>
+          </div>
+        </Reveal>
+      </div>
+
+      <CaseStudyOverlay project={active} onClose={() => setActive(null)} />
     </section>
   );
 }

@@ -15,10 +15,10 @@ export function ServicesPricingTeaser() {
           lists, just a clear proposal aligned with your goals.
         </p>
         <Link
-          href="/pricing"
+          href="/contact"
           className="mt-8 inline-flex items-center justify-center rounded-full bg-brand px-8 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-md shadow-brand/30 transition hover:brightness-110"
         >
-          View plans
+          Start a project
         </Link>
       </div>
     </section>

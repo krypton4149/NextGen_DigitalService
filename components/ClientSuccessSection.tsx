@@ -13,7 +13,7 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     quote:
-      "NextGen built our WhatsApp bot and online presence. Table bookings and delivery inquiries are handled automatically—we answer faster and serve more guests every day.",
+      "Shikohabad Creative Co. built our WhatsApp bot and online presence. Table bookings and delivery inquiries are handled automatically—we answer faster and serve more guests every day.",
     name: "Maa Jaanki Restaurant",
     role: "Restaurant",
     initials: "MJ",
@@ -22,7 +22,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Our website and WhatsApp updates help patients book appointments and find us easily. NextGen made us visible locally and cut repetitive calls at the front desk.",
+      "Our website and WhatsApp updates help patients book appointments and find us easily. Shikohabad Creative Co. made us visible locally and cut repetitive calls at the front desk.",
     name: "Lord Krishna Hospital",
     role: "Hospital & healthcare",
     initials: "LK",
@@ -39,7 +39,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Our new hotel website and local SEO doubled direct bookings in one season. Pages load fast on mobile, and guests find us before the OTAs. NextGen nailed hospitality search.",
+      "Our new hotel website and local SEO doubled direct bookings in one season. Pages load fast on mobile, and guests find us before the OTAs. Shikohabad Creative Co. nailed hospitality search.",
     name: "Priya Nambiar",
     role: "Hotel operations director",
     initials: "PN",

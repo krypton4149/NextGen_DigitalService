@@ -4,7 +4,7 @@ import { ContactPageView } from "@/components/contact/ContactPageView";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with NextGen Digital Service — send a message, call, email, or reach us on WhatsApp.",
+    "Contact Shikohabad Creative Co. at starkarc22@gmail.com — start a project via message, call, email or WhatsApp.",
 };
 
 export default function ContactPage() {

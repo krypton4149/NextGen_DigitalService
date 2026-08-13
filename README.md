@@ -1,6 +1,6 @@
-# NextGen Digital Service
+# Shikohabad Creative Co.
 
-A fully responsive marketing site for **NextGen Digital Service**—digital solutions for small businesses: web development, mobile apps, SEO, Google Business Profile, branding, and more. Designed with performance, scalability, and user experience in mind.
+A fully responsive marketing site for **Shikohabad Creative Co.**—digital solutions for small businesses: web development, mobile apps, SEO, Google Business Profile, branding, and more. Designed with performance, scalability, and user experience in mind.
 
 Built with [Next.js](https://nextjs.org) (App Router), TypeScript, and Tailwind CSS.
 
@@ -13,10 +13,10 @@ Built with [Next.js](https://nextjs.org) (App Router), TypeScript, and Tailwind 
 
 ## Features
 
-- Home, Services, Pricing, About, and Contact pages
-- One-time pricing tiers (INR) and capability comparison
+- Home, Services, About, Work, Events, and Contact pages
+- Selected client work and focused creative services
 - Mobile navigation drawer, accessible header/footer
-- Static assets under `public/images/` (logos, team, portfolio)—served the same locally and on [Vercel](https://vercel.com)
+- Static assets under `public/images/` (logos, photos, portfolio)—served the same locally and on [Vercel](https://vercel.com)
 
 ## Getting started
 
@@ -53,7 +53,7 @@ git push -u origin main
 
 | Path | Purpose |
 |------|---------|
-| `app/` | Routes: `/`, `/about`, `/services`, `/pricing`, `/contact` |
+| `app/` | Routes: `/`, `/about`, `/services`, `/work`, `/events`, `/contact` |
 | `components/` | UI sections (Header, Footer, Hero, etc.) |
 | `public/images/` | Logos, photos, portfolio images, `app/icon.png` for favicon |
 | `lib/contact.ts` | Shared contact email / phone constants |

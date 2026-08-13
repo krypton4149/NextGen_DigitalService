@@ -1,138 +1,127 @@
-import { AtSign, Award } from "lucide-react";
 import Link from "next/link";
-import { CONTACT_EMAIL } from "@/lib/contact";
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_TEL,
+  CONTACT_WHATSAPP_URL,
+} from "@/lib/contact";
 import { SOCIAL_LINKS } from "@/lib/social";
 
-function InstagramGlyph({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <rect
-        x="2"
-        y="2"
-        width="20"
-        height="20"
-        rx="5"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinejoin="round"
-      />
-      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
-      <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-const solutions = [
-  "SaaS & product platforms",
-  "Web Development",
-  "Mobile Applications",
-  "SEO & Performance",
-  "UI/UX Design",
-] as const;
-
-const quickLinks = [
-  { href: "/services", label: "Our Services" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/#portfolio", label: "Portfolio" },
-  { href: "/about", label: "About Us" },
-  { href: "/#about", label: "Why Choose Us" },
-  { href: "/contact", label: "Contact Us" },
+const nav = [
+  { href: "/", label: "Home" },
+  { href: "/work", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/events", label: "Events" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-slate-100/80 py-12 sm:py-16">
-      <div className="mx-auto grid min-w-0 max-w-6xl gap-10 px-4 sm:grid-cols-2 sm:gap-12 sm:px-6 lg:grid-cols-4 lg:px-8">
-        <div className="min-w-0">
-          <p className="text-xl font-bold">
-            <span className="text-brand-navy">Next</span>
-            <span className="text-brand">Gen</span>
-          </p>
-          <p className="mt-4 text-sm leading-relaxed text-muted">
-            Elevating small businesses through strategic digital architecture and
-            design-led growth.
-          </p>
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-brand">
-            <a
-              href="#"
-              className="flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white text-brand transition hover:border-brand/40"
-              aria-label="Awards"
+    <footer className="border-t border-border bg-surface">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+          {/* Brand */}
+          <div className="sm:col-span-2 lg:col-span-5">
+            <Link href="/" prefetch>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/Logo1.png"
+                alt="Shikohabad Creative Co."
+                width={150}
+                height={56}
+              />
+            </Link>
+            <p className="mt-4 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-accent">
+              Local Roots. Creative Reach.
+            </p>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
+              Creative studio in Shikohabad — social media, branding, websites
+              and events for brands that want to be noticed.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-6 inline-flex items-center gap-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-foreground transition hover:text-accent"
             >
-              <Award className="size-5" />
-            </a>
-            <a
-              href={SOCIAL_LINKS.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow NextGen on Instagram (opens in a new tab)"
-              className="flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white text-brand transition hover:border-brand/40"
-            >
-              <InstagramGlyph className="size-5" />
-            </a>
-            <a
-              href="#"
-              className="flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white text-brand transition hover:border-brand/40"
-              aria-label="Social"
-            >
-              <AtSign className="size-5" />
-            </a>
+              Start a project ↗
+            </Link>
+          </div>
+
+          {/* Pages */}
+          <div className="lg:col-span-3">
+            <h3 className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground">
+              Pages
+            </h3>
+            <ul className="mt-4 space-y-2.5">
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-muted transition hover:text-accent"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Connect */}
+          <div className="lg:col-span-4">
+            <h3 className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground">
+              Connect
+            </h3>
+            <ul className="mt-4 space-y-2.5 text-sm text-muted">
+              <li>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="break-all transition hover:text-accent"
+                >
+                  {CONTACT_EMAIL}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${CONTACT_PHONE_TEL}`}
+                  className="transition hover:text-accent"
+                >
+                  {CONTACT_PHONE_DISPLAY}
+                </a>
+              </li>
+              <li className="flex gap-5 pt-1">
+                <a
+                  href={CONTACT_WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition hover:text-accent"
+                >
+                  WhatsApp
+                </a>
+                <a
+                  href={SOCIAL_LINKS.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition hover:text-accent"
+                >
+                  Instagram
+                </a>
+              </li>
+            </ul>
+            <p className="mt-5 text-sm text-muted">
+              Shikohabad, Uttar Pradesh, India
+            </p>
           </div>
         </div>
-        <div className="min-w-0">
-          <h3 className="text-sm font-bold text-slate-900">Solutions</h3>
-          <ul className="mt-4 space-y-3 text-sm text-muted">
-            {solutions.map((item) => (
-              <li key={item}>
-                <Link
-                  href="/services"
-                  className="transition hover:text-brand"
-                >
-                  {item}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="min-w-0">
-          <h3 className="text-sm font-bold text-slate-900">Quick Links</h3>
-          <ul className="mt-4 space-y-3 text-sm text-muted">
-            {quickLinks.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="transition hover:text-brand">
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="min-w-0">
-          <h3 className="text-sm font-bold text-slate-900">Contact Info</h3>
-          <ul className="mt-4 space-y-3 text-sm text-muted">
-            <li>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="break-all transition hover:text-brand"
-              >
-                {CONTACT_EMAIL}
-              </a>
-            </li>
-            <li>
-              <a href="tel:+918218058950" className="transition hover:text-brand">
-                +91 8218058950
-              </a>
-            </li>
-            <li>Available 24/7 for support.</li>
-          </ul>
-        </div>
       </div>
-      <div className="mx-auto mt-14 max-w-6xl border-t border-slate-200/90 px-4 pt-8 text-center text-sm text-muted sm:px-6 lg:px-8">
-        © {new Date().getFullYear()} NextGen. All rights reserved.
+
+      <div className="border-t border-border">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+          <p>
+            © {new Date().getFullYear()} Shikohabad Creative Co. All rights
+            reserved.
+          </p>
+          <p className="tracking-[0.14em] uppercase">Based in Shikohabad</p>
+        </div>
       </div>
     </footer>
   );

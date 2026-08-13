@@ -1,7 +1,6 @@
 "use client";
 
 import { Mail, MessageCircle, Phone } from "lucide-react";
-import Image from "next/image";
 import type { FormEvent } from "react";
 import { useState } from "react";
 import {
@@ -11,16 +10,13 @@ import {
   CONTACT_WHATSAPP_URL,
   buildContactMailto,
 } from "@/lib/contact";
+import { Reveal } from "./Reveal";
 
 const services = [
-  "SaaS / Product platforms",
-  "Web Development",
-  "Mobile Applications",
-  "SEO & Performance",
-  "UI/UX Design",
-  "Google Business / Local SEO",
-  "WhatsApp Bot Service",
-  "Content & Social",
+  "Social Media Management",
+  "Branding",
+  "Website Creation",
+  "Event Management",
   "Other",
 ];
 
@@ -35,7 +31,7 @@ export function ContactSection() {
     const email = String(data.get("email") ?? "");
     const service = String(data.get("service") ?? "");
     const message = String(data.get("message") ?? "");
-    const subject = "Proposal request — NextGen";
+    const subject = "Proposal request — Shikohabad Creative Co.";
     const body = `Name: ${name}\nEmail: ${email}\nService: ${service}\n\n${message}`;
     window.location.href = buildContactMailto(subject, body);
     setSent(true);
@@ -44,163 +40,159 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="scroll-mt-24 border-t border-slate-200/80 bg-[#f8f9fb] py-20 sm:py-24"
+      className="scroll-mt-24 border-b border-border bg-surface py-20 sm:py-28"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-xl shadow-slate-300/40 ring-1 ring-slate-200/60">
-          <div className="grid lg:grid-cols-5">
-            <div className="relative flex flex-col justify-between bg-brand p-10 text-white lg:col-span-2 lg:min-h-[520px]">
-              <div>
-                <h2 className="text-2xl font-bold sm:text-3xl">Get In Touch</h2>
-                <div className="mt-8 flex flex-col items-center text-center sm:mt-9">
-                  <div className="relative size-[5.5rem] shrink-0 overflow-hidden rounded-full border-[3px] border-white/90 shadow-lg shadow-slate-900/30 ring-1 ring-white/30 sm:size-28">
-                    <Image
-                      src="/images/ceo-piyush-yadav.png"
-                      alt="Portrait of Piyush Yadav, Founder and CEO"
-                      fill
-                      className="object-cover object-center"
-                      sizes="112px"
-                    />
-                  </div>
-                  <p className="mt-4 text-base font-bold text-white sm:text-lg">
-                    Piyush Yadav
-                  </p>
-                  <p className="mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-blue-100">
-                    Founder & CEO
-                  </p>
-                </div>
-                <div className="mt-10 space-y-8">
-                  <div className="flex gap-4">
-                    <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-white/15">
-                      <Phone className="size-5" aria-hidden />
-                    </span>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-blue-100">
-                        Phone
-                      </p>
-                      <a
-                        href={`tel:${CONTACT_PHONE_TEL}`}
-                        className="mt-1 block text-lg font-medium hover:underline"
-                      >
-                        {CONTACT_PHONE_DISPLAY}
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-white/15">
-                      <Mail className="size-5" aria-hidden />
-                    </span>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-blue-100">
-                        Email
-                      </p>
-                      <a
-                        href={`mailto:${CONTACT_EMAIL}`}
-                        className="mt-1 block break-all text-sm font-medium hover:underline sm:text-base"
-                      >
-                        {CONTACT_EMAIL}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Reveal>
+          <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-7">
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-accent">
+                Contact
+              </p>
+              <h2 className="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+                Tell us what
+                <br />
+                you&apos;re building.
+              </h2>
+            </div>
+            <p className="text-sm leading-relaxed text-muted lg:col-span-5 lg:text-right">
+              Prefer a quick chat? Call, WhatsApp or email — we reply fast.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-12">
+          <div className="border border-border bg-background p-8 lg:col-span-4 sm:p-10">
+            <div className="space-y-8">
+              <a
+                href={`tel:${CONTACT_PHONE_TEL}`}
+                className="group flex gap-4 transition hover:text-accent"
+              >
+                <span className="flex size-11 shrink-0 items-center justify-center border border-border text-accent">
+                  <Phone className="size-5" aria-hidden />
+                </span>
+                <span>
+                  <span className="block text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted">
+                    Phone
+                  </span>
+                  <span className="mt-1 block text-sm">{CONTACT_PHONE_DISPLAY}</span>
+                </span>
+              </a>
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="group flex gap-4 transition hover:text-accent"
+              >
+                <span className="flex size-11 shrink-0 items-center justify-center border border-border text-accent">
+                  <Mail className="size-5" aria-hidden />
+                </span>
+                <span>
+                  <span className="block text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted">
+                    Email
+                  </span>
+                  <span className="mt-1 block break-all text-sm">{CONTACT_EMAIL}</span>
+                </span>
+              </a>
               <a
                 href={CONTACT_WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-10 inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-brand shadow-sm transition hover:bg-blue-50"
+                className="group flex gap-4 transition hover:text-accent"
               >
-                <MessageCircle className="size-5" aria-hidden />
-                Chat on WhatsApp
+                <span className="flex size-11 shrink-0 items-center justify-center border border-border text-accent">
+                  <MessageCircle className="size-5" aria-hidden />
+                </span>
+                <span>
+                  <span className="block text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted">
+                    WhatsApp
+                  </span>
+                  <span className="mt-1 block text-sm">Chat with us</span>
+                </span>
               </a>
             </div>
-            <div className="bg-white p-10 lg:col-span-3">
-              <form className="space-y-6" onSubmit={handleSubmit}>
+          </div>
+
+          <div className="border border-border bg-background p-8 lg:col-span-8 sm:p-10">
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              <div className="grid gap-6 sm:grid-cols-2">
                 <div>
                   <label
-                    htmlFor="name"
-                    className="text-xs font-semibold uppercase tracking-wide text-muted"
+                    htmlFor="home-name"
+                    className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted"
                   >
-                    Full Name
+                    Name
                   </label>
                   <input
-                    id="name"
+                    id="home-name"
                     name="name"
                     required
-                    placeholder="John Doe"
-                    className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none ring-brand/30 transition focus:border-brand focus:bg-white focus:ring-2"
+                    autoComplete="name"
+                    className="mt-2 w-full border border-border bg-surface px-4 py-3 text-foreground outline-none transition focus:border-accent"
                   />
                 </div>
                 <div>
                   <label
-                    htmlFor="email"
-                    className="text-xs font-semibold uppercase tracking-wide text-muted"
+                    htmlFor="home-email"
+                    className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted"
                   >
-                    Email Address
+                    Email
                   </label>
                   <input
-                    id="email"
+                    id="home-email"
                     name="email"
                     type="email"
                     required
-                    placeholder="john@example.com"
-                    className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none ring-brand/30 transition focus:border-brand focus:bg-white focus:ring-2"
+                    autoComplete="email"
+                    className="mt-2 w-full border border-border bg-surface px-4 py-3 text-foreground outline-none transition focus:border-accent"
                   />
                 </div>
-                <div>
-                  <label
-                    htmlFor="service"
-                    className="text-xs font-semibold uppercase tracking-wide text-muted"
-                  >
-                    Service Interested In
-                  </label>
-                  <div className="relative mt-2">
-                    <select
-                      id="service"
-                      name="service"
-                      defaultValue={services[0]}
-                      className="w-full appearance-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 pr-10 text-slate-900 outline-none ring-brand/30 transition focus:border-brand focus:bg-white focus:ring-2"
-                    >
-                      {services.map((s) => (
-                        <option key={s} value={s}>
-                          {s}
-                        </option>
-                      ))}
-                    </select>
-                    <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-muted">
-                      ▾
-                    </span>
-                  </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="text-xs font-semibold uppercase tracking-wide text-muted"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    placeholder="Tell us about your project..."
-                    className="mt-2 w-full resize-y rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none ring-brand/30 transition focus:border-brand focus:bg-white focus:ring-2"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full rounded-xl bg-brand py-4 text-sm font-bold uppercase tracking-wide text-white shadow-md shadow-brand/25 transition hover:bg-blue-700"
+              </div>
+              <div>
+                <label
+                  htmlFor="home-service"
+                  className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted"
                 >
-                  Send proposal
-                </button>
-                {sent ? (
-                  <p className="text-center text-sm text-muted" role="status">
-                    If your mail client did not open, email us directly at
-                    {CONTACT_EMAIL}
-                  </p>
-                ) : null}
-              </form>
-            </div>
+                  Service
+                </label>
+                <select
+                  id="home-service"
+                  name="service"
+                  required
+                  defaultValue=""
+                  className="mt-2 w-full appearance-none border border-border bg-surface px-4 py-3 text-foreground outline-none transition focus:border-accent"
+                >
+                  <option value="" disabled>
+                    Select a service
+                  </option>
+                  {services.map((s) => (
+                    <option key={s} value={s}>
+                      {s}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label
+                  htmlFor="home-message"
+                  className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="home-message"
+                  name="message"
+                  required
+                  rows={5}
+                  className="mt-2 w-full resize-y border border-border bg-surface px-4 py-3 text-foreground outline-none transition focus:border-accent"
+                />
+              </div>
+              <button
+                type="submit"
+                className="inline-flex items-center gap-2 bg-accent px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent-ink transition hover:bg-white"
+              >
+                {sent ? "Opening mail…" : "Send message"}
+                <span aria-hidden>→</span>
+              </button>
+            </form>
           </div>
         </div>
       </div>

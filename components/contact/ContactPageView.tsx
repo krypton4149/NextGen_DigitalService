@@ -10,36 +10,15 @@ import {
   CONTACT_WHATSAPP_URL,
   buildContactMailto,
 } from "@/lib/contact";
+import { SOCIAL_LINKS } from "@/lib/social";
+import { Reveal } from "@/components/Reveal";
 
 const subjects = [
-  "Digital Transformation",
-  "SaaS / Product platforms",
-  "Web Development",
-  "Mobile Applications",
-  "SEO & Performance",
-  "UI/UX Design",
-  "Google Business / Local SEO",
-  "WhatsApp Bot Service",
-  "Content & Social",
+  "Social Media Management",
+  "Branding",
+  "Website Creation",
+  "Event Management",
   "Other",
-] as const;
-
-const hqLocations = [
-  {
-    city: "Agra",
-    title: "Main HQ",
-    detail: "Digital Park",
-  },
-  {
-    city: "Noida",
-    title: "NCR office",
-    detail: "Noida region — by appointment",
-  },
-  {
-    city: "Shikohabad",
-    title: "Regional office",
-    detail: "Western UP — by appointment",
-  },
 ] as const;
 
 export function ContactPageView() {
@@ -60,54 +39,55 @@ export function ContactPageView() {
   }
 
   return (
-    <div className="bg-gradient-to-b from-slate-50 via-[#f7f8fb] to-slate-50 pb-20 pt-12 sm:pb-24 sm:pt-16 lg:pb-28 lg:pt-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div className="min-w-0 max-w-3xl">
-            <p className="inline-flex items-center gap-2 rounded-full bg-sky-100/90 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-              <span className="size-1.5 rounded-full bg-brand" aria-hidden />
-              Contact us
+    <div>
+      <section className="border-b border-border px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
+              Contact · Shikohabad Creative Co.
             </p>
-            <h1 className="mt-5 text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[2.65rem] lg:leading-[1.1]">
-              Let&apos;s build your{" "}
-              <span className="text-brand">digital future.</span>
+            <h1 className="mt-4 max-w-2xl font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+              Let&apos;s make your brand
+              <br />
+              <span className="text-accent">impossible to ignore.</span>
             </h1>
-          </div>
-          <p className="max-w-xl text-base leading-relaxed text-muted lg:max-w-md lg:text-right lg:text-lg">
-            Have a project in mind or just want to say hello? Our team is ready to
-            architect your next big digital move.
-          </p>
+            <p className="mt-5 max-w-lg text-sm leading-relaxed text-muted sm:text-base">
+              Tell us about your project — social, branding, website or event.
+              Based in Shikohabad. Creating beyond it.
+            </p>
+          </Reveal>
         </div>
+      </section>
 
-        <div className="mt-12 grid gap-8 lg:mt-16 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-slate-200/90 bg-white p-8 shadow-lg shadow-slate-200/40 sm:p-10">
-              <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">
-                Send a Message
-              </h2>
-              <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+      <section className="border-b border-border px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-12 lg:gap-12">
+          <Reveal className="lg:col-span-7">
+            <h2 className="font-display text-xl font-semibold tracking-tight sm:text-2xl">
+              Send a message
+            </h2>
+            <form className="mt-7 space-y-5" onSubmit={handleSubmit}>
+              <div className="grid gap-5 sm:grid-cols-2">
                 <div>
                   <label
                     htmlFor="contact-name"
-                    className="text-xs font-semibold uppercase tracking-wide text-muted"
+                    className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-muted"
                   >
-                    Full Name
+                    Full name
                   </label>
                   <input
                     id="contact-name"
                     name="name"
                     required
                     autoComplete="name"
-                    placeholder="John Doe"
-                    className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none ring-brand/30 transition focus:border-brand focus:bg-white focus:ring-2"
+                    className="mt-2 w-full border border-border bg-surface px-4 py-3 text-sm outline-none transition focus:border-accent"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="contact-email"
-                    className="text-xs font-semibold uppercase tracking-wide text-muted"
+                    className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-muted"
                   >
-                    Email Address
+                    Email
                   </label>
                   <input
                     id="contact-email"
@@ -115,189 +95,172 @@ export function ContactPageView() {
                     type="email"
                     required
                     autoComplete="email"
-                    placeholder="john@example.com"
-                    className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none ring-brand/30 transition focus:border-brand focus:bg-white focus:ring-2"
+                    className="mt-2 w-full border border-border bg-surface px-4 py-3 text-sm outline-none transition focus:border-accent"
                   />
-                </div>
-                <div>
-                  <label
-                    htmlFor="contact-subject"
-                    className="text-xs font-semibold uppercase tracking-wide text-muted"
-                  >
-                    Subject
-                  </label>
-                  <div className="relative mt-2">
-                    <select
-                      id="contact-subject"
-                      name="subject"
-                      required
-                      defaultValue={subjects[0]}
-                      className="w-full appearance-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 pr-10 text-slate-900 outline-none ring-brand/30 transition focus:border-brand focus:bg-white focus:ring-2"
-                    >
-                      {subjects.map((s) => (
-                        <option key={s} value={s}>
-                          {s}
-                        </option>
-                      ))}
-                    </select>
-                    <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-muted">
-                      ▾
-                    </span>
-                  </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="contact-message"
-                    className="text-xs font-semibold uppercase tracking-wide text-muted"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="contact-message"
-                    name="message"
-                    required
-                    rows={5}
-                    placeholder="Tell us about your project..."
-                    className="mt-2 w-full resize-y rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none ring-brand/30 transition focus:border-brand focus:bg-white focus:ring-2"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="rounded-full bg-brand-navy px-10 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-md shadow-brand-navy/25 transition hover:brightness-110"
-                >
-                  Transmit request
-                </button>
-                {sent ? (
-                  <p className="text-center text-sm text-muted" role="status">
-                    If your mail client did not open, email us directly at{" "}
-                    <a href={`mailto:${CONTACT_EMAIL}`} className="font-medium text-brand hover:underline">
-                      {CONTACT_EMAIL}
-                    </a>
-                  </p>
-                ) : null}
-              </form>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-6 lg:col-span-5">
-            <div className="rounded-2xl bg-brand p-8 text-white shadow-lg shadow-brand/25 sm:p-9">
-              <h2 className="text-lg font-bold sm:text-xl">Direct Line</h2>
-              <div className="mt-8 space-y-8">
-                <div className="flex gap-4">
-                  <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-white/15">
-                    <Phone className="size-5" aria-hidden />
-                  </span>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-blue-100">
-                      Phone
-                    </p>
-                    <a
-                      href={`tel:${CONTACT_PHONE_TEL}`}
-                      className="mt-1 block text-lg font-semibold hover:underline"
-                    >
-                      {CONTACT_PHONE_DISPLAY}
-                    </a>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-white/15">
-                    <Mail className="size-5" aria-hidden />
-                  </span>
-                  <div className="min-w-0">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-blue-100">
-                      Email
-                    </p>
-                    <a
-                      href={`mailto:${CONTACT_EMAIL}`}
-                      className="mt-1 block break-all text-sm font-semibold hover:underline sm:text-base"
-                    >
-                      {CONTACT_EMAIL}
-                    </a>
-                  </div>
                 </div>
               </div>
-              <a
-                href={CONTACT_WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-10 flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-brand shadow-sm transition hover:bg-blue-50"
-              >
-                <MessageCircle className="size-5" aria-hidden />
-                WhatsApp support
-              </a>
-            </div>
 
-            <div className="rounded-2xl border border-slate-200/80 bg-slate-100/90 p-8 sm:p-9">
-              <h2 className="text-lg font-bold text-slate-900 sm:text-xl">
-                Operating Hours
-              </h2>
-              <ul className="mt-6 space-y-4 text-sm text-muted">
-                <li className="flex justify-between gap-4 border-b border-slate-200/80 pb-3">
-                  <span className="font-medium text-slate-800">Monday — Friday</span>
-                  <span>09:00 — 18:00</span>
-                </li>
-                <li className="flex justify-between gap-4 border-b border-slate-200/80 pb-3">
-                  <span className="font-medium text-slate-800">Saturday</span>
-                  <span>10:00 — 14:00</span>
-                </li>
-                <li className="flex justify-between gap-4">
-                  <span className="font-medium text-slate-800">Sunday</span>
-                  <span>Closed</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="relative mt-16 overflow-hidden rounded-2xl border border-slate-200/80 bg-gradient-to-br from-slate-100 via-sky-50/80 to-brand/10 p-10 sm:p-14 lg:mt-20">
-          <div className="relative z-[1] max-w-4xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand">
-              Headquarters
-            </p>
-            <p className="mt-2 text-lg font-semibold text-slate-900 sm:text-xl">
-              Agra, Noida &amp; Shikohabad
-            </p>
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-              We operate from three locations across Uttar Pradesh and the NCR. Our
-              team is remote-first — schedule a call or meet in person by appointment
-              at any of our offices.
-            </p>
-            <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-              {hqLocations.map((loc) => (
-                <li
-                  key={loc.city}
-                  className="rounded-xl border border-slate-200/90 bg-white/70 px-5 py-4 shadow-sm shadow-slate-900/5 backdrop-blur-sm"
+              <div>
+                <label
+                  htmlFor="contact-subject"
+                  className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-muted"
                 >
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand">
-                    {loc.city}
-                  </p>
-                  <p className="mt-2 text-base font-semibold text-slate-900">
-                    {loc.title}
-                  </p>
-                  <p className="mt-1 text-sm text-muted">{loc.detail}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div
-            className="pointer-events-none absolute -bottom-6 -right-6 flex size-40 items-center justify-center rounded-full bg-brand/15 sm:size-48 lg:size-56"
-            aria-hidden
-          >
-            <div className="flex size-24 items-center justify-center rounded-full bg-brand text-white shadow-lg shadow-brand/30 sm:size-28">
-              <svg
-                viewBox="0 0 24 24"
-                className="size-12 sm:size-14"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.75"
+                  Service
+                </label>
+                <select
+                  id="contact-subject"
+                  name="subject"
+                  required
+                  defaultValue={subjects[0]}
+                  className="mt-2 w-full appearance-none border border-border bg-surface px-4 py-3 text-sm outline-none transition focus:border-accent"
+                >
+                  {subjects.map((s) => (
+                    <option key={s} value={s}>
+                      {s}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="contact-message"
+                  className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-muted"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  required
+                  rows={5}
+                  placeholder="Tell us what you're building..."
+                  className="mt-2 w-full resize-y border border-border bg-surface px-4 py-3 text-sm outline-none transition focus:border-accent"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="bg-accent px-6 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-accent-ink transition hover:bg-white"
               >
-                <path d="M12 21s-8-4.5-8-11a8 8 0 0 1 16 0c0 6.5-8 11-8 11z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-            </div>
+                {sent ? "Opening mail…" : "Send message"}
+              </button>
+
+              {sent ? (
+                <p className="text-sm text-muted" role="status">
+                  If your mail client did not open, email{" "}
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    className="text-accent hover:underline"
+                  >
+                    {CONTACT_EMAIL}
+                  </a>
+                </p>
+              ) : null}
+            </form>
+          </Reveal>
+
+          <div className="flex flex-col gap-5 lg:col-span-5">
+            <Reveal delayMs={60}>
+              <div className="border border-border bg-surface p-6 sm:p-7">
+                <h2 className="font-display text-lg font-semibold tracking-tight">
+                  Direct contact
+                </h2>
+                <ul className="mt-6 space-y-5">
+                  <li>
+                    <a
+                      href={`mailto:${CONTACT_EMAIL}`}
+                      className="group flex gap-3 transition hover:text-accent"
+                    >
+                      <span className="flex size-10 shrink-0 items-center justify-center border border-border text-accent">
+                        <Mail className="size-4" aria-hidden />
+                      </span>
+                      <span>
+                        <span className="block text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-muted">
+                          Email
+                        </span>
+                        <span className="mt-1 block break-all text-sm">
+                          {CONTACT_EMAIL}
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={`tel:${CONTACT_PHONE_TEL}`}
+                      className="group flex gap-3 transition hover:text-accent"
+                    >
+                      <span className="flex size-10 shrink-0 items-center justify-center border border-border text-accent">
+                        <Phone className="size-4" aria-hidden />
+                      </span>
+                      <span>
+                        <span className="block text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-muted">
+                          Phone
+                        </span>
+                        <span className="mt-1 block text-sm">
+                          {CONTACT_PHONE_DISPLAY}
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={CONTACT_WHATSAPP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex gap-3 transition hover:text-accent"
+                    >
+                      <span className="flex size-10 shrink-0 items-center justify-center border border-border text-accent">
+                        <MessageCircle className="size-4" aria-hidden />
+                      </span>
+                      <span>
+                        <span className="block text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-muted">
+                          WhatsApp
+                        </span>
+                        <span className="mt-1 block text-sm">Chat with us</span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+
+                <a
+                  href={CONTACT_WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-7 flex w-full items-center justify-center gap-2 bg-accent px-5 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-accent-ink transition hover:bg-white"
+                >
+                  Start on WhatsApp
+                </a>
+              </div>
+            </Reveal>
+
+            <Reveal delayMs={100}>
+              <div className="border border-border bg-surface p-6 sm:p-7">
+                <h2 className="font-display text-lg font-semibold tracking-tight">
+                  Studio
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  Shikohabad, Uttar Pradesh, India
+                </p>
+                <p className="mt-3 text-sm text-muted">
+                  Meetings by appointment. Remote collaborations welcome.
+                </p>
+                <p className="mt-5 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-accent">
+                  Local Roots. Creative Reach.
+                </p>
+                <a
+                  href={SOCIAL_LINKS.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-foreground transition hover:text-accent"
+                >
+                  Instagram ↗
+                </a>
+              </div>
+            </Reveal>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

@@ -1,37 +1,39 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Button } from "./Button";
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home", num: "01" },
+  { href: "/work", label: "Work", num: "02" },
+  { href: "/services", label: "Services", num: "03" },
+  { href: "/events", label: "Events", num: "04" },
+  { href: "/about", label: "About", num: "05" },
+  { href: "/contact", label: "Contact", num: "06" },
 ] as const;
 
-function navLinkActive(pathname: string, label: string) {
-  return (
-    (label === "Home" && pathname === "/") ||
-    (label === "About" && pathname === "/about") ||
-    (label === "Services" && pathname === "/services") ||
-    (label === "Pricing" && pathname === "/pricing") ||
-    (label === "Contact" && pathname === "/contact")
-  );
+function navLinkActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
 }
 
 export function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -47,150 +49,154 @@ export function Header() {
     };
   }, [menuOpen]);
 
-  const linkClass = (active: boolean, mobile = false) =>
-    [
-      "relative transition-colors",
-      mobile
-        ? `flex min-h-[3rem] items-center rounded-lg px-4 text-base font-medium ${
-            active ? "pb-4" : ""
-          }`
-        : "shrink-0 whitespace-nowrap px-2.5 py-2 text-sm sm:px-3",
-      active
-        ? "font-bold text-brand-navy"
-        : "font-medium text-slate-600 hover:text-brand md:text-slate-500",
-    ].join(" ");
-
   return (
-    <header className="sticky top-0 z-40">
-      <div
-        className="h-1 w-full bg-violet-600 shadow-[0_1px_0_rgba(0,0,0,0.06)]"
-        aria-hidden
-      />
-      <div className="border-b border-slate-200/90 bg-[#fafafa]/95 backdrop-blur-md supports-[backdrop-filter]:bg-[#fafafa]/88">
-        <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:gap-6 lg:px-8">
+    <header
+      className={`sticky top-0 z-40 transition-all duration-300 ${
+        scrolled
+          ? "border-b border-border bg-background/95 backdrop-blur-md"
+          : "border-b border-transparent bg-background/40"
+      }`}
+    >
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-accent to-transparent opacity-70" />
+
+      <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3.5 sm:px-6 sm:py-4 lg:px-8">
+        <Link href="/" className="group shrink-0" prefetch>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/Logo1.png"
+            alt="Shikohabad Creative Co."
+            width={140}
+            height={52}
+          />
+        </Link>
+
+        <nav
+          className="hidden flex-1 items-center justify-center gap-0.5 lg:flex"
+          aria-label="Main"
+        >
+          {links.map(({ href, label }) => {
+            const active = navLinkActive(pathname, href);
+            return (
+              <Link
+                key={href}
+                href={href}
+                prefetch
+                className={`group relative px-3 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] transition ${
+                  active
+                    ? "text-accent"
+                    : "text-muted hover:text-foreground"
+                }`}
+              >
+                {label}
+                <span
+                  aria-hidden
+                  className={`absolute bottom-0 left-3 right-3 h-px origin-left bg-accent transition-transform duration-300 ${
+                    active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                />
+              </Link>
+            );
+          })}
+        </nav>
+
+        <div className="ml-auto flex items-center gap-3">
+          <p className="hidden text-[0.55rem] font-semibold uppercase tracking-[0.2em] text-muted md:block lg:hidden">
+            Local Roots.
+          </p>
           <Link
-            href="/"
-            className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-3 md:gap-3.5"
+            href="/contact"
             prefetch
+            className="group hidden items-center gap-2 border border-accent/40 bg-accent/10 px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-accent transition hover:bg-accent hover:text-accent-ink sm:inline-flex"
           >
-            <span className="relative flex h-12 shrink-0 items-center sm:h-14 md:h-16">
-              <Image
-                src="/images/logo.png"
-                alt=""
-                aria-hidden
-                width={320}
-                height={80}
-                className="h-12 w-auto max-w-[9.5rem] object-contain object-left sm:h-14 sm:max-w-[12.5rem] md:h-16 md:max-w-[15rem]"
-                priority
-              />
-            </span>
-            <span className="hidden leading-snug min-[400px]:block sm:block">
-              <span className="block max-w-[9.5rem] truncate text-[0.62rem] font-bold uppercase tracking-[0.1em] text-slate-600 sm:max-w-none sm:text-[0.7rem] md:text-xs">
-                NextGen Digital Service
-              </span>
+            Start a project
+            <span
+              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              aria-hidden
+            >
+              ↗
             </span>
           </Link>
-
-          <nav
-            className="hidden min-w-0 flex-1 items-center justify-center gap-1 md:flex md:gap-6 lg:gap-8"
-            aria-label="Main"
+          <button
+            type="button"
+            className="flex size-10 items-center justify-center border border-border text-foreground transition hover:border-accent hover:text-accent lg:hidden"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMenuOpen((o) => !o)}
           >
-            {links.map(({ href, label }) => {
-              const active = navLinkActive(pathname, label);
+            {menuOpen ? (
+              <X className="size-5" strokeWidth={1.75} aria-hidden />
+            ) : (
+              <Menu className="size-5" strokeWidth={1.75} aria-hidden />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {menuOpen ? (
+        <div
+          id="mobile-nav"
+          className="fixed inset-0 z-50 flex flex-col bg-background lg:hidden"
+          style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
+        >
+          <div className="flex items-center justify-between border-b border-border px-4 py-3.5 sm:px-6">
+            <Link href="/" prefetch onClick={() => setMenuOpen(false)}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/Logo1.png"
+                alt="Shikohabad Creative Co."
+                width={120}
+                height={45}
+              />
+            </Link>
+            <button
+              type="button"
+              className="flex size-10 items-center justify-center border border-border text-foreground"
+              aria-label="Close menu"
+              onClick={() => setMenuOpen(false)}
+            >
+              <X className="size-5" strokeWidth={1.75} />
+            </button>
+          </div>
+
+          <nav className="flex flex-1 flex-col overflow-y-auto px-4 py-6 sm:px-6" aria-label="Mobile">
+            <p className="mb-6 text-[0.6rem] font-semibold uppercase tracking-[0.24em] text-accent">
+              Menu · Local Roots. Creative Reach.
+            </p>
+            {links.map(({ href, label, num }) => {
+              const active = navLinkActive(pathname, href);
               return (
                 <Link
                   key={href}
                   href={href}
                   prefetch
-                  className={linkClass(active, false)}
+                  className={`flex items-baseline justify-between gap-4 border-b border-border py-4 transition ${
+                    active ? "text-accent" : "text-foreground hover:text-accent"
+                  }`}
+                  onClick={() => setMenuOpen(false)}
                 >
-                  {label}
-                  {active ? (
-                    <span
-                      className="absolute bottom-0 left-2 right-2 h-1 rounded-sm bg-brand sm:left-3 sm:right-3"
-                      aria-hidden
-                    />
-                  ) : null}
+                  <span className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+                    {label}
+                  </span>
+                  <span className="font-mono text-xs tracking-[0.16em] text-muted">
+                    {num}
+                  </span>
                 </Link>
               );
             })}
           </nav>
 
-          <div className="ml-auto flex shrink-0 items-center gap-2">
-            <Button
+          <div className="border-t border-border p-4 sm:p-6">
+            <Link
               href="/contact"
-              variant="primary"
               prefetch
-              className="hidden px-5 py-2.5 text-xs font-semibold uppercase tracking-wide min-[480px]:inline-flex sm:px-7 sm:py-3 sm:text-sm"
+              className="flex w-full items-center justify-center gap-2 bg-accent px-5 py-3.5 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-accent-ink"
+              onClick={() => setMenuOpen(false)}
             >
-              Get started
-            </Button>
-            <button
-              type="button"
-              className="flex size-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50 md:hidden"
-              aria-expanded={menuOpen}
-              aria-controls="mobile-nav"
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              onClick={() => setMenuOpen((o) => !o)}
-            >
-              {menuOpen ? (
-                <X className="size-6" strokeWidth={2} aria-hidden />
-              ) : (
-                <Menu className="size-6" strokeWidth={2} aria-hidden />
-              )}
-            </button>
+              Start a project ↗
+            </Link>
           </div>
         </div>
-      </div>
-
-      {menuOpen ? (
-        <>
-          <button
-            type="button"
-            className="fixed bottom-0 left-0 right-0 top-[5rem] z-30 bg-slate-900/40 backdrop-blur-[2px] md:hidden"
-            aria-label="Close menu"
-            onClick={() => setMenuOpen(false)}
-          />
-          <div
-            id="mobile-nav"
-            className="fixed bottom-0 left-0 right-0 top-[5rem] z-50 flex max-h-[min(100dvh,100vh)] flex-col border-t border-slate-200 bg-white shadow-2xl md:hidden"
-            style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
-          >
-            <nav className="flex flex-1 flex-col overflow-y-auto px-2 py-3" aria-label="Mobile">
-              {links.map(({ href, label }) => {
-                const active = navLinkActive(pathname, label);
-                return (
-                  <Link
-                    key={href}
-                    href={href}
-                    prefetch
-                    className={linkClass(active, true)}
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {label}
-                    {active ? (
-                      <span
-                        className="absolute bottom-2 left-4 right-4 h-1 rounded-sm bg-brand"
-                        aria-hidden
-                      />
-                    ) : null}
-                  </Link>
-                );
-              })}
-            </nav>
-            <div className="border-t border-slate-100 p-4">
-              <Button
-                href="/contact"
-                variant="primary"
-                prefetch
-                className="w-full py-3.5 text-sm font-semibold uppercase tracking-wide"
-                onClick={() => setMenuOpen(false)}
-              >
-                Get started
-              </Button>
-            </div>
-          </div>
-        </>
       ) : null}
     </header>
   );

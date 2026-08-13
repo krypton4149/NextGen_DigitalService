@@ -1,60 +1,93 @@
 import Image from "next/image";
 import { Button } from "./Button";
 
-const heroVisual = "/images/hero-dashboard.png";
-
 export function Hero() {
   return (
     <section
       id="home"
-      className="bg-gradient-to-b from-[#f8f9ff] via-[#f7f8fb] to-[#f4f6f9] pb-12 pt-10 sm:pb-16 sm:pt-12 lg:pb-20 lg:pt-16"
+      className="grain relative isolate overflow-hidden border-b border-border"
     >
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:gap-12 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8 xl:gap-16">
-        <div className="min-w-0 max-w-xl lg:max-w-none">
-          <p className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-brand">
-            <span
-              className="inline-block size-1.5 shrink-0 rounded-full bg-brand"
-              aria-hidden
-            />
-            Future ready digital
+      <div
+        className="pointer-events-none absolute inset-0 -z-10"
+        aria-hidden
+      >
+        <div className="absolute -left-24 top-10 size-[28rem] rounded-full bg-accent/10 blur-[100px] animate-pulse-glow" />
+        <div className="absolute -right-20 bottom-0 size-[22rem] rounded-full bg-accent/5 blur-[90px]" />
+      </div>
+
+      <div className="mx-auto grid max-w-7xl gap-12 px-4 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-14 lg:grid-cols-12 lg:items-end lg:gap-8 lg:px-8 lg:pb-24 lg:pt-16">
+        <div className="relative z-10 lg:col-span-7">
+          <p className="mb-6 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-accent">
+            Local Roots. Creative Reach.
           </p>
-          <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-[#111827] sm:text-5xl lg:text-[3.35rem]">
-            Grow Your{" "}
-            <span className="text-brand">Business Online</span>
+          <h1 className="font-display text-[clamp(2.75rem,12vw,7.5rem)] font-bold leading-[0.88] tracking-[-0.04em]">
+            <span className="block text-foreground">
+              <span className="[font-family:var(--font-hindi)]">शिको</span>
+              HABAD
+            </span>
+            <span className="block text-accent">CREATIVE CO.</span>
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-[#4b5563]">
-            Complete Digital Solutions for Your Business. We transform your
-            physical presence into a digital powerhouse with precision and
-            modern aesthetics.
+          <p className="mt-8 max-w-xl font-display text-2xl font-medium leading-snug tracking-tight text-foreground sm:text-3xl">
+            We make local brands{" "}
+            <span className="text-accent">impossible to ignore.</span>
+          </p>
+          <p className="mt-5 max-w-md text-base leading-relaxed text-muted sm:text-lg">
+            Social media, branding, digital presence &amp; experiences designed
+            to make your business stand out.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Button href="/contact">Get started</Button>
-            <Button href="#portfolio" variant="secondary">
-              View portfolio
+            <Button href="/contact">Start a project</Button>
+            <Button href="/#work" variant="secondary" arrow={false}>
+              View our work
             </Button>
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-md justify-self-center [perspective:1400px] lg:mx-0 lg:max-w-none lg:justify-self-end">
-          <div
-            className="pointer-events-none absolute inset-0 -z-10 scale-110 rounded-[40%] bg-[radial-gradient(ellipse_at_center,rgba(0,82,204,0.1),transparent_72%)] blur-2xl"
-            aria-hidden
-          />
-          <div
-            className="group relative isolate overflow-hidden rounded-[1.75rem] bg-white shadow-[0_22px_56px_-24px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/90 sm:rounded-[2rem] [transform-style:preserve-3d] [transform:translateZ(0)] transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform hover:shadow-[0_40px_88px_-32px_rgba(15,23,42,0.32)] hover:[transform:translateY(-0.5rem)_rotateX(5deg)_rotateY(-7deg)_scale(1.02)_translateZ(24px)] motion-reduce:transition-none motion-reduce:hover:shadow-[0_22px_56px_-24px_rgba(15,23,42,0.18)] motion-reduce:hover:[transform:translateZ(0)]"
-            style={{ transformOrigin: "50% 85% 0" }}
-          >
-            <div className="relative aspect-[3/2] w-full max-w-[min(100%,24rem)] overflow-hidden rounded-[inherit] mx-auto sm:max-w-none">
-              <Image
-                src={heroVisual}
-                alt="Dashboard analytics with laptop, phone, charts, and growth metrics"
-                fill
-                sizes="(max-width: 1024px) 90vw, 46vw"
-                priority
-                className="object-cover object-center transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-              />
+        <div className="relative lg:col-span-5">
+          <div className="relative mx-auto max-w-md lg:ml-auto lg:mr-0">
+            <div className="absolute -left-4 top-8 z-20 border border-border bg-surface px-3 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted animate-float sm:-left-8">
+              Based in Shikohabad
             </div>
+            <div className="relative aspect-[4/5] overflow-hidden border border-border bg-surface">
+              <Image
+                src="/images/hero-studio.jpg"
+                alt="Creative studio workspace at Shikohabad Creative Co."
+                fill
+                priority
+                sizes="(max-width: 1024px) 90vw, 40vw"
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-70" />
+            </div>
+            <p className="mt-6 font-display text-sm uppercase tracking-[0.22em] text-muted">
+              Creative people who happen to do digital.
+            </p>
           </div>
+        </div>
+      </div>
+
+      <div className="border-t border-border overflow-hidden py-3">
+        <div className="flex w-max marquee-track">
+          {[0, 1].map((copy) => (
+            <p
+              key={copy}
+              className="flex items-center gap-6 px-4 font-display text-sm font-semibold uppercase tracking-[0.28em] text-muted"
+            >
+              {[
+                "Social Media",
+                "Branding",
+                "Websites",
+                "Events",
+              ].map((item) => (
+                <span key={`${copy}-${item}`} className="flex items-center gap-6">
+                  <span>{item}</span>
+                  <span className="text-accent" aria-hidden>
+                    ✦
+                  </span>
+                </span>
+              ))}
+            </p>
+          ))}
         </div>
       </div>
     </section>
