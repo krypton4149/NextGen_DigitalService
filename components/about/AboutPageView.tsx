@@ -244,19 +244,15 @@ export function AboutPageView() {
 
       {/* Local identity */}
       <section className="border-b border-border">
-        <div className="mx-auto grid max-w-6xl lg:grid-cols-2">
-          <div className="relative min-h-[16rem] overflow-hidden lg:min-h-[22rem]">
-            <div className="img-frame absolute inset-4">
-              <Image
-                src="/images/local-shikohabad.jpg"
-                alt="Local streets near Shikohabad, Uttar Pradesh"
-                fill
-                className="img-zoom object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-primary/50 via-transparent to-transparent" />
-              <p className="img-stamp [font-family:var(--font-hindi)]">शिकोहाबाद</p>
-            </div>
+        <div className="mx-auto grid max-w-6xl items-center lg:grid-cols-2">
+          <div className="relative mx-auto aspect-[1207/1303] w-full max-w-[14rem] py-8 sm:max-w-[18rem] lg:py-10">
+            <Image
+              src="/images/City.png"
+              alt="Shikohabad — local streets, local understanding, digital reach"
+              fill
+              className="object-contain object-center"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
           <div className="flex flex-col justify-center px-4 py-12 sm:px-8 sm:py-14 lg:px-12">
             <Reveal>
