@@ -3,13 +3,13 @@ import { Rocket, Users } from "lucide-react";
 
 export function AboutJourneyGrid() {
   return (
-    <section className="border-t border-slate-200/80 bg-[#f0f1f8] py-16 sm:py-20 lg:py-24">
+    <section className="border-t border-border bg-surface py-16 sm:py-20 lg:py-24">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 px-4 sm:gap-6 sm:px-6 md:grid-cols-2 lg:px-8">
-        <article className="rounded-2xl border border-slate-200/80 bg-white p-8 shadow-sm shadow-slate-200/40 sm:p-10">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+        <article className="rounded-2xl border border-border bg-white p-8 shadow-sm shadow-slate-200/40 sm:p-10">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Our Journey
           </h2>
-          <div className="mt-6 space-y-4 text-sm leading-relaxed text-slate-600 sm:text-base">
+          <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted sm:text-base">
             <p>
               Founded over five years ago, Shikohabad Creative Co. emerged from
               a simple observation: small businesses were being left behind in the
@@ -32,12 +32,12 @@ export function AboutJourneyGrid() {
           />
           <div className="mt-8">
             <p className="text-4xl font-bold tracking-tight sm:text-5xl">150+</p>
-            <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-100">
+            <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
               Projects delivered
             </p>
           </div>
         </article>
-        <article className="flex min-h-[220px] flex-col justify-between rounded-2xl bg-[#0c2748] p-8 text-white shadow-lg shadow-slate-900/30 sm:min-h-[240px] sm:p-10">
+        <article className="flex min-h-[220px] flex-col justify-between rounded-2xl bg-accent p-8 text-white shadow-lg shadow-accent/25 sm:min-h-[240px] sm:p-10">
           <Users
             className="size-10 shrink-0 opacity-95 sm:size-12"
             strokeWidth={1.5}
@@ -45,7 +45,7 @@ export function AboutJourneyGrid() {
           />
           <div className="mt-8">
             <p className="text-4xl font-bold tracking-tight sm:text-5xl">98%</p>
-            <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-100/90">
+            <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
               Client retention
             </p>
           </div>

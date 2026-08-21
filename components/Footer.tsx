@@ -26,10 +26,11 @@ export function Footer() {
             <Link href="/" prefetch>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/Logo1.png"
+                src="/images/Logo.png"
                 alt="Shikohabad Creative Co."
-                width={200}
-                height={72}
+                width={240}
+                height={96}
+                className="h-16 w-auto sm:h-20"
               />
             </Link>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">

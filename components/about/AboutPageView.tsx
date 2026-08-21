@@ -220,7 +220,7 @@ export function AboutPageView() {
             {team.map((person, index) => (
               <Reveal key={person.name} as="li" delayMs={index * 60}>
                 <article className="text-center">
-                  <div className="relative mx-auto aspect-square w-full max-w-[14rem] overflow-hidden rounded-full border border-border bg-surface sm:max-w-[15rem]">
+                  <div className="relative mx-auto aspect-square w-full max-w-[14rem] overflow-hidden rounded-full border-[4px] border-white bg-surface shadow-[0_18px_40px_-20px_rgba(91,33,182,0.55)] sm:max-w-[15rem]">
                     <Image
                       src={person.image}
                       alt={person.alt}
@@ -245,14 +245,18 @@ export function AboutPageView() {
       {/* Local identity */}
       <section className="border-b border-border">
         <div className="mx-auto grid max-w-6xl lg:grid-cols-2">
-          <div className="relative min-h-[16rem] border-b border-border lg:min-h-[22rem] lg:border-b-0 lg:border-r">
-            <Image
-              src="/images/local-shikohabad.jpg"
-              alt="Local streets near Shikohabad, Uttar Pradesh"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
+          <div className="relative min-h-[16rem] overflow-hidden lg:min-h-[22rem]">
+            <div className="img-frame absolute inset-4">
+              <Image
+                src="/images/local-shikohabad.jpg"
+                alt="Local streets near Shikohabad, Uttar Pradesh"
+                fill
+                className="img-zoom object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-primary/50 via-transparent to-transparent" />
+              <p className="img-stamp [font-family:var(--font-hindi)]">शिकोहाबाद</p>
+            </div>
           </div>
           <div className="flex flex-col justify-center px-4 py-12 sm:px-8 sm:py-14 lg:px-12">
             <Reveal>

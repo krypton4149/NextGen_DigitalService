@@ -67,7 +67,7 @@ export function SeoLogoMark({ className }: { className?: string }) {
 
 export function BrandIconGoogle() {
   return (
-    <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-slate-200/90">
+    <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-background shadow-sm ring-1 ring-border">
       <GoogleLogoMark className="size-7" />
     </span>
   );
@@ -75,8 +75,8 @@ export function BrandIconGoogle() {
 
 export function BrandIconGoogleSeo() {
   return (
-    <span className="flex h-12 shrink-0 items-center gap-2 rounded-xl bg-blue-100 px-2.5 ring-1 ring-blue-200/60">
-      <span className="flex size-9 items-center justify-center rounded-lg bg-white shadow-sm ring-1 ring-slate-200/80">
+    <span className="flex h-12 shrink-0 items-center gap-2 rounded-xl bg-surface px-2.5 ring-1 ring-border">
+      <span className="flex size-9 items-center justify-center rounded-lg bg-background shadow-sm ring-1 ring-border">
         <GoogleLogoMark className="size-5" />
       </span>
       <span className="flex size-9 items-center justify-center rounded-lg bg-brand text-white shadow-sm">

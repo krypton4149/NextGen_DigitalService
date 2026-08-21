@@ -19,7 +19,7 @@ export const CORE_SERVICES: CoreService[] = [
     description:
       "We manage your social presence from strategy to execution — content planning, creative posts, reels, captions, campaigns and consistent brand communication.",
     tags: ["CONTENT", "REELS", "STRATEGY", "GROWTH"],
-    image: "/images/work-social.jpg",
+    image: "/images/Social.png",
     href: "/contact",
     variation: "default",
   },
@@ -31,7 +31,7 @@ export const CORE_SERVICES: CoreService[] = [
     description:
       "We build visual identities that make businesses recognizable — from logos and brand direction to social creatives, promotional designs and complete visual systems.",
     tags: ["LOGO", "IDENTITY", "CREATIVE", "DESIGN"],
-    image: "/images/work-branding.jpg",
+    image: "/images/Brand.png",
     href: "/contact",
     variation: "offset",
   },
@@ -43,7 +43,7 @@ export const CORE_SERVICES: CoreService[] = [
     description:
       "We create modern, responsive websites designed to represent your brand professionally and turn visitors into customers.",
     tags: ["UI/UX", "WEBSITE", "RESPONSIVE", "DIGITAL"],
-    image: "/images/work-digital.jpg",
+    image: "/images/Website.png",
     href: "/contact",
     variation: "wide",
   },
@@ -55,7 +55,7 @@ export const CORE_SERVICES: CoreService[] = [
     description:
       "From concept and promotion to on-ground execution, we create and manage events that people remember.",
     tags: ["PLANNING", "PROMOTION", "EXECUTION", "EXPERIENCE"],
-    image: "/images/work-events.jpg",
+    image: "/images/Event.png",
     href: "/events",
     variation: "compact",
   },

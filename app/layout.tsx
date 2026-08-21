@@ -31,7 +31,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#0a0a0a",
+  themeColor: "#5B21B6",
 };
 
 export const metadata: Metadata = {
@@ -66,11 +66,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/favicon.png?v=2", type: "image/png" },
-      { url: "/favicon.png?v=2", type: "image/png" },
+      { url: "/images/favicon.png?v=4", type: "image/png" },
+      { url: "/favicon.png?v=4", type: "image/png" },
     ],
-    shortcut: "/images/favicon.png?v=2",
-    apple: [{ url: "/apple-icon.png?v=2", type: "image/png" }],
+    shortcut: "/images/favicon.png?v=4",
+    apple: [{ url: "/apple-icon.png?v=4", type: "image/png" }],
   },
 };
 

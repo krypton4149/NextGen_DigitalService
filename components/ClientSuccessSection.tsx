@@ -65,9 +65,9 @@ const testimonials: Testimonial[] = [
 
 export function ClientSuccessSection() {
   return (
-    <section className="border-t border-slate-200/80 bg-[#f5f6fb] py-20 sm:py-24">
+    <section className="border-t border-border bg-surface py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+        <h2 className="text-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Client Success
         </h2>
         <div
@@ -81,16 +81,16 @@ export function ClientSuccessSection() {
         <ul className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t) => (
             <li key={t.name}>
-              <article className="relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-2xl border border-slate-200/60 bg-[#eef1f9]/90 p-8 shadow-sm sm:min-h-[300px]">
+              <article className="relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-2xl border border-border bg-background p-8 shadow-sm sm:min-h-[300px]">
                 <Quote
-                  className="pointer-events-none absolute right-4 top-4 size-16 text-blue-200/90"
+                  className="pointer-events-none absolute right-4 top-4 size-16 text-accent/20"
                   strokeWidth={1.25}
                   aria-hidden
                 />
-                <blockquote className="relative flex-1 text-sm italic leading-relaxed text-slate-700">
+                <blockquote className="relative flex-1 text-sm italic leading-relaxed text-muted">
                   {t.quote}
                 </blockquote>
-                <footer className="relative mt-8 flex items-center gap-4 border-t border-slate-200/60 pt-5">
+                <footer className="relative mt-8 flex items-center gap-4 border-t border-border pt-5">
                   <span
                     className={`flex size-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${t.gradient} text-sm font-bold text-white shadow-md ring-2 ring-white`}
                   >

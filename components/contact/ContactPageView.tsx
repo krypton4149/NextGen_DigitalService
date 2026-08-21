@@ -1,6 +1,7 @@
 "use client";
 
 import { Mail, MessageCircle, Phone } from "lucide-react";
+import Image from "next/image";
 import type { FormEvent } from "react";
 import { useState } from "react";
 import {
@@ -141,7 +142,7 @@ export function ContactPageView() {
 
               <button
                 type="submit"
-                className="bg-accent px-6 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-accent-ink transition hover:bg-white"
+                className="bg-primary px-6 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-accent-ink transition hover:bg-accent"
               >
                 {sent ? "Opening mail…" : "Send message"}
               </button>
@@ -227,7 +228,7 @@ export function ContactPageView() {
                   href={CONTACT_WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-7 flex w-full items-center justify-center gap-2 bg-accent px-5 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-accent-ink transition hover:bg-white"
+                  className="mt-7 flex w-full items-center justify-center gap-2 bg-primary px-5 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-accent-ink transition hover:bg-accent"
                 >
                   Start on WhatsApp
                 </a>
@@ -235,7 +236,17 @@ export function ContactPageView() {
             </Reveal>
 
             <Reveal delayMs={100}>
-              <div className="border border-border bg-surface p-6 sm:p-7">
+              <div className="overflow-hidden rounded-3xl border border-border bg-surface">
+                <div className="relative aspect-[3/2] w-full">
+                  <Image
+                    src="/images/Studio.png"
+                    alt="Shikohabad Creative Co. studio"
+                    fill
+                    className="object-contain object-center p-3"
+                    sizes="(max-width: 1024px) 100vw, 32vw"
+                  />
+                </div>
+                <div className="p-6 sm:p-7">
                 <h2 className="font-display text-lg font-semibold tracking-tight">
                   Studio
                 </h2>
@@ -256,6 +267,7 @@ export function ContactPageView() {
                 >
                   Instagram ↗
                 </a>
+                </div>
               </div>
             </Reveal>
           </div>

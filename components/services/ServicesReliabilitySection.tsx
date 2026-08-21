@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function ServicesReliabilitySection() {
   return (
-    <section className="border-t border-slate-200/80 bg-white py-16 sm:py-20 lg:py-24">
+    <section className="border-t border-border bg-white py-16 sm:py-20 lg:py-24">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:gap-16 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
         <div className="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-200 shadow-xl shadow-slate-900/10 ring-1 ring-slate-900/5">
@@ -25,17 +25,17 @@ export function ServicesReliabilitySection() {
           </div>
         </div>
         <div className="min-w-0">
-          <h2 className="text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
             Engineering Digital{" "}
             <span className="text-brand">Reliability.</span>
           </h2>
           <ul className="mt-10 space-y-10">
             <li className="flex gap-5">
-              <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-blue-100 text-brand">
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-surface text-brand">
                 <Gauge className="size-6" strokeWidth={2} aria-hidden />
               </span>
               <div>
-                <h3 className="text-lg font-bold text-slate-900">
+                <h3 className="text-lg font-bold text-foreground">
                   High-Velocity Delivery
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
@@ -46,11 +46,11 @@ export function ServicesReliabilitySection() {
               </div>
             </li>
             <li className="flex gap-5">
-              <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-blue-100 text-brand">
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-surface text-brand">
                 <ShieldCheck className="size-6" strokeWidth={2} aria-hidden />
               </span>
               <div>
-                <h3 className="text-lg font-bold text-slate-900">
+                <h3 className="text-lg font-bold text-foreground">
                   Enterprise-Grade Standards
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">

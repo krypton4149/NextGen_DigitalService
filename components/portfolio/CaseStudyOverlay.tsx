@@ -4,7 +4,7 @@ import { X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
-import type { PortfolioProject } from "@/lib/portfolio";
+import { isFramedProject, type PortfolioProject } from "@/lib/portfolio";
 import { Button } from "@/components/Button";
 
 type CaseStudyOverlayProps = {
@@ -29,6 +29,8 @@ export function CaseStudyOverlay({ project, onClose }: CaseStudyOverlayProps) {
 
   if (!project) return null;
 
+  const framed = isFramedProject(project);
+
   return (
     <div
       className="fixed inset-0 z-[80] flex items-end justify-center sm:items-center sm:p-6"
@@ -42,7 +44,7 @@ export function CaseStudyOverlay({ project, onClose }: CaseStudyOverlayProps) {
         aria-label="Close case study"
         onClick={onClose}
       />
-      <div className="relative z-[1] flex max-h-[92dvh] w-full max-w-5xl flex-col overflow-hidden border border-border bg-surface sm:max-h-[90vh]">
+      <div className="relative z-[1] flex max-h-[92dvh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl border border-border bg-surface sm:max-h-[90vh]">
         <div className="flex items-start justify-between gap-4 border-b border-border px-5 py-4 sm:px-8 sm:py-5">
           <div className="min-w-0">
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
@@ -66,15 +68,23 @@ export function CaseStudyOverlay({ project, onClose }: CaseStudyOverlayProps) {
         </div>
 
         <div className="overflow-y-auto">
-          <div className="relative aspect-[16/9] w-full border-b border-border bg-background">
+          <div
+            className={`relative m-4 aspect-[16/9] sm:m-6 ${framed ? "bg-surface" : "img-frame"}`}
+          >
             <Image
               src={project.image}
               alt={`Creative presentation for ${project.name}`}
               fill
-              className="object-cover"
+              className={framed ? "object-contain p-4" : "object-cover"}
               sizes="(max-width: 1024px) 100vw, 960px"
               priority
             />
+            {framed ? null : (
+              <>
+                <div className="absolute inset-0 z-[1] bg-gradient-to-t from-foreground/45 via-transparent to-transparent" />
+                <p className="img-stamp">{project.name}</p>
+              </>
+            )}
           </div>
 
           <div className="grid gap-10 px-5 py-8 sm:px-8 sm:py-10 lg:grid-cols-12">

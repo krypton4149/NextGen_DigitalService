@@ -68,15 +68,19 @@ export default function EventsPage() {
 
       <section className="border-b border-border py-20 sm:py-28">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
-          <Reveal className="relative min-h-[22rem] overflow-hidden border border-border lg:col-span-7 lg:min-h-[32rem]">
-            <Image
-              src="/images/work-events.jpg"
-              alt="Experiential event atmosphere by Shikohabad Creative Co."
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 58vw"
-              priority
-            />
+          <Reveal className="lg:col-span-7">
+            <div className="img-frame min-h-[22rem] lg:min-h-[32rem]">
+              <Image
+                src="/images/work-events.jpg"
+                alt="Experiential event atmosphere by Shikohabad Creative Co."
+                fill
+                className="img-zoom object-cover"
+                sizes="(max-width: 1024px) 100vw, 58vw"
+                priority
+              />
+              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-primary/55 via-transparent to-transparent" />
+              <p className="img-stamp">Experience.</p>
+            </div>
           </Reveal>
           <div className="lg:col-span-5">
             <ul className="space-y-0 divide-y divide-border border-y border-border">

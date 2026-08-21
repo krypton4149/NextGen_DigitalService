@@ -31,7 +31,7 @@ const features = [
 
 function FeatureIcon({ icon: Icon }: { icon: (typeof features)[number]["icon"] }) {
   return (
-    <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-brand sm:size-12">
+    <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-surface text-brand sm:size-12">
       <Icon className="size-5 sm:size-6" strokeWidth={2} aria-hidden />
     </span>
   );
@@ -41,11 +41,11 @@ export function EdgePhilosophySection() {
   return (
     <section
       id="about"
-      className="scroll-mt-24 border-t border-slate-200/80 bg-gradient-to-b from-slate-50/90 via-[#f7f8fb] to-slate-50/80 py-16 sm:py-20 lg:py-24"
+      className="scroll-mt-24 border-t border-border bg-surface py-16 sm:py-20 lg:py-24"
     >
       <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:gap-14 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
         <div className="min-w-0">
-          <h2 className="text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[2.35rem] lg:leading-[1.12]">
+          <h2 className="text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-[2.35rem] lg:leading-[1.12]">
             The Edge Your
             <br />
             <span className="text-brand">Business Deserves</span>
@@ -55,7 +55,7 @@ export function EdgePhilosophySection() {
               <div key={title} className="flex gap-4">
                 <FeatureIcon icon={icon} />
                 <div>
-                  <p className="font-semibold text-slate-900">{title}</p>
+                  <p className="font-semibold text-foreground">{title}</p>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted">{body}</p>
                 </div>
               </div>
@@ -63,7 +63,7 @@ export function EdgePhilosophySection() {
           </div>
         </div>
         <div className="min-w-0">
-          <div className="rounded-3xl border border-slate-200/80 bg-slate-100/95 p-8 shadow-sm shadow-slate-200/40 sm:p-10 lg:p-11">
+          <div className="rounded-3xl border border-border bg-background p-8 shadow-sm sm:p-10 lg:p-11">
             <div className="flex items-start gap-4">
               <span className="flex size-14 shrink-0 items-center justify-center rounded-full bg-brand text-white shadow-md shadow-brand/25">
                 <User className="size-7" strokeWidth={2} aria-hidden />
@@ -77,7 +77,7 @@ export function EdgePhilosophySection() {
                 </p>
               </div>
             </div>
-            <blockquote className="mt-8 text-base font-medium italic leading-relaxed text-slate-700 sm:text-lg lg:text-xl">
+            <blockquote className="mt-8 text-base font-medium italic leading-relaxed text-foreground sm:text-lg lg:text-xl">
               We don&apos;t just build websites; we build digital ecosystems that
               act as the silent salesperson for your brand, 24/7.
             </blockquote>

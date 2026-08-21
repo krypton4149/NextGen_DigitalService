@@ -64,11 +64,11 @@ export function Header() {
           <Link href="/" className="min-w-0 shrink-0" prefetch>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/Logo1.png"
+              src="/images/Logo.png"
               alt="Shikohabad Creative Co."
-              width={170}
-              height={62}
-              className="h-10 w-auto sm:h-12"
+              width={200}
+              height={85}
+              className="h-12 w-auto sm:h-14 lg:h-16"
             />
           </Link>
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
-import { getProjectBySlug, PORTFOLIO_PROJECTS } from "@/lib/portfolio";
+import { getProjectBySlug, isFramedProject, PORTFOLIO_PROJECTS } from "@/lib/portfolio";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -51,16 +51,24 @@ export default async function WorkProjectPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="border-b border-border">
-        <div className="relative mx-auto aspect-[16/9] max-w-6xl overflow-hidden border-x border-border bg-surface">
+      <section className="border-b border-border px-4 py-10 sm:px-6 lg:px-8">
+        <div
+          className={`relative mx-auto aspect-[16/9] max-w-6xl ${isFramedProject(project) ? "bg-surface" : "img-frame"}`}
+        >
           <Image
             src={project.image}
             alt={`Creative presentation for ${project.name}`}
             fill
-            className="object-cover"
+            className={isFramedProject(project) ? "object-contain p-6" : "object-cover"}
             sizes="100vw"
             priority
           />
+          {isFramedProject(project) ? null : (
+            <>
+              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-foreground/50 via-transparent to-transparent" />
+              <p className="img-stamp">{project.name}</p>
+            </>
+          )}
         </div>
       </section>
 

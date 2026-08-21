@@ -4,10 +4,10 @@ export function ServicesPricingTeaser() {
   return (
     <section
       id="pricing"
-      className="scroll-mt-24 border-t border-slate-200/80 bg-slate-50 py-16 sm:py-20"
+      className="scroll-mt-24 border-t border-border bg-surface py-16 sm:py-20"
     >
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+        <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
           Pricing tailored to your scope
         </h2>
         <p className="mt-4 text-muted sm:text-lg">

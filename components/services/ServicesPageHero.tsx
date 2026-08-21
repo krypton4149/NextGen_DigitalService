@@ -10,14 +10,14 @@ export function ServicesPageHero() {
         aria-hidden
       />
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-blue-100 ring-1 ring-white/20">
+        <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white/85 ring-1 ring-white/20">
           <span className="size-1.5 rounded-full bg-white/90" aria-hidden />
           Our capabilities
         </p>
         <h1 className="mt-6 max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl lg:leading-[1.08]">
           Comprehensive Digital Architecture.
         </h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-blue-100/95 sm:text-lg">
+        <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
           We don&apos;t just build websites. We engineer entire digital ecosystems
           designed to accelerate growth and establish market authority for small
           businesses.

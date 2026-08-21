@@ -58,27 +58,27 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     headline: "MAKING LOCAL HOSPITALITY\nLOOK AS GOOD AS IT TASTES.",
     approach:
       "We shaped a warmer digital presence for a local hospitality brand — social storytelling, brand visuals and online touchpoints that feel as inviting as the dining room.",
-    image: "/images/client-maa-jaanki.jpg",
+    image: "/images/Jaanki.png",
     layout: "full",
   },
   {
     id: "02",
     slug: "mbm-makeover-by-muskan",
     num: "02",
-    name: "MBM Makeover by Muskan",
+    name: "Muskan Makeup",
     industry: "Beauty · Makeup",
-    categoryLabel: "Beauty • Makeup • Social Media • Creative Content",
-    filters: ["SOCIAL", "CONTENT", "BRANDING"],
+    categoryLabel: "Beauty • Makeup • Social Media • Digital Presence • Content",
+    filters: ["SOCIAL", "DIGITAL", "CONTENT"],
     services: [
       "Social Media",
-      "Creative Content",
-      "Promotional Creatives",
-      "Visual Direction",
+      "Digital Presence",
+      "Content",
+      "Creative Direction",
     ],
-    headline: "BEAUTY DESERVES\nA BEAUTIFUL DIGITAL PRESENCE.",
+    headline: "SOCIAL MEDIA &\nDIGITAL PRESENCE\nFOR MUSKAN MAKEUP.",
     approach:
-      "For a makeup brand built on transformation, we focused on scroll-stopping social creatives and a visual language that feels luxurious, personal and shareable.",
-    image: "/images/client-mbm.jpg",
+      "We manage Muskan Makeup's social media and digital presence — content, creatives and daily posting that match the studio: beauty, makeup and a look people remember.",
+    image: "/images/mbm.png",
     layout: "split",
   },
   {
@@ -98,7 +98,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     headline: "TURNING BEAUTY\nINTO ATTENTION.",
     approach:
       "Salon services need presence. We built promotional and social systems that turn everyday beauty offerings into clear, confident attention online.",
-    image: "/images/client-tws.jpg",
+    image: "/images/tws.png",
     layout: "tall",
   },
   {
@@ -118,7 +118,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     headline: "STYLE SHOULD NEVER\nBLEND IN.",
     approach:
       "A boutique brand needs distinction. We crafted fashion-forward branding and social content so Styles & Stitch stands apart — not beside — the feed.",
-    image: "/images/client-styles-stitch.jpg",
+    image: "/images/Stich.png",
     layout: "offset",
   },
   {
@@ -138,7 +138,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     headline: "FROM PRODUCT\nTO BRAND.",
     approach:
       "We helped move Om Sai Traders from product-only thinking to brand thinking — packaging direction, product presence and digital creatives that sell the story as well as the goods.",
-    image: "/images/client-om-sai.jpg",
+    image: "/images/omsai.png",
     layout: "product",
   },
   {
@@ -158,11 +158,15 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     headline: "MAKING PRODUCTS\nSHINE ONLINE.",
     approach:
       "Lighting products need clarity and spark. We developed promotional and digital creatives that present Lotus Light with modern product energy.",
-    image: "/images/client-lotus-light.jpg",
+    image: "/images/Light.png",
     layout: "campaign",
   },
 ];
 
 export function getProjectBySlug(slug: string) {
   return PORTFOLIO_PROJECTS.find((p) => p.slug === slug);
+}
+
+export function isFramedProject(project: PortfolioProject) {
+  return project.image.endsWith(".png");
 }

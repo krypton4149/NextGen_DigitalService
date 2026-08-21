@@ -33,14 +33,18 @@ export function ServicesPageView() {
           {CORE_SERVICES.map((service, index) => (
             <Reveal key={service.num} as="li" delayMs={index * 50}>
               <article className="grid gap-8 py-12 sm:py-14 lg:grid-cols-12 lg:items-center lg:gap-10 lg:py-16">
-                <div className="relative aspect-[16/10] overflow-hidden border border-border bg-surface lg:col-span-5">
+                <div className="group img-frame aspect-[16/10] lg:col-span-5">
                   <Image
                     src={service.image}
                     alt=""
                     fill
-                    className="object-cover"
+                    className="img-zoom object-cover"
                     sizes="(max-width: 1024px) 100vw, 40vw"
                   />
+                  <div className="absolute inset-0 z-[1] bg-gradient-to-t from-primary/35 via-transparent to-transparent" />
+                  <p className="absolute left-5 top-5 z-[3] font-display text-5xl font-extrabold text-white/80">
+                    {service.num}
+                  </p>
                 </div>
 
                 <div className="lg:col-span-7">

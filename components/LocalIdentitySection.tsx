@@ -3,13 +3,13 @@ import { Reveal } from "./Reveal";
 
 export function LocalIdentitySection() {
   return (
-    <section className="relative overflow-hidden border-b border-border bg-surface py-20 sm:py-28">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
+    <section className="relative border-b border-border bg-surface py-20 sm:py-28">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-10 lg:px-8">
         <Reveal>
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-accent">
             Where we create from
           </p>
-          <h2 className="mt-5 font-display text-4xl font-bold leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
+          <h2 className="mt-5 font-display text-4xl font-bold leading-[0.9] tracking-tight sm:text-6xl">
             FROM SHIKOHABAD
             <br />
             <span className="text-accent">TO EVERYWHERE.</span>
@@ -21,23 +21,15 @@ export function LocalIdentitySection() {
         </Reveal>
 
         <Reveal delayMs={120} className="relative">
-          <div className="relative aspect-[5/4] overflow-hidden border border-border">
+          <div className="relative mx-auto aspect-[1207/1303] w-full max-w-lg lg:ml-auto lg:max-w-none">
             <Image
-              src="/images/local-shikohabad.jpg"
-              alt="Local streets near Shikohabad, Uttar Pradesh — where we create from"
+              src="/images/City.png"
+              alt="Shikohabad — local streets, local understanding, digital reach"
               fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-contain object-center"
+              sizes="(max-width: 1024px) 90vw, 48vw"
+              priority={false}
             />
-            <div className="absolute inset-0 bg-background/35" />
-            <div className="absolute bottom-0 left-0 right-0 border-t border-border bg-background/80 p-5 backdrop-blur-sm">
-              <p className="font-display text-lg font-semibold tracking-tight">
-                Shikohabad, Uttar Pradesh
-              </p>
-              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-muted">
-                Local understanding · Digital reach
-              </p>
-            </div>
           </div>
         </Reveal>
       </div>

@@ -29,7 +29,7 @@ export function ProcessSection() {
               key={step.num}
               as="li"
               delayMs={index * 60}
-              className="min-w-[14rem] shrink-0 border border-border bg-surface p-6 lg:min-w-0"
+              className="min-w-[14rem] shrink-0 rounded-3xl border border-border bg-surface p-6 lg:min-w-0"
             >
               <span className="font-display text-sm text-accent">{step.num}</span>
               <h3 className="mt-8 font-display text-2xl font-bold uppercase tracking-tight">

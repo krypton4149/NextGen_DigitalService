@@ -15,7 +15,7 @@ import { BrandIconGoogle, BrandIconGoogleSeo } from "@/components/icons/BrandMar
 
 function IconTile({ children }: { children: ReactNode }) {
   return (
-    <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-brand">
+    <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-surface text-brand">
       {children}
     </span>
   );
@@ -23,12 +23,12 @@ function IconTile({ children }: { children: ReactNode }) {
 
 export function ServicesDetailBento() {
   return (
-    <section className="border-t border-slate-200/80 bg-[#f4f4f9] py-16 sm:py-20 lg:py-24">
+    <section className="border-t border-border bg-surface py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-6xl space-y-6 px-4 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-12 lg:items-stretch">
-          <article className="flex h-full min-h-[300px] flex-col rounded-2xl border border-slate-200/80 bg-white p-8 shadow-sm lg:col-span-7">
+          <article className="flex h-full min-h-[300px] flex-col rounded-2xl border border-border bg-white p-8 shadow-sm lg:col-span-7">
             <BrandIconGoogle />
-            <h2 className="mt-6 text-xl font-bold text-slate-900 sm:text-2xl">
+            <h2 className="mt-6 text-xl font-bold text-foreground sm:text-2xl">
               Google Business Profile Setup
             </h2>
             <p className="mt-4 flex-1 text-sm leading-relaxed text-muted sm:text-base">
@@ -41,8 +41,8 @@ export function ServicesDetailBento() {
             </p>
           </article>
 
-          <article className="flex h-full min-h-[300px] flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm lg:col-span-5">
-            <div className="relative aspect-[16/10] w-full bg-slate-200">
+          <article className="flex h-full min-h-[300px] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm lg:col-span-5">
+            <div className="relative aspect-[16/10] w-full bg-surface">
               <Image
                 src="/images/portfolio-business.jpg"
                 alt="Laptop showing a modern business website layout"
@@ -52,7 +52,7 @@ export function ServicesDetailBento() {
               />
             </div>
             <div className="flex flex-1 flex-col p-8">
-              <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">
+              <h2 className="text-xl font-bold text-foreground sm:text-2xl">
                 Web Development
               </h2>
               <p className="mt-4 flex-1 text-sm leading-relaxed text-muted sm:text-base">
@@ -64,11 +64,11 @@ export function ServicesDetailBento() {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-12 lg:items-stretch">
-          <article className="flex h-full min-h-[280px] flex-col rounded-2xl border border-slate-200/80 bg-white p-8 shadow-sm lg:col-span-7">
+          <article className="flex h-full min-h-[280px] flex-col rounded-2xl border border-border bg-white p-8 shadow-sm lg:col-span-7">
             <IconTile>
               <CloudCog className="size-6" strokeWidth={2} aria-hidden />
             </IconTile>
-            <h2 className="mt-6 text-xl font-bold text-slate-900 sm:text-2xl">
+            <h2 className="mt-6 text-xl font-bold text-foreground sm:text-2xl">
               SaaS platforms &amp; product delivery
             </h2>
             <p className="mt-4 flex-1 text-sm leading-relaxed text-muted sm:text-base">
@@ -79,18 +79,18 @@ export function ServicesDetailBento() {
             </p>
             <Link
               href="/contact"
-              className="mt-6 inline-flex w-fit items-center gap-1 text-xs font-bold uppercase tracking-wide text-brand transition hover:text-blue-700"
+              className="mt-6 inline-flex w-fit items-center gap-1 text-xs font-bold uppercase tracking-wide text-brand transition hover:text-accent"
             >
               Discuss your SaaS
               <span aria-hidden>→</span>
             </Link>
           </article>
-          <article className="relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/80 bg-gradient-to-br from-slate-900 via-[#0f172a] to-brand-navy p-8 text-white shadow-lg shadow-slate-900/25 lg:col-span-5">
+          <article className="relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-primary to-accent p-8 text-white shadow-lg shadow-primary/25 lg:col-span-5">
             <div
               className="pointer-events-none absolute -right-8 top-1/2 size-48 -translate-y-1/2 rounded-full bg-white/5 blur-2xl"
               aria-hidden
             />
-            <p className="relative text-xs font-semibold uppercase tracking-[0.2em] text-blue-200/90">
+            <p className="relative text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
               Ship faster
             </p>
             <p className="relative mt-4 text-lg font-semibold leading-snug">
@@ -106,9 +106,9 @@ export function ServicesDetailBento() {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-12 lg:items-stretch">
-          <article className="flex h-full min-h-[280px] flex-col rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm lg:col-span-5">
+          <article className="flex h-full min-h-[280px] flex-col rounded-2xl border border-border bg-surface p-8 shadow-sm lg:col-span-5">
             <BrandIconGoogleSeo />
-            <h2 className="mt-6 text-xl font-bold text-slate-900 sm:text-2xl">
+            <h2 className="mt-6 text-xl font-bold text-foreground sm:text-2xl">
               Search Engine Optimization
             </h2>
             <p className="mt-4 flex-1 text-sm leading-relaxed text-muted sm:text-base">
@@ -117,9 +117,9 @@ export function ServicesDetailBento() {
             </p>
           </article>
 
-          <article className="flex h-full min-h-[280px] flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm sm:flex-row lg:col-span-7">
+          <article className="flex h-full min-h-[280px] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm sm:flex-row lg:col-span-7">
             <div className="flex flex-1 flex-col p-8">
-              <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">
+              <h2 className="text-xl font-bold text-foreground sm:text-2xl">
                 Logo &amp; Banner Design
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
@@ -138,31 +138,31 @@ export function ServicesDetailBento() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 md:items-stretch">
-          <article className="flex h-full min-h-[260px] flex-col rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm">
+          <article className="flex h-full min-h-[260px] flex-col rounded-2xl border border-border bg-surface p-8 shadow-sm">
             <IconTile>
               <MessageCircle className="size-6" strokeWidth={2} aria-hidden />
             </IconTile>
-            <h2 className="mt-6 text-lg font-bold text-slate-900">WhatsApp Bot Service</h2>
+            <h2 className="mt-6 text-lg font-bold text-foreground">WhatsApp Bot Service</h2>
             <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
               Automated greetings, FAQs, bookings, and order updates on WhatsApp so
               customers get instant replies without tying up your team.
             </p>
             <Link
               href="/contact"
-              className="mt-6 inline-flex w-fit items-center gap-1 text-xs font-bold uppercase tracking-wide text-brand transition hover:text-blue-700"
+              className="mt-6 inline-flex w-fit items-center gap-1 text-xs font-bold uppercase tracking-wide text-brand transition hover:text-accent"
             >
               Launch your bot
               <span aria-hidden>→</span>
             </Link>
           </article>
 
-          <article className="flex h-full min-h-[260px] flex-col rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm">
-            <h2 className="text-lg font-bold text-slate-900">App Development</h2>
+          <article className="flex h-full min-h-[260px] flex-col rounded-2xl border border-border bg-surface p-8 shadow-sm">
+            <h2 className="text-lg font-bold text-foreground">App Development</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted">
               Custom iOS and Android solutions that put your business directly into
               your customers&apos; pockets.
             </p>
-            <ul className="mt-6 space-y-3 text-sm text-slate-800">
+            <ul className="mt-6 space-y-3 text-sm text-foreground">
               <li className="flex items-center gap-2">
                 <Check className="size-5 shrink-0 text-brand" aria-hidden />
                 React Native &amp; Flutter
@@ -174,22 +174,22 @@ export function ServicesDetailBento() {
             </ul>
           </article>
 
-          <article className="flex h-full min-h-[260px] flex-col rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm">
+          <article className="flex h-full min-h-[260px] flex-col rounded-2xl border border-border bg-surface p-8 shadow-sm">
             <IconTile>
               <Share2 className="size-6" strokeWidth={2} aria-hidden />
             </IconTile>
-            <h2 className="mt-6 text-lg font-bold text-slate-900">Social Media Setup</h2>
+            <h2 className="mt-6 text-lg font-bold text-foreground">Social Media Setup</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted">
               Complete brand synchronization across Instagram, LinkedIn, and Facebook
               to build a cohesive community presence.
             </p>
           </article>
 
-          <article className="flex h-full min-h-[260px] flex-col rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm">
+          <article className="flex h-full min-h-[260px] flex-col rounded-2xl border border-border bg-surface p-8 shadow-sm">
             <IconTile>
               <Play className="size-6 fill-current" strokeWidth={0} aria-hidden />
             </IconTile>
-            <h2 className="mt-6 text-lg font-bold text-slate-900">
+            <h2 className="mt-6 text-lg font-bold text-foreground">
               YouTube Channel Setup
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted">
@@ -199,12 +199,12 @@ export function ServicesDetailBento() {
           </article>
         </div>
 
-        <article className="flex flex-col gap-6 rounded-2xl border border-slate-200/80 bg-slate-50/90 p-8 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:gap-10 sm:p-10">
+        <article className="flex flex-col gap-6 rounded-2xl border border-border bg-surface p-8 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:gap-10 sm:p-10">
           <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-brand-navy text-white">
             <Mail className="size-7" strokeWidth={1.75} aria-hidden />
           </div>
           <div className="min-w-0 flex-1">
-            <h2 className="text-lg font-bold text-slate-900 sm:text-xl">
+            <h2 className="text-lg font-bold text-foreground sm:text-xl">
               Professional Work Email Setup
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
@@ -214,16 +214,16 @@ export function ServicesDetailBento() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex shrink-0 items-center justify-center self-start rounded-full border border-slate-300 bg-white px-6 py-2.5 text-xs font-bold uppercase tracking-wide text-brand transition hover:border-brand/40 hover:bg-slate-50 sm:self-center"
+            className="inline-flex shrink-0 items-center justify-center self-start rounded-full border border-border bg-background px-6 py-2.5 text-xs font-bold uppercase tracking-wide text-brand transition hover:border-accent hover:bg-surface sm:self-center"
           >
             Learn more
           </Link>
         </article>
 
-        <article className="overflow-hidden rounded-2xl border border-slate-200/80 bg-[#1e3a8a] p-8 text-white shadow-lg shadow-blue-950/15 sm:p-10">
+        <article className="overflow-hidden rounded-2xl border border-border bg-primary p-8 text-white shadow-lg shadow-primary/20 sm:p-10">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-xl">
-              <div className="flex items-center gap-2 text-blue-100">
+              <div className="flex items-center gap-2 text-white/85">
                 <Code2 className="size-5 shrink-0" aria-hidden />
                 <span className="text-xs font-semibold uppercase tracking-wider">
                   Content &amp; growth
@@ -232,7 +232,7 @@ export function ServicesDetailBento() {
               <h2 className="mt-3 text-xl font-bold sm:text-2xl">
                 Content &amp; Social Scaling
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-blue-100 sm:text-base">
+              <p className="mt-3 text-sm leading-relaxed text-white/85 sm:text-base">
                 YouTube channel setup, content strategy, and social media management
                 that drives engagement and brand loyalty.
               </p>

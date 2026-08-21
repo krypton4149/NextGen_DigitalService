@@ -2,10 +2,10 @@ import Link from "next/link";
 
 export function ServicesBottomCta() {
   return (
-    <section className="border-t border-slate-200/80 bg-[#f5f6fb] py-16 sm:py-20 lg:py-24">
+    <section className="border-t border-border bg-surface py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl rounded-3xl border border-slate-200/90 border-t-[3px] border-t-brand-navy bg-[#ece8f5] px-8 py-12 text-center shadow-sm sm:px-12 sm:py-16">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+        <div className="mx-auto max-w-4xl rounded-3xl border border-border border-t-[3px] border-t-primary bg-background px-8 py-12 text-center shadow-sm sm:px-12 sm:py-16">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Ready to scale your business?
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
