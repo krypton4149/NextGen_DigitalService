@@ -40,17 +40,37 @@ export function Hero() {
 
         <div className="relative lg:col-span-6">
           <div className="relative mx-auto max-w-xl lg:ml-auto lg:max-w-none">
-            <div className="relative aspect-[3/2]">
-              <Image
-                src="/images/Hero_Section.png"
-                alt="Shikohabad Creative Co. studio illustration — designing ideas, creating impact"
-                fill
-                priority
-                sizes="(max-width: 1024px) 90vw, 48vw"
-                className="object-contain object-center"
+            <div
+              aria-hidden
+              className="absolute -right-4 top-8 size-24 rounded-full border border-accent/30"
+            />
+            <div
+              aria-hidden
+              className="absolute -bottom-5 -left-3 h-16 w-16 rounded-2xl bg-accent/20 blur-md"
+            />
+
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#050505]/90 shadow-[0_28px_70px_-28px_rgba(91,33,182,0.55)]">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(124,58,237,0.28),transparent_58%)]"
               />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-3 rounded-[1.2rem] border border-white/15"
+              />
+              <div className="relative aspect-[3/2]">
+                <Image
+                  src="/images/Hero_Section.png"
+                  alt="Shikohabad Creative Co. studio illustration — designing ideas, creating impact"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 48vw"
+                  className="object-contain object-center p-3 sm:p-4"
+                />
+              </div>
             </div>
-            <p className="mt-2 text-center font-display text-[10px] font-bold uppercase tracking-[0.18em] text-primary sm:text-xs lg:text-left">
+
+            <p className="mt-3 text-center font-display text-[10px] font-bold uppercase tracking-[0.18em] text-primary sm:text-xs lg:text-left">
               Based in Shikohabad
             </p>
           </div>
