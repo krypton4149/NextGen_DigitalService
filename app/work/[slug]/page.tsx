@@ -53,13 +53,14 @@ export default async function WorkProjectPage({ params }: PageProps) {
 
       <section className="border-b border-border px-4 py-10 sm:px-6 lg:px-8">
         <div
-          className={`relative mx-auto aspect-[16/9] max-w-6xl ${isFramedProject(project) ? "bg-surface" : "img-frame"}`}
+          className={`relative mx-auto aspect-[16/9] max-w-6xl overflow-hidden rounded-2xl ${isFramedProject(project) ? "border border-border bg-white" : "img-frame"}`}
         >
           <Image
             src={project.image}
             alt={`Creative presentation for ${project.name}`}
             fill
-            className={isFramedProject(project) ? "object-contain p-6" : "object-cover"}
+            unoptimized={isFramedProject(project)}
+            className={`relative z-[1] ${isFramedProject(project) ? "object-contain p-6" : "object-cover"}`}
             sizes="100vw"
             priority
           />

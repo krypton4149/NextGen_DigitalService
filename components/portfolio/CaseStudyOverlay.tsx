@@ -69,13 +69,14 @@ export function CaseStudyOverlay({ project, onClose }: CaseStudyOverlayProps) {
 
         <div className="overflow-y-auto">
           <div
-            className={`relative m-4 aspect-[16/9] sm:m-6 ${framed ? "bg-surface" : "img-frame"}`}
+            className={`relative m-4 aspect-[16/9] overflow-hidden rounded-2xl sm:m-6 ${framed ? "border border-border bg-white" : "img-frame"}`}
           >
             <Image
               src={project.image}
               alt={`Creative presentation for ${project.name}`}
               fill
-              className={framed ? "object-contain p-4" : "object-cover"}
+              unoptimized={framed}
+              className={`relative z-[1] ${framed ? "object-contain p-4" : "object-cover"}`}
               sizes="(max-width: 1024px) 100vw, 960px"
               priority
             />

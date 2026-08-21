@@ -31,11 +31,16 @@ export function WorkPageView() {
           {PORTFOLIO_PROJECTS.map((project, index) => (
             <Reveal key={project.id} delayMs={index * 40}>
               <Link href={`/work/${project.slug}`} className="group block">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-surface">
+                <div
+                  className={`relative aspect-[4/3] overflow-hidden rounded-2xl ${
+                    isFramedProject(project) ? "border border-border bg-white" : "bg-surface"
+                  }`}
+                >
                   <Image
                     src={project.image}
                     alt={`Creative presentation for ${project.name}`}
                     fill
+                    unoptimized={isFramedProject(project)}
                     className={`${isFramedProject(project) ? "object-contain p-2" : "object-cover"} transition duration-500 group-hover:scale-[1.04]`}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />

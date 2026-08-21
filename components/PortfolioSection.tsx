@@ -30,11 +30,16 @@ function ProjectCard({
       onClick={() => onOpen(project)}
       className="group flex h-full w-full flex-col text-left outline-none"
     >
-      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-surface">
+      <div
+        className={`relative aspect-[4/3] overflow-hidden rounded-2xl ${
+          framed ? "border border-border bg-white" : "bg-surface"
+        }`}
+      >
         <Image
           src={project.image}
           alt={`Creative presentation for ${project.name}`}
           fill
+          unoptimized={framed}
           className={`${framed ? "object-contain p-2" : "object-cover"} transition duration-500 group-hover:scale-[1.04]`}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
