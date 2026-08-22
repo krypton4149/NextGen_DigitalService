@@ -1,15 +1,19 @@
 @import "tailwindcss";
 
 :root {
+  --navy: #0b132b;
+  --soft-navy: #16213e;
+  --coral: #ff5a3c;
+  --coral-dim: #e04a2e;
   --background: #ffffff;
-  --foreground: #111827;
-  --surface: #f5f3ff;
+  --foreground: #0b132b;
+  --surface: #f4f6fa;
   --surface-elevated: #ffffff;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --primary: #5b21b6;
-  --accent: #7c3aed;
-  --accent-dim: #6d28d9;
+  --muted: #5a6478;
+  --border: #dce1ea;
+  --primary: var(--navy);
+  --accent: var(--coral);
+  --accent-dim: var(--coral-dim);
   --accent-ink: #ffffff;
 }
 
@@ -24,6 +28,9 @@
   --color-accent: var(--accent);
   --color-accent-dim: var(--accent-dim);
   --color-accent-ink: var(--accent-ink);
+  --color-navy: var(--navy);
+  --color-soft-navy: var(--soft-navy);
+  --color-coral: var(--coral);
   --color-brand: var(--primary);
   --color-brand-navy: var(--primary);
   --font-sans: var(--font-body);
@@ -168,7 +175,7 @@ body {
 }
 
 .img-frame--dark::after {
-  border-color: rgb(91 33 182 / 0.28);
+  border-color: rgb(255 90 60 / 0.35);
 }
 
 .img-zoom {
@@ -192,6 +199,6 @@ body {
   letter-spacing: -0.05em;
   text-transform: uppercase;
   color: rgb(255 255 255 / 0.92);
-  text-shadow: 0 8px 30px rgb(17 24 39 / 0.25);
+  text-shadow: 0 8px 30px rgb(11 19 43 / 0.35);
   padding-inline: 1.1rem;
 }

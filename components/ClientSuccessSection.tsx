@@ -35,7 +35,7 @@ const testimonials: Testimonial[] = [
     name: "Karan Patel",
     role: "Start-up founder",
     initials: "KP",
-    gradient: "from-violet-500 to-purple-600",
+    gradient: "from-navy to-coral",
   },
   {
     quote:

@@ -49,10 +49,10 @@ export function Hero() {
               className="absolute -bottom-5 -left-3 h-16 w-16 rounded-2xl bg-accent/20 blur-md"
             />
 
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#050505]/90 shadow-[0_28px_70px_-28px_rgba(91,33,182,0.55)]">
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-navy/95 shadow-[0_28px_70px_-28px_rgba(11,19,43,0.55)]">
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(124,58,237,0.28),transparent_58%)]"
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(255,90,60,0.22),transparent_58%)]"
               />
               <div
                 aria-hidden

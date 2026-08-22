@@ -85,7 +85,7 @@ export function ServicesDetailBento() {
               <span aria-hidden>→</span>
             </Link>
           </article>
-          <article className="relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-primary to-accent p-8 text-white shadow-lg shadow-primary/25 lg:col-span-5">
+          <article className="relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-navy to-soft-navy p-8 text-white shadow-lg shadow-navy/25 lg:col-span-5">
             <div
               className="pointer-events-none absolute -right-8 top-1/2 size-48 -translate-y-1/2 rounded-full bg-white/5 blur-2xl"
               aria-hidden

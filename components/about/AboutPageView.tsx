@@ -220,7 +220,7 @@ export function AboutPageView() {
             {team.map((person, index) => (
               <Reveal key={person.name} as="li" delayMs={index * 60}>
                 <article className="text-center">
-                  <div className="relative mx-auto aspect-square w-full max-w-[14rem] overflow-hidden rounded-full border-[4px] border-white bg-surface shadow-[0_18px_40px_-20px_rgba(91,33,182,0.55)] sm:max-w-[15rem]">
+                  <div className="relative mx-auto aspect-square w-full max-w-[14rem] overflow-hidden rounded-full border-[4px] border-white bg-surface shadow-[0_18px_40px_-20px_rgba(11,19,43,0.45)] sm:max-w-[15rem]">
                     <Image
                       src={person.image}
                       alt={person.alt}

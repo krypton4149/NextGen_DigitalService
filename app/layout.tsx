@@ -1,21 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, Noto_Sans_Devanagari, Space_Grotesk } from "next/font/google";
+import { Montserrat, Noto_Sans_Devanagari, Poppins } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { CustomCursor } from "@/components/CustomCursor";
 import "./globals.css";
 
-const display = Space_Grotesk({
+const display = Poppins({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
   adjustFontFallback: true,
 });
 
-const body = Manrope({
+const body = Montserrat({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
   adjustFontFallback: true,
 });
 
@@ -31,7 +33,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#5B21B6",
+  themeColor: "#0B132B",
 };
 
 export const metadata: Metadata = {

@@ -8,7 +8,7 @@ const items = [
 export function CreativeMarquee({ reverse = false }: { reverse?: boolean }) {
   return (
     <section
-      className="overflow-hidden border-y border-border bg-accent py-5 text-accent-ink"
+      className="overflow-hidden border-y border-navy bg-navy py-5 text-white"
       aria-label="Creative statement"
     >
       <div
@@ -22,7 +22,9 @@ export function CreativeMarquee({ reverse = false }: { reverse?: boolean }) {
             {items.map((item) => (
               <span key={`${copy}-${item}`} className="flex items-center gap-8">
                 <span>{item}</span>
-                <span aria-hidden>✦</span>
+                <span className="text-coral" aria-hidden>
+                  ✦
+                </span>
               </span>
             ))}
           </p>

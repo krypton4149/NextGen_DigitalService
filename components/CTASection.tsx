@@ -37,7 +37,7 @@ export function CTASection() {
             Let&apos;s make them notice.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Button href="/contact" className="bg-white text-primary hover:bg-white/90">
+            <Button href="/contact" className="bg-coral text-white hover:bg-accent-dim">
               Start a project
             </Button>
             <Button
