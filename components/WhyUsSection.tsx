@@ -49,7 +49,7 @@ export function WhyUsSection() {
                     alt={`${point.title} at Shikohabad Creative Co.`}
                     fill
                     className="img-zoom object-cover"
-                    sizes="(max-width: 640px) 100vw, 25vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                   <div className="absolute inset-0 z-[1] bg-gradient-to-t from-foreground/80 via-foreground/25 to-transparent" />
                   <span className="absolute left-4 top-4 z-[3] font-display text-3xl font-extrabold text-white/70">

@@ -5,8 +5,8 @@ import { Reveal } from "./Reveal";
 export function AboutTeaserSection() {
   return (
     <section id="about" className="scroll-mt-24 border-b border-border bg-surface">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-12 lg:px-8">
-        <Reveal className="lg:col-span-6">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-20 md:grid-cols-12 md:px-8 lg:px-8">
+        <Reveal className="md:col-span-6">
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
             About the studio
           </p>
@@ -31,8 +31,8 @@ export function AboutTeaserSection() {
           </Link>
         </Reveal>
 
-        <Reveal delayMs={90} className="lg:col-span-6">
-          <div className="relative mx-auto aspect-[3/2] w-full max-w-lg lg:ml-auto lg:max-w-none">
+        <Reveal delayMs={90} className="md:col-span-6">
+          <div className="relative mx-auto aspect-[3/2] w-full max-w-lg md:ml-auto md:max-w-none">
             <Image
               src="/images/Studio.png"
               alt="Shikohabad Creative Co. studio — design, content and digital craft"

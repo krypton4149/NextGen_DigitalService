@@ -67,9 +67,9 @@ export default function EventsPage() {
       <CreativeMarquee reverse />
 
       <section className="border-b border-border py-20 sm:py-28">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
-          <Reveal className="lg:col-span-7">
-            <div className="img-frame min-h-[22rem] lg:min-h-[32rem]">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-12 md:px-8 lg:px-8">
+          <Reveal className="md:col-span-7">
+            <div className="img-frame min-h-[22rem] md:min-h-[26rem] lg:min-h-[32rem]">
               <Image
                 src="/images/work-events.jpg"
                 alt="Experiential event atmosphere by Shikohabad Creative Co."
@@ -82,7 +82,7 @@ export default function EventsPage() {
               <p className="img-stamp">Experience.</p>
             </div>
           </Reveal>
-          <div className="lg:col-span-5">
+          <div className="md:col-span-5">
             <ul className="space-y-0 divide-y divide-border border-y border-border">
               {pillars.map((item, index) => (
                 <Reveal key={item.title} as="li" delayMs={index * 50}>

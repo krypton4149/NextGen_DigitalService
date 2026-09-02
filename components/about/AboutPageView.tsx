@@ -48,8 +48,8 @@ export function AboutPageView() {
     <div>
       {/* Hero */}
       <section className="border-b border-border px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-12 lg:gap-12">
-          <Reveal className="lg:col-span-7">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-12 md:gap-10 lg:gap-12">
+          <Reveal className="md:col-span-7">
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
               About · Shikohabad Creative Co.
             </p>
@@ -68,8 +68,8 @@ export function AboutPageView() {
             </p>
           </Reveal>
 
-          <Reveal delayMs={80} className="lg:col-span-5">
-            <div className="relative mx-auto aspect-square w-full max-w-[18rem] overflow-hidden rounded-full border border-border bg-surface lg:ml-auto lg:mr-0 lg:max-w-[20rem]">
+          <Reveal delayMs={80} className="md:col-span-5">
+            <div className="relative mx-auto aspect-square w-full max-w-[18rem] overflow-hidden rounded-full border border-border bg-surface md:ml-auto md:mr-0 md:max-w-[20rem]">
               <Image
                 src="/images/ceo-piyush-yadav.png"
                 alt="Piyush Yadav, Founder of Shikohabad Creative Co."
@@ -79,7 +79,7 @@ export function AboutPageView() {
                 priority
               />
             </div>
-            <div className="mt-4 text-center lg:ml-auto lg:max-w-[20rem] lg:text-left">
+            <div className="mt-4 text-center md:ml-auto md:max-w-[20rem] md:text-left">
               <p className="font-display text-base font-semibold">Piyush Yadav</p>
               <p className="mt-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-accent">
                 Founder & CEO
@@ -91,8 +91,8 @@ export function AboutPageView() {
 
       {/* Story */}
       <section className="border-b border-border bg-surface px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-12 lg:gap-12">
-          <Reveal className="lg:col-span-5">
+        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-12 md:gap-10 lg:gap-12">
+          <Reveal className="md:col-span-5">
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
               Our story
             </p>
@@ -102,7 +102,7 @@ export function AboutPageView() {
               <span className="text-accent">to everywhere.</span>
             </h2>
           </Reveal>
-          <Reveal delayMs={60} className="lg:col-span-7">
+          <Reveal delayMs={60} className="md:col-span-7">
             <div className="space-y-4 text-sm leading-relaxed text-muted sm:text-base">
               <p>
                 Shikohabad Creative Co. started with a clear belief: local
@@ -244,8 +244,8 @@ export function AboutPageView() {
 
       {/* Local identity */}
       <section className="border-b border-border">
-        <div className="mx-auto grid max-w-6xl items-center lg:grid-cols-2">
-          <div className="relative mx-auto aspect-[1207/1303] w-full max-w-[14rem] py-8 sm:max-w-[18rem] lg:py-10">
+        <div className="mx-auto grid max-w-6xl items-center md:grid-cols-2">
+          <div className="relative mx-auto aspect-[1207/1303] w-full max-w-[14rem] py-8 sm:max-w-[18rem] md:py-10">
             <Image
               src="/images/City.png"
               alt="Shikohabad — local streets, local understanding, digital reach"

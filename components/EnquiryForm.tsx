@@ -100,7 +100,7 @@ export function EnquiryForm({
             name="need"
             required
             defaultValue=""
-            className="mt-2 w-full appearance-none border border-border bg-surface px-4 py-3 text-foreground outline-none transition focus:border-accent"
+            className="mt-2 w-full appearance-none border border-border bg-surface px-4 py-3 text-base text-foreground outline-none transition focus:border-accent"
           >
             <option value="" disabled>
               Select a service
@@ -124,7 +124,7 @@ export function EnquiryForm({
             name="budget"
             required
             defaultValue=""
-            className="mt-2 w-full appearance-none border border-border bg-surface px-4 py-3 text-foreground outline-none transition focus:border-accent"
+            className="mt-2 w-full appearance-none border border-border bg-surface px-4 py-3 text-base text-foreground outline-none transition focus:border-accent"
           >
             <option value="" disabled>
               Select a range
@@ -150,13 +150,13 @@ export function EnquiryForm({
           name="message"
           required
           rows={5}
-          className="mt-2 w-full resize-y border border-border bg-surface px-4 py-3 text-foreground outline-none transition focus:border-accent"
+          className="mt-2 w-full resize-y border border-border bg-surface px-4 py-3 text-base text-foreground outline-none transition focus:border-accent"
         />
       </div>
 
       <button
         type="submit"
-        className="inline-flex items-center gap-2 bg-primary px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent-ink transition hover:bg-accent"
+        className="inline-flex min-h-11 items-center gap-2 bg-primary px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent-ink transition hover:bg-accent"
       >
         {sent ? "Opening mail…" : submitLabel}
         <span aria-hidden>→</span>
@@ -194,7 +194,7 @@ function Field({
         type={type}
         required={required}
         autoComplete={autoComplete}
-        className="mt-2 w-full border border-border bg-surface px-4 py-3 text-foreground outline-none transition focus:border-accent"
+        className="mt-2 w-full border border-border bg-surface px-4 py-3 text-base text-foreground outline-none transition focus:border-accent"
       />
     </div>
   );

@@ -9,8 +9,8 @@ export function Hero() {
         <div className="absolute -right-16 bottom-10 size-[22rem] rounded-full bg-primary/10 blur-[90px]" />
       </div>
 
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 pb-14 pt-10 sm:px-6 sm:pb-16 sm:pt-14 lg:grid-cols-12 lg:gap-10 lg:px-8 lg:pb-20 lg:pt-16">
-        <div className="relative z-10 lg:col-span-6">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 pb-14 pt-10 sm:px-6 sm:pb-16 sm:pt-14 md:grid-cols-12 md:gap-8 md:px-8 lg:gap-10 lg:px-8 lg:pb-20 lg:pt-16">
+        <div className="relative z-10 md:col-span-6">
           <p className="mb-5 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-accent">
             Local Roots. Creative Reach.
           </p>
@@ -38,8 +38,8 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative lg:col-span-6">
-          <div className="relative mx-auto max-w-xl lg:ml-auto lg:max-w-none">
+        <div className="relative md:col-span-6">
+          <div className="relative mx-auto max-w-xl md:ml-auto md:max-w-none">
             <div
               aria-hidden
               className="absolute -right-4 top-8 size-24 rounded-full border border-accent/30"
@@ -64,13 +64,13 @@ export function Hero() {
                   alt="Shikohabad Creative Co. studio illustration — designing ideas, creating impact"
                   fill
                   priority
-                  sizes="(max-width: 1024px) 90vw, 48vw"
+                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 48vw"
                   className="object-contain object-center p-3 sm:p-4"
                 />
               </div>
             </div>
 
-            <p className="mt-3 text-center font-display text-[10px] font-bold uppercase tracking-[0.18em] text-primary sm:text-xs lg:text-left">
+            <p className="mt-3 text-center font-display text-[10px] font-bold uppercase tracking-[0.18em] text-primary sm:text-xs md:text-left">
               Based in Shikohabad
             </p>
           </div>

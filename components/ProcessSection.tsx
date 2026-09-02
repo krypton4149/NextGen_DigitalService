@@ -23,13 +23,13 @@ export function ProcessSection() {
           </h2>
         </Reveal>
 
-        <ol className="mt-14 flex gap-4 overflow-x-auto pb-4 lg:grid lg:grid-cols-5 lg:overflow-visible lg:pb-0">
+        <ol className="mt-14 flex gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-3 md:overflow-visible md:pb-0 lg:grid-cols-5">
           {steps.map((step, index) => (
             <Reveal
               key={step.num}
               as="li"
               delayMs={index * 60}
-              className="min-w-[14rem] shrink-0 rounded-3xl border border-border bg-surface p-6 lg:min-w-0"
+              className="min-w-[14rem] shrink-0 rounded-3xl border border-border bg-surface p-6 md:min-w-0"
             >
               <span className="font-display text-sm text-accent">{step.num}</span>
               <h3 className="mt-8 font-display text-2xl font-bold uppercase tracking-tight">

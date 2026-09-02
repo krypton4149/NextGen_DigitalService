@@ -43,7 +43,7 @@ export function EdgePhilosophySection() {
       id="about"
       className="scroll-mt-24 border-t border-border bg-surface py-16 sm:py-20 lg:py-24"
     >
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:gap-14 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:gap-14 sm:px-6 md:grid-cols-2 md:items-center md:gap-16 md:px-8 lg:px-8">
         <div className="min-w-0">
           <h2 className="text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-[2.35rem] lg:leading-[1.12]">
             The Edge Your

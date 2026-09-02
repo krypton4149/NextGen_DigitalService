@@ -74,8 +74,8 @@ export default async function WorkProjectPage({ params }: PageProps) {
       </section>
 
       <section className="border-b border-border px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-12 lg:gap-12">
-          <div className="space-y-6 lg:col-span-4">
+        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-12 md:gap-10 lg:gap-12">
+          <div className="space-y-6 md:col-span-4">
             <div>
               <p className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-muted">
                 Client
@@ -103,7 +103,7 @@ export default async function WorkProjectPage({ params }: PageProps) {
             </div>
           </div>
 
-          <div className="lg:col-span-8">
+          <div className="md:col-span-8">
             <p className="whitespace-pre-line font-display text-xl font-semibold leading-snug tracking-tight sm:text-2xl">
               {project.headline}
             </p>

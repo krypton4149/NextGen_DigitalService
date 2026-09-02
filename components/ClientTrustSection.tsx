@@ -24,7 +24,7 @@ export function ClientTrustSection() {
                     alt={`${client.name} project`}
                     fill
                     className="img-zoom object-cover"
-                    sizes="(max-width: 640px) 100vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 z-[1] bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
                   <p className="absolute inset-x-0 bottom-0 z-[3] p-4 font-display text-lg font-bold text-white">

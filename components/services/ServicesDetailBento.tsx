@@ -25,8 +25,8 @@ export function ServicesDetailBento() {
   return (
     <section className="border-t border-border bg-surface py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-6xl space-y-6 px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-6 lg:grid-cols-12 lg:items-stretch">
-          <article className="flex h-full min-h-[300px] flex-col rounded-2xl border border-border bg-white p-8 shadow-sm lg:col-span-7">
+        <div className="grid gap-6 md:grid-cols-12 md:items-stretch">
+          <article className="flex h-full min-h-[300px] flex-col rounded-2xl border border-border bg-white p-8 shadow-sm md:col-span-7">
             <BrandIconGoogle />
             <h2 className="mt-6 text-xl font-bold text-foreground sm:text-2xl">
               Google Business Profile Setup
@@ -41,7 +41,7 @@ export function ServicesDetailBento() {
             </p>
           </article>
 
-          <article className="flex h-full min-h-[300px] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm lg:col-span-5">
+          <article className="flex h-full min-h-[300px] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm md:col-span-5">
             <div className="relative aspect-[16/10] w-full bg-surface">
               <Image
                 src="/images/portfolio-business.jpg"
@@ -63,8 +63,8 @@ export function ServicesDetailBento() {
           </article>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-12 lg:items-stretch">
-          <article className="flex h-full min-h-[280px] flex-col rounded-2xl border border-border bg-white p-8 shadow-sm lg:col-span-7">
+        <div className="grid gap-6 md:grid-cols-12 md:items-stretch">
+          <article className="flex h-full min-h-[280px] flex-col rounded-2xl border border-border bg-white p-8 shadow-sm md:col-span-7">
             <IconTile>
               <CloudCog className="size-6" strokeWidth={2} aria-hidden />
             </IconTile>
@@ -85,7 +85,7 @@ export function ServicesDetailBento() {
               <span aria-hidden>→</span>
             </Link>
           </article>
-          <article className="relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-navy to-soft-navy p-8 text-white shadow-lg shadow-navy/25 lg:col-span-5">
+          <article className="relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-navy to-soft-navy p-8 text-white shadow-lg shadow-navy/25 md:col-span-5">
             <div
               className="pointer-events-none absolute -right-8 top-1/2 size-48 -translate-y-1/2 rounded-full bg-white/5 blur-2xl"
               aria-hidden
@@ -105,8 +105,8 @@ export function ServicesDetailBento() {
           </article>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-12 lg:items-stretch">
-          <article className="flex h-full min-h-[280px] flex-col rounded-2xl border border-border bg-surface p-8 shadow-sm lg:col-span-5">
+        <div className="grid gap-6 md:grid-cols-12 md:items-stretch">
+          <article className="flex h-full min-h-[280px] flex-col rounded-2xl border border-border bg-surface p-8 shadow-sm md:col-span-5">
             <BrandIconGoogleSeo />
             <h2 className="mt-6 text-xl font-bold text-foreground sm:text-2xl">
               Search Engine Optimization
@@ -117,7 +117,7 @@ export function ServicesDetailBento() {
             </p>
           </article>
 
-          <article className="flex h-full min-h-[280px] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm sm:flex-row lg:col-span-7">
+          <article className="flex h-full min-h-[280px] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm sm:flex-row md:col-span-7">
             <div className="flex flex-1 flex-col p-8">
               <h2 className="text-xl font-bold text-foreground sm:text-2xl">
                 Logo &amp; Banner Design

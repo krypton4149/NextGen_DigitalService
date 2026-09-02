@@ -4,7 +4,7 @@ import Image from "next/image";
 export function ServicesReliabilitySection() {
   return (
     <section className="border-t border-border bg-white py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:gap-16 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:gap-16 sm:px-6 md:grid-cols-2 md:gap-16 md:px-8 lg:px-8">
         <div className="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-200 shadow-xl shadow-slate-900/10 ring-1 ring-slate-900/5">
             <Image

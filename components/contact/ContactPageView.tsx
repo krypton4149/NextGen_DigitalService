@@ -61,8 +61,8 @@ export function ContactPageView() {
       </section>
 
       <section className="border-b border-border px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-12 lg:gap-12">
-          <Reveal className="lg:col-span-7">
+        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-12 md:gap-10 lg:gap-12">
+          <Reveal className="md:col-span-7">
             <h2 className="font-display text-xl font-semibold tracking-tight sm:text-2xl">
               Send a message
             </h2>
@@ -80,7 +80,7 @@ export function ContactPageView() {
                     name="name"
                     required
                     autoComplete="name"
-                    className="mt-2 w-full border border-border bg-surface px-4 py-3 text-sm outline-none transition focus:border-accent"
+                    className="mt-2 w-full border border-border bg-surface px-4 py-3 text-base outline-none transition focus:border-accent"
                   />
                 </div>
                 <div>
@@ -96,7 +96,7 @@ export function ContactPageView() {
                     type="email"
                     required
                     autoComplete="email"
-                    className="mt-2 w-full border border-border bg-surface px-4 py-3 text-sm outline-none transition focus:border-accent"
+                    className="mt-2 w-full border border-border bg-surface px-4 py-3 text-base outline-none transition focus:border-accent"
                   />
                 </div>
               </div>
@@ -113,7 +113,7 @@ export function ContactPageView() {
                   name="subject"
                   required
                   defaultValue={subjects[0]}
-                  className="mt-2 w-full appearance-none border border-border bg-surface px-4 py-3 text-sm outline-none transition focus:border-accent"
+                  className="mt-2 w-full appearance-none border border-border bg-surface px-4 py-3 text-base outline-none transition focus:border-accent"
                 >
                   {subjects.map((s) => (
                     <option key={s} value={s}>
@@ -136,13 +136,13 @@ export function ContactPageView() {
                   required
                   rows={5}
                   placeholder="Tell us what you're building..."
-                  className="mt-2 w-full resize-y border border-border bg-surface px-4 py-3 text-sm outline-none transition focus:border-accent"
+                  className="mt-2 w-full resize-y border border-border bg-surface px-4 py-3 text-base outline-none transition focus:border-accent"
                 />
               </div>
 
               <button
                 type="submit"
-                className="bg-primary px-6 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-accent-ink transition hover:bg-accent"
+                className="min-h-11 bg-primary px-6 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-accent-ink transition hover:bg-accent"
               >
                 {sent ? "Opening mail…" : "Send message"}
               </button>
@@ -161,7 +161,7 @@ export function ContactPageView() {
             </form>
           </Reveal>
 
-          <div className="flex flex-col gap-5 lg:col-span-5">
+          <div className="flex flex-col gap-5 md:col-span-5">
             <Reveal delayMs={60}>
               <div className="border border-border bg-surface p-6 sm:p-7">
                 <h2 className="font-display text-lg font-semibold tracking-tight">

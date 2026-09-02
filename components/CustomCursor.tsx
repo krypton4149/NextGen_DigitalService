@@ -9,8 +9,9 @@ export function CustomCursor() {
 
   useEffect(() => {
     const fine = window.matchMedia("(pointer: fine)").matches;
+    const canHover = window.matchMedia("(hover: hover)").matches;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!fine || reduce) return;
+    if (!fine || !canHover || reduce) return;
     setEnabled(true);
 
     const onMove = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
@@ -31,7 +32,7 @@ export function CustomCursor() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-[100] hidden mix-blend-difference md:block"
+      className="pointer-events-none fixed left-0 top-0 z-[100] hidden mix-blend-difference lg:block"
       style={{
         transform: `translate3d(${pos.x}px, ${pos.y}px, 0)`,
       }}

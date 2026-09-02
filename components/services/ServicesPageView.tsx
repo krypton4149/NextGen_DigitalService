@@ -32,8 +32,8 @@ export function ServicesPageView() {
         <ul className="mx-auto max-w-6xl divide-y divide-border px-4 sm:px-6 lg:px-8">
           {CORE_SERVICES.map((service, index) => (
             <Reveal key={service.num} as="li" delayMs={index * 50}>
-              <article className="grid gap-8 py-12 sm:py-14 lg:grid-cols-12 lg:items-center lg:gap-10 lg:py-16">
-                <div className="group img-frame aspect-[16/10] lg:col-span-5">
+              <article className="grid gap-8 py-12 sm:py-14 md:grid-cols-12 md:items-center md:gap-8 lg:gap-10 lg:py-16">
+                <div className="group img-frame aspect-[16/10] md:col-span-5">
                   <Image
                     src={service.image}
                     alt=""
@@ -47,7 +47,7 @@ export function ServicesPageView() {
                   </p>
                 </div>
 
-                <div className="lg:col-span-7">
+                <div className="md:col-span-7">
                   <div className="flex items-baseline gap-4">
                     <span className="font-mono text-xs tracking-[0.18em] text-accent">
                       {service.num}

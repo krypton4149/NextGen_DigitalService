@@ -34,6 +34,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: "#0B132B",
+  interactiveWidget: "resizes-content",
 };
 
 export const metadata: Metadata = {
@@ -83,7 +84,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${hindi.variable}`}>
-      <body className="min-h-screen overflow-x-clip bg-background font-sans text-foreground antialiased">
+      <body className="min-h-dvh bg-background font-sans text-foreground antialiased">
         <CustomCursor />
         <Header />
         {children}

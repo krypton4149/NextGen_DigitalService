@@ -21,7 +21,7 @@ export function CTASection() {
         <div className="absolute inset-0 bg-primary/78" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 md:px-8 md:py-32 lg:px-8">
         <Reveal>
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-white/70">
             Next chapter

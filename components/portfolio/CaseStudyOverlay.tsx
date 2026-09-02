@@ -88,8 +88,8 @@ export function CaseStudyOverlay({ project, onClose }: CaseStudyOverlayProps) {
             )}
           </div>
 
-          <div className="grid gap-10 px-5 py-8 sm:px-8 sm:py-10 lg:grid-cols-12">
-            <div className="space-y-8 lg:col-span-4">
+          <div className="grid gap-10 px-5 py-8 sm:px-8 sm:py-10 md:grid-cols-12">
+            <div className="space-y-8 md:col-span-4">
               <div>
                 <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-muted">
                   Client
@@ -124,7 +124,7 @@ export function CaseStudyOverlay({ project, onClose }: CaseStudyOverlayProps) {
               </div>
             </div>
 
-            <div className="lg:col-span-8">
+            <div className="md:col-span-8">
               <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-muted">
                 The approach
               </p>

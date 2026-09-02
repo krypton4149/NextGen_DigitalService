@@ -18,8 +18,8 @@ export function ContactSection() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
-            <div className="lg:col-span-7">
+          <div className="grid gap-4 md:grid-cols-12 md:items-end">
+            <div className="md:col-span-7">
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-accent">
                 Contact
               </p>
@@ -29,14 +29,14 @@ export function ContactSection() {
                 you&apos;re building.
               </h2>
             </div>
-            <p className="text-sm leading-relaxed text-muted lg:col-span-5 lg:text-right">
+            <p className="text-sm leading-relaxed text-muted md:col-span-5 md:text-right">
               Prefer a quick chat? Call, WhatsApp or email — we reply fast.
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-12">
-          <div className="rounded-3xl border border-border bg-background p-8 lg:col-span-4 sm:p-10">
+        <div className="mt-14 grid gap-8 md:grid-cols-12">
+          <div className="rounded-3xl border border-border bg-background p-8 sm:p-10 md:col-span-5 lg:col-span-4">
             <div className="space-y-8">
               <a
                 href={`tel:${CONTACT_PHONE_TEL}`}
@@ -85,7 +85,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-border bg-background p-8 lg:col-span-8 sm:p-10">
+          <div className="rounded-3xl border border-border bg-background p-8 sm:p-10 md:col-span-7 lg:col-span-8">
             <EnquiryForm idPrefix="home" submitLabel="Send project enquiry" />
           </div>
         </div>

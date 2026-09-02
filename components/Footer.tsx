@@ -18,11 +18,11 @@ const nav = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-white text-navy">
+    <footer className="border-t border-border bg-white pb-[env(safe-area-inset-bottom)] text-navy">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-12 lg:grid-cols-12 lg:gap-8">
           {/* Brand */}
-          <div className="sm:col-span-2 lg:col-span-5">
+          <div className="sm:col-span-2 md:col-span-5 lg:col-span-5">
             <Link href="/" prefetch>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -46,7 +46,7 @@ export function Footer() {
           </div>
 
           {/* Pages */}
-          <div className="lg:col-span-3">
+          <div className="md:col-span-3 lg:col-span-3">
             <h3 className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-coral">
               Pages
             </h3>
@@ -65,7 +65,7 @@ export function Footer() {
           </div>
 
           {/* Connect */}
-          <div className="lg:col-span-4">
+          <div className="md:col-span-4 lg:col-span-4">
             <h3 className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-coral">
               Connect
             </h3>
