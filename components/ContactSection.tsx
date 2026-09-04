@@ -1,94 +1,131 @@
 "use client";
 
-import { Mail, MessageCircle, Phone } from "lucide-react";
+import { Flag, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE_DISPLAY,
   CONTACT_PHONE_TEL,
   CONTACT_WHATSAPP_URL,
 } from "@/lib/contact";
+import { SOCIAL_LINKS } from "@/lib/social";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  YoutubeIcon,
+} from "@/components/icons/SocialBrandIcons";
 import { EnquiryForm } from "./EnquiryForm";
 import { Reveal } from "./Reveal";
+
+const details = [
+  {
+    label: "Email us",
+    value: CONTACT_EMAIL,
+    href: `mailto:${CONTACT_EMAIL}`,
+    Icon: Mail,
+  },
+  {
+    label: "Call us",
+    value: CONTACT_PHONE_DISPLAY,
+    href: `tel:${CONTACT_PHONE_TEL}`,
+    Icon: Phone,
+  },
+  {
+    label: "WhatsApp",
+    value: "Chat with us",
+    href: CONTACT_WHATSAPP_URL,
+    Icon: MessageCircle,
+    external: true,
+  },
+  {
+    label: "Our location",
+    value: "Shikohabad, Uttar Pradesh, India",
+    href: "https://maps.google.com/?q=Shikohabad,+Uttar+Pradesh",
+    Icon: MapPin,
+    external: true,
+  },
+] as const;
+
+const socials = [
+  { href: SOCIAL_LINKS.instagram, label: "Instagram", Icon: InstagramIcon },
+  { href: SOCIAL_LINKS.facebook, label: "Facebook", Icon: FacebookIcon },
+  { href: SOCIAL_LINKS.youtube, label: "YouTube", Icon: YoutubeIcon },
+] as const;
 
 export function ContactSection() {
   return (
     <section
       id="contact"
-      className="scroll-mt-24 border-b border-border bg-surface py-20 sm:py-28"
+      className="scroll-mt-24 border-b border-border bg-white py-16 sm:py-20 lg:py-24"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal>
-          <div className="grid gap-4 md:grid-cols-12 md:items-end">
-            <div className="md:col-span-7">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-accent">
-                Contact
-              </p>
-              <h2 className="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
-                Tell us what
-                <br />
-                you&apos;re building.
-              </h2>
-            </div>
-            <p className="text-sm leading-relaxed text-muted md:col-span-5 md:text-right">
-              Prefer a quick chat? Call, WhatsApp or email — we reply fast.
-            </p>
+      <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 sm:px-6 md:grid-cols-12 md:gap-10 lg:gap-16 lg:px-8">
+        <Reveal className="md:col-span-5">
+          <p className="inline-flex items-center gap-2 rounded-full border border-coral/30 bg-white px-3.5 py-1.5">
+            <Flag className="size-3 text-coral" strokeWidth={2.2} aria-hidden />
+            <span className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-accent">
+              Contact Us
+            </span>
+          </p>
+          <h2 className="mt-6 font-display text-[clamp(1.85rem,4.2vw,3.15rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-navy">
+            Ready To
+            <br />
+            <span className="text-accent">Start A Project?</span>
+          </h2>
+          <span className="mt-5 block h-1 w-14 bg-navy" aria-hidden />
+          <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted sm:text-base">
+            Have a vision? We have the tools. Let&apos;s collaborate to build
+            something exceptional.
+          </p>
+
+          <ul className="mt-10 space-y-6">
+            {details.map((item) => (
+              <li key={item.label}>
+                <a
+                  href={item.href}
+                  {...("external" in item && item.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="group flex items-start gap-4"
+                >
+                  <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-surface text-coral transition group-hover:bg-coral group-hover:text-white">
+                    <item.Icon className="size-5" strokeWidth={1.8} aria-hidden />
+                  </span>
+                  <span>
+                    <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-muted">
+                      {item.label}
+                    </span>
+                    <span className="mt-1 block font-display text-sm font-bold text-navy group-hover:text-coral">
+                      {item.value}
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <p className="mt-10 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-muted">
+            Follow our journey
+          </p>
+          <div className="mt-3 flex gap-2">
+            {socials.map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="flex size-10 items-center justify-center rounded-xl bg-surface text-navy transition hover:bg-coral hover:text-white"
+              >
+                <Icon className="size-4" />
+              </a>
+            ))}
           </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-12">
-          <div className="rounded-3xl border border-border bg-background p-8 sm:p-10 md:col-span-5 lg:col-span-4">
-            <div className="space-y-8">
-              <a
-                href={`tel:${CONTACT_PHONE_TEL}`}
-                className="group flex gap-4 transition hover:text-accent"
-              >
-                <span className="flex size-11 shrink-0 items-center justify-center border border-border text-accent">
-                  <Phone className="size-5" aria-hidden />
-                </span>
-                <span>
-                  <span className="block text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted">
-                    Phone
-                  </span>
-                  <span className="mt-1 block text-sm">{CONTACT_PHONE_DISPLAY}</span>
-                </span>
-              </a>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="group flex gap-4 transition hover:text-accent"
-              >
-                <span className="flex size-11 shrink-0 items-center justify-center border border-border text-accent">
-                  <Mail className="size-5" aria-hidden />
-                </span>
-                <span>
-                  <span className="block text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted">
-                    Email
-                  </span>
-                  <span className="mt-1 block break-all text-sm">{CONTACT_EMAIL}</span>
-                </span>
-              </a>
-              <a
-                href={CONTACT_WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex gap-4 transition hover:text-accent"
-              >
-                <span className="flex size-11 shrink-0 items-center justify-center border border-border text-accent">
-                  <MessageCircle className="size-5" aria-hidden />
-                </span>
-                <span>
-                  <span className="block text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted">
-                    WhatsApp
-                  </span>
-                  <span className="mt-1 block text-sm">Chat with us</span>
-                </span>
-              </a>
-            </div>
+        <Reveal delayMs={80} className="md:col-span-7">
+          <div className="rounded-[1.75rem] border border-border bg-white p-6 shadow-[0_24px_60px_-28px_rgba(11,19,43,0.22)] sm:p-8 lg:p-10">
+            <EnquiryForm idPrefix="home" submitLabel="Send message" />
           </div>
-
-          <div className="rounded-3xl border border-border bg-background p-8 sm:p-10 md:col-span-7 lg:col-span-8">
-            <EnquiryForm idPrefix="home" submitLabel="Send project enquiry" />
-          </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

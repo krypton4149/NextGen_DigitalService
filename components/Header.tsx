@@ -1,17 +1,49 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
+import {
+  Calendar,
+  ChevronLeft,
+  House,
+  LayoutGrid,
+  Mail,
+  Menu,
+  Phone,
+  Rocket,
+  Search,
+  Star,
+  X,
+  Zap,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_TEL,
+  CONTACT_WHATSAPP_URL,
+} from "@/lib/contact";
+import { SOCIAL_LINKS } from "@/lib/social";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  YoutubeIcon,
+} from "@/components/icons/SocialBrandIcons";
+import { SearchOverlay } from "@/components/SearchOverlay";
 
 const links = [
-  { href: "/", label: "Home", num: "01" },
-  { href: "/work", label: "Work", num: "02" },
-  { href: "/services", label: "Services", num: "03" },
-  { href: "/events", label: "Events", num: "04" },
-  { href: "/about", label: "About", num: "05" },
-  { href: "/contact", label: "Contact", num: "06" },
+  { href: "/", label: "Home", Icon: House },
+  { href: "/about", label: "About", Icon: Star },
+  { href: "/services", label: "Services", Icon: Zap },
+  { href: "/work", label: "Work", Icon: LayoutGrid },
+  { href: "/events", label: "Events", Icon: Calendar },
+  { href: "/contact", label: "Contact", Icon: Mail },
+] as const;
+
+const socials = [
+  { href: SOCIAL_LINKS.facebook, label: "Facebook", Icon: FacebookIcon },
+  { href: SOCIAL_LINKS.instagram, label: "Instagram", Icon: InstagramIcon },
+  { href: SOCIAL_LINKS.youtube, label: "YouTube", Icon: YoutubeIcon },
 ] as const;
 
 function navLinkActive(pathname: string, href: string) {
@@ -22,10 +54,12 @@ function navLinkActive(pathname: string, href: string) {
 export function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setMenuOpen(false);
+    setSearchOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -37,7 +71,7 @@ export function Header() {
 
   useEffect(() => {
     const onResize = () => {
-      if (window.matchMedia("(min-width: 768px)").matches) {
+      if (window.matchMedia("(min-width: 1024px)").matches) {
         setMenuOpen(false);
       }
     };
@@ -46,7 +80,7 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    if (!menuOpen) return;
+    if (!menuOpen && !searchOpen) return;
 
     const html = document.documentElement;
     const { body } = document;
@@ -68,7 +102,10 @@ export function Header() {
     body.style.width = "100%";
 
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMenuOpen(false);
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        setSearchOpen(false);
+      }
     };
     document.addEventListener("keydown", onKey);
 
@@ -83,34 +120,78 @@ export function Header() {
       document.removeEventListener("keydown", onKey);
       window.scrollTo(0, scrollY);
     };
-  }, [menuOpen]);
+  }, [menuOpen, searchOpen]);
 
   return (
     <>
-      <header
-        className={`fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)] transition-all duration-300 ${
-          scrolled || menuOpen
-            ? "border-b border-border bg-background/95 backdrop-blur-md"
-            : "border-b border-transparent bg-background/40"
-        }`}
-      >
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-accent to-transparent opacity-70" />
+      <header className="fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]">
+        <div className="bg-navy text-white">
+          <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-1.5 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:px-6 lg:px-8">
+            <div className="flex min-w-0 items-center gap-3 text-[0.7rem]">
+              <a
+                href={`tel:${CONTACT_PHONE_TEL}`}
+                className="inline-flex items-center gap-1.5 font-semibold uppercase tracking-[0.12em] whitespace-nowrap transition hover:text-coral sm:text-[0.7rem] sm:font-normal sm:normal-case sm:tracking-normal"
+              >
+                <Phone className="size-3.5 shrink-0 text-coral" strokeWidth={2} aria-hidden />
+                <span className="hidden sm:inline">{CONTACT_PHONE_DISPLAY}</span>
+                <span className="sm:hidden">Call now</span>
+              </a>
+              <span className="hidden h-3 w-px bg-white/25 md:block" aria-hidden />
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="hidden min-w-0 items-center gap-1.5 md:inline-flex"
+              >
+                <Mail className="size-3.5 shrink-0 text-coral" strokeWidth={2} aria-hidden />
+                <span className="truncate transition hover:text-coral">{CONTACT_EMAIL}</span>
+              </a>
+            </div>
 
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
-          <div className="flex items-center gap-2 py-3 sm:gap-3 sm:py-3.5 md:gap-4">
+            <a
+              href={CONTACT_WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="proposal-btn inline-flex items-center gap-1.5 rounded-full bg-coral px-3 py-1.5 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-white shadow-[0_0_18px_rgba(255,90,60,0.45)] transition hover:bg-accent-dim sm:px-4 sm:text-[0.65rem] sm:tracking-[0.14em]"
+            >
+              Get a proposal
+              <Rocket className="rocket-launch size-3.5" strokeWidth={2.25} aria-hidden />
+            </a>
+
+            <div className="hidden items-center justify-end gap-2.5 sm:flex">
+              {socials.map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="hidden text-white/85 transition hover:text-coral sm:inline-flex"
+                >
+                  <Icon className="size-3.5" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`px-3 pb-2 pt-1.5 sm:px-4 lg:px-6 ${
+            scrolled || menuOpen ? "bg-white/90 backdrop-blur-md" : "bg-transparent"
+          }`}
+        >
+          <div className="mx-auto flex max-w-7xl items-center gap-3 rounded-full border border-border bg-white px-2.5 py-1 shadow-[0_10px_30px_-12px_rgba(11,19,43,0.28)] sm:px-3 sm:py-1.5">
             <Link href="/" className="min-w-0 shrink-0" prefetch>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/Logo1.png"
                 alt="Shikohabad Creative Co."
-                width={240}
-                height={90}
-                className="h-11 w-auto rounded-lg sm:h-12 md:h-14 lg:h-16"
+                width={220}
+                height={80}
+                className="h-8 w-auto rounded-full sm:h-9 lg:h-10"
               />
             </Link>
 
             <nav
-              className="hidden flex-1 items-center justify-center md:flex md:gap-0 lg:gap-0.5"
+              className="hidden flex-1 items-center justify-center gap-0.5 lg:flex"
               aria-label="Main"
             >
               {links.map(({ href, label }) => {
@@ -120,16 +201,14 @@ export function Header() {
                     key={href}
                     href={href}
                     prefetch
-                    className={`group relative px-2 py-2 text-[0.58rem] font-semibold uppercase tracking-[0.1em] transition lg:px-3 lg:text-[0.65rem] lg:tracking-[0.18em] ${
-                      active
-                        ? "text-accent"
-                        : "text-muted hover:text-foreground"
+                    className={`group relative px-2.5 py-1.5 text-[0.78rem] font-medium tracking-wide transition lg:px-3 ${
+                      active ? "text-navy" : "text-muted hover:text-navy"
                     }`}
                   >
                     {label}
                     <span
                       aria-hidden
-                      className={`absolute bottom-0 left-2 right-2 h-px origin-left bg-accent transition-transform duration-300 lg:left-3 lg:right-3 ${
+                      className={`absolute bottom-1 left-3 right-3 h-px origin-left bg-coral transition-transform duration-300 ${
                         active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                       }`}
                     />
@@ -138,23 +217,29 @@ export function Header() {
               })}
             </nav>
 
-            <div className="ml-auto flex items-center gap-2 sm:gap-3">
+            <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
+              <button
+                type="button"
+                className="flex size-9 shrink-0 items-center justify-center rounded-full text-navy transition hover:text-coral"
+                aria-label="Search"
+                onClick={() => {
+                  setMenuOpen(false);
+                  setSearchOpen(true);
+                }}
+              >
+                <Search className="size-5" strokeWidth={1.85} aria-hidden />
+              </button>
               <Link
                 href="/contact"
                 prefetch
-                className="group hidden min-h-11 items-center gap-2 border border-accent/40 bg-accent/10 px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-accent transition hover:bg-accent hover:text-accent-ink sm:inline-flex md:px-4 md:text-[0.65rem] md:tracking-[0.16em]"
+                className="hidden min-h-9 items-center gap-2 rounded-full bg-navy px-3.5 py-1.5 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-white transition hover:bg-coral sm:inline-flex lg:px-4"
               >
                 Start a project
-                <span
-                  className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  aria-hidden
-                >
-                  ↗
-                </span>
+                <Zap className="size-3.5 text-coral" strokeWidth={2.25} aria-hidden />
               </Link>
               <button
                 type="button"
-                className="flex size-11 shrink-0 items-center justify-center border border-border text-foreground transition hover:border-accent hover:text-accent md:hidden"
+                className="flex size-9 shrink-0 items-center justify-center rounded-full border border-border text-navy transition hover:border-coral hover:text-coral lg:hidden"
                 aria-expanded={menuOpen}
                 aria-controls="mobile-nav"
                 aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -174,73 +259,87 @@ export function Header() {
       <div className="h-[var(--site-header-height)] shrink-0" aria-hidden />
 
       {menuOpen ? (
-        <div className="fixed inset-0 z-40 md:hidden" role="dialog" aria-modal="true">
+        <div
+          className="fixed inset-x-0 bottom-0 z-[55] lg:hidden"
+          style={{ top: "var(--site-topbar-height)" }}
+          role="dialog"
+          aria-modal="true"
+        >
           <button
             type="button"
-            className="absolute inset-0 bg-navy/70"
+            className="absolute inset-0 bg-navy/55"
             aria-label="Close menu"
             onClick={() => setMenuOpen(false)}
           />
           <div
             id="mobile-nav"
-            className="absolute inset-x-0 top-[var(--site-header-height)] z-10 mx-3 overflow-hidden border border-border bg-background shadow-[0_20px_50px_-20px_rgba(0,0,0,0.8)] sm:mx-4"
+            className="mobile-drawer absolute inset-y-0 left-0 flex w-[min(86vw,22rem)] flex-col bg-white shadow-[12px_0_40px_-16px_rgba(11,19,43,0.45)]"
             style={{
-              maxHeight:
-                "min(70dvh, calc(100dvh - var(--site-header-height) - 0.75rem))",
-              paddingBottom: "max(0.25rem, env(safe-area-inset-bottom))",
+              borderBottomRightRadius: "3.25rem",
+              paddingBottom: "max(1rem, env(safe-area-inset-bottom))",
             }}
           >
-            <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
-              <p className="text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-accent">
-                Menu
-              </p>
-              <p className="text-[0.55rem] font-semibold uppercase tracking-[0.14em] text-muted">
-                Local Roots. Creative Reach.
-              </p>
+            <div className="flex items-center gap-3 px-4 pb-3 pt-4">
+              <button
+                type="button"
+                className="flex size-9 shrink-0 items-center justify-center rounded-full bg-surface text-navy"
+                aria-label="Close menu"
+                onClick={() => setMenuOpen(false)}
+              >
+                <ChevronLeft className="size-5" strokeWidth={2} aria-hidden />
+              </button>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/Logo1.png"
+                alt="Shikohabad Creative Co."
+                width={180}
+                height={64}
+                className="h-8 w-auto rounded-full"
+              />
             </div>
 
-            <nav
-              className="max-h-[min(48dvh,18rem)] overflow-y-auto overscroll-contain px-1.5 py-1.5"
-              aria-label="Mobile"
-            >
-              {links.map(({ href, label, num }) => {
+            <nav className="flex-1 overflow-y-auto overscroll-contain px-2" aria-label="Mobile">
+              {links.map(({ href, label, Icon }) => {
                 const active = navLinkActive(pathname, href);
                 return (
                   <Link
                     key={href}
                     href={href}
                     prefetch
-                    className={`flex min-h-12 items-center justify-between gap-3 px-3 py-2.5 transition active:bg-surface ${
-                      active
-                        ? "bg-accent/10 text-accent"
-                        : "text-foreground hover:bg-surface hover:text-accent"
-                    }`}
+                    className="flex min-h-[3.35rem] items-center gap-4 border-b border-border px-4 py-3 last:border-b-0"
                     onClick={() => setMenuOpen(false)}
                   >
-                    <span className="font-display text-[0.95rem] font-semibold tracking-tight sm:text-base">
-                      {label}
+                    <span
+                      className={`flex size-10 shrink-0 items-center justify-center rounded-full ${
+                        active ? "bg-coral text-white" : "bg-surface text-muted"
+                      }`}
+                    >
+                    <Icon className="size-5" strokeWidth={1.9} aria-hidden />
                     </span>
-                    <span className="font-mono text-[0.6rem] tracking-[0.14em] text-muted">
-                      {num}
+                    <span
+                      className={`text-[0.95rem] font-bold uppercase tracking-[0.08em] ${
+                        active ? "text-coral" : "text-navy"
+                      }`}
+                    >
+                      {label}
                     </span>
                   </Link>
                 );
               })}
             </nav>
 
-            <div className="border-t border-border p-3">
-              <Link
-                href="/contact"
-                prefetch
-                className="flex min-h-12 w-full items-center justify-center gap-2 bg-accent px-4 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-accent-ink transition active:brightness-95"
-                onClick={() => setMenuOpen(false)}
-              >
-                Start a project ↗
-              </Link>
-            </div>
+            <button
+              type="button"
+              className="absolute right-0 top-1/2 flex size-9 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-navy text-coral shadow-md"
+              aria-label="Close menu"
+              onClick={() => setMenuOpen(false)}
+            >
+              <ChevronLeft className="size-4" strokeWidth={2.5} aria-hidden />
+            </button>
           </div>
         </div>
       ) : null}
+      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 }

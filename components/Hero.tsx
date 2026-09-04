@@ -1,101 +1,74 @@
 import Image from "next/image";
 import { Button } from "./Button";
+import { RotatingTypewriter } from "./RotatingTypewriter";
+import { TypewriterHeadline } from "./TypewriterHeadline";
 
 export function Hero() {
   return (
-    <section id="home" className="grain relative isolate overflow-hidden">
+    <section id="home" className="grain hero-grid relative isolate overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden>
         <div className="absolute -left-24 top-10 size-[28rem] rounded-full bg-accent/10 blur-[100px] animate-pulse-glow" />
         <div className="absolute -right-16 bottom-10 size-[22rem] rounded-full bg-primary/10 blur-[90px]" />
       </div>
 
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 pb-14 pt-10 sm:px-6 sm:pb-16 sm:pt-14 md:grid-cols-12 md:gap-8 md:px-8 lg:gap-10 lg:px-8 lg:pb-20 lg:pt-16">
+      <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 pb-14 pt-10 sm:px-6 sm:pb-16 sm:pt-14 md:grid-cols-12 md:items-center md:gap-8 md:px-8 lg:gap-12 lg:px-8 lg:pb-20 lg:pt-16">
         <div className="relative z-10 md:col-span-6">
           <p className="mb-5 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-accent">
             Local Roots. Creative Reach.
           </p>
-          <h1 className="font-display text-[clamp(2.6rem,10vw,6.4rem)] font-bold leading-[0.88] tracking-[-0.045em]">
-            <span className="block text-foreground">
-              <span className="[font-family:var(--font-hindi)]">शिको</span>
-              HABAD
-            </span>
-            <span className="block text-accent">CREATIVE</span>
-            <span className="block text-foreground">CO.</span>
-          </h1>
-          <p className="mt-7 max-w-xl font-display text-2xl font-medium leading-snug tracking-tight sm:text-3xl">
-          We help local brands get {" "}
+          <TypewriterHeadline />
+          <p className="mt-6 max-w-md font-display text-xl font-medium leading-snug tracking-tight sm:text-2xl">
+            We help local brands get{" "}
             <span className="text-accent">noticed & grow.</span>
           </p>
-          <p className="mt-4 max-w-md text-base leading-relaxed text-muted sm:text-lg">
-            Social media, branding, websites and events designed to make your
-            business stand out, connect and grow.
+          <p className="mt-4 max-w-md text-[15px] font-medium leading-[1.65] tracking-[-0.01em] text-muted">
+            <span className="sr-only">
+              Social media, branding, websites, events, digital marketing, video
+              editing and Meta ads designed to make your business stand out,
+              connect and grow.
+            </span>
+            <span aria-hidden>
+              <RotatingTypewriter
+                words={[
+                  "Social media",
+                  "Branding",
+                  "Websites",
+                  "Events",
+                  "Digital Marketing",
+                  "Video editing",
+                  "Meta ads",
+                ]}
+                className="whitespace-nowrap font-medium text-foreground"
+              />{" "}
+              designed to make your business stand out, connect and grow.
+            </span>
           </p>
-          <div className="mt-9 flex flex-wrap items-center gap-4">
-            <Button href="/contact">Start a project</Button>
-            <Button href="/#work" variant="secondary" arrow={false}>
+          <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+            <Button href="/contact" className="w-full sm:w-auto">
+              Start a project
+            </Button>
+            <Button href="/work" variant="secondary" arrow={false} className="w-full sm:w-auto">
               View our work
             </Button>
           </div>
         </div>
 
-        <div className="relative md:col-span-6">
+        <div className="relative z-10 md:col-span-6">
           <div className="relative mx-auto max-w-xl md:ml-auto md:max-w-none">
-            <div
-              aria-hidden
-              className="absolute -right-4 top-8 size-24 rounded-full border border-accent/30"
-            />
-            <div
-              aria-hidden
-              className="absolute -bottom-5 -left-3 h-16 w-16 rounded-2xl bg-accent/20 blur-md"
-            />
-
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-navy/95 shadow-[0_28px_70px_-28px_rgba(11,19,43,0.55)]">
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(255,90,60,0.22),transparent_58%)]"
+            <div className="relative aspect-[3/2]">
+              <Image
+                src="/images/Hero.png"
+                alt="Shikohabad Creative Co. — social media, websites, branding and events"
+                fill
+                priority
+                sizes="(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 48vw"
+                className="object-contain object-center"
               />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-3 rounded-[1.2rem] border border-white/15"
-              />
-              <div className="relative aspect-[3/2]">
-                <Image
-                  src="/images/Hero_Section.png"
-                  alt="Shikohabad Creative Co. studio illustration — designing ideas, creating impact"
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 48vw"
-                  className="object-contain object-center p-3 sm:p-4"
-                />
-              </div>
             </div>
-
             <p className="mt-3 text-center font-display text-[10px] font-bold uppercase tracking-[0.18em] text-primary sm:text-xs md:text-left">
               Based in Shikohabad
             </p>
           </div>
-        </div>
-      </div>
-
-      <div className="mt-10 border-t border-border overflow-hidden py-3 sm:mt-16">
-        <div className="flex w-max marquee-track">
-          {[0, 1].map((copy) => (
-            <p
-              key={copy}
-              className="flex items-center gap-6 px-4 font-display text-sm font-semibold uppercase tracking-[0.28em] text-muted"
-            >
-              {["Social Media", "Branding", "Websites", "Events", "Campaigns"].map(
-                (item) => (
-                  <span key={`${copy}-${item}`} className="flex items-center gap-6">
-                    <span>{item}</span>
-                    <span className="text-accent" aria-hidden>
-                      ✦
-                    </span>
-                  </span>
-                ),
-              )}
-            </p>
-          ))}
         </div>
       </div>
     </section>

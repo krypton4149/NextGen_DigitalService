@@ -1,26 +1,26 @@
 import { AboutTeaserSection } from "@/components/AboutTeaserSection";
 import { ClientTrustSection } from "@/components/ClientTrustSection";
 import { ContactSection } from "@/components/ContactSection";
-import { CreativeMarquee } from "@/components/CreativeMarquee";
 import { CTASection } from "@/components/CTASection";
 import { EventsSection } from "@/components/EventsSection";
 import { Hero } from "@/components/Hero";
+import { ServicesTicker } from "@/components/ServicesTicker";
 import { LocalIdentitySection } from "@/components/LocalIdentitySection";
-import { PortfolioSection } from "@/components/PortfolioSection";
 import { ProcessSection } from "@/components/ProcessSection";
 import { ServicesGrid } from "@/components/ServicesGrid";
-import { WhyUsSection } from "@/components/WhyUsSection";
+import { ToolkitSection } from "@/components/ToolkitSection";
+import { IndustriesSection } from "@/components/IndustriesSection";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <ServicesGrid />
-      <CreativeMarquee />
-      <LocalIdentitySection />
-      <PortfolioSection />
+      <ServicesTicker />
       <AboutTeaserSection />
-      <WhyUsSection />
+      <ServicesGrid />
+      <LocalIdentitySection />
+      <ToolkitSection />
+      <IndustriesSection />
       <EventsSection />
       <ProcessSection />
       <ClientTrustSection />

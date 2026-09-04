@@ -26,7 +26,6 @@ function ProjectCard({
   return (
     <button
       type="button"
-      data-cursor="hover"
       onClick={() => onOpen(project)}
       className="group flex h-full w-full flex-col text-left outline-none"
     >

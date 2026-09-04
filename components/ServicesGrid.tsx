@@ -1,117 +1,125 @@
-import Image from "next/image";
 import Link from "next/link";
-import { CORE_SERVICES } from "@/lib/services";
+import type { LucideIcon } from "lucide-react";
+import {
+  ArrowUpRight,
+  CalendarDays,
+  Code2,
+  Layers,
+  Megaphone,
+  Palette,
+  PenLine,
+  Search,
+  Share2,
+  Smartphone,
+  Sparkles,
+  Target,
+  Users,
+  Video,
+  Zap,
+} from "lucide-react";
+import { HOME_SERVICES, type HomeService } from "@/lib/homeServices";
 import { Button } from "@/components/Button";
-import { Reveal } from "@/components/Reveal";
+
+const icons: Record<HomeService["icon"], LucideIcon> = {
+  palette: Palette,
+  code: Code2,
+  phone: Smartphone,
+  video: Video,
+  zap: Zap,
+  share: Share2,
+  search: Search,
+  users: Users,
+  pen: PenLine,
+  layers: Layers,
+  megaphone: Megaphone,
+  sparkles: Sparkles,
+  target: Target,
+  calendar: CalendarDays,
+};
 
 export function ServicesGrid() {
   return (
     <section
       id="services"
-      className="scroll-mt-24 border-b border-border bg-background"
+      className="scroll-mt-24 border-b border-border bg-white"
     >
-      <div className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 sm:pt-20 lg:px-8">
-        <Reveal>
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
-                What we do
-              </p>
-              <h2 className="mt-3 font-display text-4xl font-bold leading-[0.9] tracking-tight sm:text-5xl lg:text-6xl">
-                We build brands
-                <br />
-                people <span className="text-accent">notice.</span>
-              </h2>
-            </div>
-            <p className="max-w-xs font-display text-lg leading-snug text-muted sm:text-right">
-              Social, branding, websites and events — four things, done with
-              intent.
-            </p>
-          </div>
-        </Reveal>
-
-        <ul className="mt-10 grid auto-rows-fr gap-4 sm:grid-cols-2">
-          {CORE_SERVICES.map((service, index) => (
-            <Reveal key={service.num} as="li" delayMs={index * 60} className="h-full">
-              <Link
-                href={service.href}
-                data-cursor="hover"
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface outline-none transition duration-300 hover:border-accent"
-              >
-                <div className="relative aspect-[16/10] w-full bg-[#0a0a0a]">
-                  <Image
-                    src={service.image}
-                    alt={`${service.title} — Shikohabad Creative Co.`}
-                    fill
-                    className="object-contain p-2 transition duration-500 group-hover:scale-[1.03]"
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary font-display text-xs font-bold text-accent-ink">
-                      {service.num}
-                    </span>
-                    <span className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-muted transition group-hover:text-accent">
-                      Explore ↗
-                    </span>
-                  </div>
-                  <h3 className="mt-3 font-display text-lg font-bold uppercase leading-tight tracking-tight sm:text-xl">
-                    {service.title}
-                  </h3>
-                  <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted">
-                    {service.description}
-                  </p>
-                  <ul className="mt-4 flex flex-wrap gap-1.5">
-                    {service.tags.map((tag) => (
-                      <li
-                        key={tag}
-                        className="rounded-full border border-border bg-background px-2.5 py-0.5 text-[0.55rem] font-semibold uppercase tracking-[0.12em] text-muted"
-                      >
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </ul>
-
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-border py-8">
-          <p className="text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-muted">
-            Services / 01—04
+      <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 pb-24 pt-16 sm:px-6 sm:pb-28 sm:pt-20 md:grid-cols-12 md:gap-10 md:px-8 lg:gap-16 lg:pt-24">
+        <div className="md:sticky md:top-[calc(var(--site-header-height)+1.25rem)] md:col-span-5 md:self-start">
+          <p className="inline-flex items-center gap-2 rounded-full border border-coral/30 bg-white px-3.5 py-1.5">
+            <span className="size-1.5 rounded-full bg-coral" aria-hidden />
+            <span className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-accent">
+              Our Services
+            </span>
           </p>
-          <Link
-            href="/services"
-            className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-accent transition hover:text-foreground"
-          >
-            View all services →
-          </Link>
-        </div>
-      </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <Reveal>
-          <h3 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            Have a brand that deserves
+          <h2 className="mt-6 max-w-md font-display text-[clamp(1.85rem,4.2vw,3.15rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-navy">
+            Scaling Your
             <br />
-            <span className="text-accent">more attention?</span>
-          </h3>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <Button href="/contact" className="px-6 py-3 text-[0.65rem]">
-              Start a project
-            </Button>
-            <Button
-              href="/work"
-              variant="secondary"
-              arrow={false}
-              className="px-6 py-3 text-[0.65rem]"
-            >
-              View our work
+            <span className="text-accent">Digital Impact</span>
+          </h2>
+
+          <span className="mt-5 block h-1 w-14 bg-navy" aria-hidden />
+
+          <p className="mt-8 max-w-sm text-[0.95rem] leading-[1.75] text-muted sm:text-base">
+            Scroll the collection. Each service stacks as you go — when every
+            card is in place, the page continues.
+          </p>
+
+          <div className="mt-8">
+            <Button href="/services" className="shadow-[0_12px_28px_-12px_rgba(11,19,43,0.45)]">
+              Full service list
             </Button>
           </div>
-        </Reveal>
+        </div>
+
+        <ul className="flex flex-col gap-3 md:col-span-7">
+          {HOME_SERVICES.map((service, index) => {
+            const Icon = icons[service.icon];
+
+            return (
+              <li
+                key={service.num}
+                className="service-stack-card"
+                style={{
+                  zIndex: index + 1,
+                  ["--stack-i" as string]: index,
+                }}
+              >
+                <Link
+                  href={service.href}
+                  className="group relative flex min-h-[7.25rem] items-center gap-4 rounded-[1.75rem] border border-black/[0.04] bg-[#F6F6F6] px-4 py-5 shadow-[0_10px_30px_-18px_rgba(11,19,43,0.35)] outline-none transition duration-300 hover:bg-[#efefef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-coral sm:min-h-[8rem] sm:gap-5 sm:px-6 sm:py-6"
+                >
+                  <span
+                    className="pointer-events-none absolute right-16 top-2 font-display text-5xl font-extrabold text-navy/[0.08] sm:right-[4.5rem] sm:text-6xl"
+                    aria-hidden
+                  >
+                    {service.num}
+                  </span>
+
+                  <span
+                    className={`relative z-[1] flex size-12 shrink-0 items-center justify-center rounded-xl sm:size-[3.35rem] ${service.iconClass}`}
+                  >
+                    <Icon className="size-5 sm:size-6" strokeWidth={1.75} aria-hidden />
+                  </span>
+
+                  <div className="relative z-[1] min-w-0 flex-1 pr-2">
+                    <h3 className="font-display text-sm font-bold uppercase tracking-tight text-navy sm:text-[1.05rem]">
+                      {service.title}
+                    </h3>
+                    <p className="mt-1 max-w-md text-[0.8rem] leading-relaxed text-muted sm:text-[0.9rem]">
+                      {service.summary}
+                    </p>
+                  </div>
+
+                  <span className="relative z-[1] flex size-10 shrink-0 items-center justify-center rounded-full bg-navy text-white shadow-[0_8px_18px_-10px_rgba(11,19,43,0.55)] transition duration-300 group-hover:bg-coral sm:size-11">
+                    <ArrowUpRight className="size-4" strokeWidth={2.25} aria-hidden />
+                    <span className="sr-only">Open {service.title}</span>
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

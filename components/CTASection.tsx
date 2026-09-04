@@ -21,22 +21,22 @@ export function CTASection() {
         <div className="absolute inset-0 bg-primary/78" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 md:px-8 md:py-32 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 md:px-8 lg:px-8 lg:py-14">
         <Reveal>
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-white/70">
             Next chapter
           </p>
-          <h2 className="mt-4 max-w-5xl font-display text-[clamp(2.5rem,10vw,6.5rem)] font-bold leading-[0.88] tracking-[-0.04em] text-white">
+          <h2 className="mt-3 max-w-4xl font-display text-[clamp(1.75rem,6vw,3.5rem)] font-bold leading-[0.9] tracking-[-0.04em] text-white">
             GOT A BRAND
             <br />
             PEOPLE SHOULD
             <br />
             KNOW?
           </h2>
-          <p className="mt-8 max-w-md font-display text-xl text-white/85">
+          <p className="mt-4 max-w-md font-display text-base text-white/85 sm:text-lg">
             Let&apos;s make them notice.
           </p>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <Button href="/contact" className="bg-coral text-white hover:bg-accent-dim">
               Start a project
             </Button>
@@ -49,7 +49,7 @@ export function CTASection() {
               WhatsApp
             </Button>
           </div>
-          <div className="mt-10 flex flex-wrap gap-6 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+          <div className="mt-6 flex flex-wrap gap-6 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
             <a href={`mailto:${CONTACT_EMAIL}`} className="transition hover:text-white">
               Email
             </a>

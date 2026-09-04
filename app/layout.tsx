@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Montserrat, Noto_Sans_Devanagari, Poppins } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { CustomCursor } from "@/components/CustomCursor";
 import "./globals.css";
 
 const display = Poppins({
@@ -85,7 +84,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${hindi.variable}`}>
       <body className="min-h-dvh bg-background font-sans text-foreground antialiased">
-        <CustomCursor />
         <Header />
         {children}
         <Footer />
