@@ -1,14 +1,14 @@
 "use client";
 
-import { Briefcase, House, Search, Star, X, Zap } from "lucide-react";
+import { Search, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const QUICK_NAV = [
-  { href: "/", label: "Home", Icon: House },
-  { href: "/about", label: "About", Icon: Star },
-  { href: "/work", label: "Work", Icon: Briefcase },
-  { href: "/services", label: "Services", Icon: Zap },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "Studio" },
+  { href: "/work", label: "Work" },
+  { href: "/services", label: "Services" },
 ] as const;
 
 const POPULAR = [
@@ -57,47 +57,45 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
     <div className="fixed inset-0 z-[60]" role="dialog" aria-modal="true" aria-label="Search">
       <button
         type="button"
-        className="absolute inset-0 bg-navy/55 backdrop-blur-[2px]"
+        className="absolute inset-0 bg-navy/70"
         aria-label="Close search"
         onClick={onClose}
       />
-      <div className="absolute left-1/2 top-[min(18vh,8rem)] w-[min(92vw,34rem)] -translate-x-1/2 rounded-3xl bg-white p-5 shadow-[0_30px_80px_-24px_rgba(11,19,43,0.55)] sm:p-6">
-        <div className="flex items-center gap-2 rounded-full border border-coral/70 bg-surface px-3 py-2.5 sm:px-4">
-          <Search className="size-5 shrink-0 text-coral" strokeWidth={2} aria-hidden />
+      <div className="absolute left-1/2 top-[min(16vh,7rem)] w-[min(92vw,36rem)] -translate-x-1/2 border border-border bg-background p-7 sm:p-9">
+        <div className="flex items-center gap-3 border-b border-navy/20 pb-3">
+          <Search className="size-5 shrink-0 text-coral" strokeWidth={1.8} aria-hidden />
           <input
             ref={inputRef}
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="What can we help you find?"
-            className="min-w-0 flex-1 bg-transparent text-sm text-navy outline-none placeholder:text-muted sm:text-base"
+            placeholder="Search the studio"
+            className="min-w-0 flex-1 bg-transparent text-base text-navy outline-none placeholder:text-muted"
             autoComplete="off"
           />
           <button
             type="button"
-            className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white text-navy shadow-sm ring-1 ring-border transition hover:text-coral"
+            className="flex size-8 shrink-0 items-center justify-center text-navy"
             aria-label="Close search"
             onClick={onClose}
           >
-            <X className="size-4" strokeWidth={2} aria-hidden />
+            <X className="size-4" strokeWidth={1.8} aria-hidden />
           </button>
         </div>
 
-        <p className="mt-6 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted">
-          Quick navigation
-        </p>
+        <p className="mt-8 text-[0.65rem] uppercase tracking-[0.28em] text-muted">Index</p>
         {nav.length ? (
-          <div className="mt-3 grid grid-cols-2 gap-2.5">
-            {nav.map(({ href, label, Icon }) => (
+          <div className="mt-3 divide-y divide-border border-y border-border">
+            {nav.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
                 prefetch
                 onClick={onClose}
-                className="flex min-h-12 items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 text-sm font-semibold text-navy transition hover:border-coral hover:text-coral"
+                className="flex min-h-12 items-center justify-between py-3 text-sm text-navy transition hover:text-coral"
               >
-                <Icon className="size-4 text-coral" strokeWidth={2} aria-hidden />
                 {label}
+                <span aria-hidden>↗</span>
               </Link>
             ))}
           </div>
@@ -105,8 +103,8 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
           <p className="mt-3 text-sm text-muted">No matching pages.</p>
         )}
 
-        <p className="mt-6 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted">
-          Popular services
+        <p className="mt-8 text-[0.65rem] uppercase tracking-[0.28em] text-muted">
+          Capabilities
         </p>
         {services.length ? (
           <div className="mt-3 flex flex-wrap gap-2">
@@ -116,7 +114,7 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
                 href={item.href}
                 prefetch
                 onClick={onClose}
-                className="rounded-full bg-surface px-4 py-2 text-[0.7rem] font-bold uppercase tracking-[0.1em] text-navy transition hover:bg-coral hover:text-white"
+                className="rounded-full border border-border px-3.5 py-1.5 text-[0.8rem] text-navy transition hover:border-navy"
               >
                 {item.label}
               </Link>

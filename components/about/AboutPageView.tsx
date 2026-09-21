@@ -1,6 +1,8 @@
+import { PageHero } from "@/components/PageHero";
 import Image from "next/image";
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
+import { SectionLabel } from "@/components/SectionLabel";
 import { CORE_SERVICES } from "@/lib/services";
 
 const values = [
@@ -46,127 +48,143 @@ const team = [
 export function AboutPageView() {
   return (
     <div>
-      {/* Hero */}
-      <section className="border-b border-border px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-12 md:gap-10 lg:gap-12">
-          <Reveal className="md:col-span-7">
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
-              About · Shikohabad Creative Co.
-            </p>
-            <h1 className="mt-4 max-w-xl font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-              Not just another
-              <br />
-              digital agency.
-            </h1>
-            <p className="mt-5 max-w-lg text-sm leading-relaxed text-muted sm:text-base">
-              We are a creative studio based in Shikohabad — helping local and
-              growing businesses turn attention into connection through social
-              media, branding, websites and events.
-            </p>
-            <p className="mt-6 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground">
-              Local Roots. Creative Reach.
-            </p>
-          </Reveal>
+      <PageHero
+        label="Studio · About"
+        title={
+          <>
+            Not another
+            <br />
+            digital agency.
+          </>
+        }
+        body="A creative studio based in Shikohabad — helping local and growing businesses turn attention into connection through social, branding, websites and events."
+      />
 
-          <Reveal delayMs={80} className="md:col-span-5">
-            <div className="relative mx-auto aspect-square w-full max-w-[18rem] overflow-hidden rounded-full border border-border bg-surface md:ml-auto md:mr-0 md:max-w-[20rem]">
-              <Image
-                src="/images/ceo-piyush-yadav.png"
-                alt="Piyush Yadav, Founder of Shikohabad Creative Co."
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 1024px) 288px, 320px"
-                priority
-              />
-            </div>
-            <div className="mt-4 text-center md:ml-auto md:max-w-[20rem] md:text-left">
-              <p className="font-display text-base font-semibold">Piyush Yadav</p>
-              <p className="mt-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-accent">
-                Founder & CEO
+      <section className="py-16 sm:py-20">
+        <div className="site-wrap grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
+          <Reveal className="lg:col-span-4">
+            <figure className="mx-auto max-w-[16rem] text-center lg:mx-0">
+              <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-full bg-navy">
+                <Image
+                  src="/images/ceo-piyush-yadav.png"
+                  alt="Piyush Yadav, Founder of Shikohabad Creative Co."
+                  fill
+                  className="scale-[1.18] object-cover object-center"
+                  sizes="256px"
+                  priority
+                />
+              </div>
+              <figcaption className="mt-4">
+                <p className="font-display text-lg tracking-tight">Piyush Yadav</p>
+                <p className="mt-1 text-[0.65rem] uppercase tracking-[0.18em] text-coral">
+                  Founder & CEO
+                </p>
+              </figcaption>
+            </figure>
+          </Reveal>
+          <Reveal delayMs={80} className="lg:col-span-8">
+            <SectionLabel>Founder</SectionLabel>
+            <h2 className="display-title mt-4 text-[clamp(1.8rem,3.4vw,2.7rem)] text-navy">
+              Building a studio for brands
+              <br className="hidden sm:block" /> that deserve to be seen.
+            </h2>
+            <div className="mt-5 max-w-2xl space-y-4 text-sm leading-relaxed text-muted sm:text-base">
+              <p>
+                Piyush started Shikohabad Creative Co. because local businesses
+                were being sold leftover templates while metro agencies kept the
+                real creative work. He wanted a studio that stays close to the
+                brand — and still looks premium.
+              </p>
+              <p>
+                He leads creative direction and client work across social,
+                branding, websites and events. The brief is simple: help
+                restaurants, beauty, retail and growing teams get discovered,
+                remembered and trusted — from Shikohabad to wherever the work
+                needs to travel.
               </p>
             </div>
+            <dl className="mt-8 grid gap-6 sm:grid-cols-3">
+              {[
+                { label: "Based in", value: "Shikohabad" },
+                { label: "Leads", value: "Creative direction" },
+                { label: "Focus", value: "Social · Brand · Web · Events" },
+              ].map((item) => (
+                <div key={item.label}>
+                  <dt className="text-[0.62rem] uppercase tracking-[0.2em] text-muted">
+                    {item.label}
+                  </dt>
+                  <dd className="mt-1.5 font-display text-lg tracking-tight text-navy">
+                    {item.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </Reveal>
         </div>
       </section>
 
-      {/* Story */}
-      <section className="border-b border-border bg-surface px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-12 md:gap-10 lg:gap-12">
-          <Reveal className="md:col-span-5">
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
-              Our story
-            </p>
-            <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+      <section className="border-b border-border bg-surface py-16 sm:py-20">
+        <div className="site-wrap grid gap-10 lg:grid-cols-12">
+          <Reveal className="lg:col-span-5">
+            <SectionLabel>Story</SectionLabel>
+            <h2 className="display-title mt-4 text-[clamp(1.8rem,3.5vw,2.8rem)] text-navy">
               From Shikohabad
               <br />
-              <span className="text-accent">to everywhere.</span>
+              to everywhere.
             </h2>
           </Reveal>
-          <Reveal delayMs={60} className="md:col-span-7">
-            <div className="space-y-4 text-sm leading-relaxed text-muted sm:text-base">
-              <p>
-                Shikohabad Creative Co. started with a clear belief: local
-                brands deserve creative work that feels premium — not leftover
-                templates from big-city agencies.
-              </p>
-              <p>
-                We work with restaurants, beauty brands, boutiques, product
-                businesses and growing teams who want to look sharper online and
-                feel stronger offline. Social media management, branding,
-                website creation and event management — handled as one creative
-                journey.
-              </p>
-              <p>
-                Based in Shikohabad, Uttar Pradesh. Creating beyond it.
-              </p>
-            </div>
+          <Reveal delayMs={60} className="space-y-4 text-sm leading-relaxed text-muted lg:col-span-7 sm:text-base">
+            <p>
+              Shikohabad Creative Co. started with a clear belief: local brands
+              deserve creative work that feels premium — not leftover templates
+              from big-city agencies.
+            </p>
+            <p>
+              We work with restaurants, beauty brands, boutiques, product
+              businesses and growing teams who want to look sharper online and
+              feel stronger offline.
+            </p>
+            <p>Based in Shikohabad, Uttar Pradesh. Creating beyond it.</p>
           </Reveal>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-6xl gap-3 sm:grid-cols-3">
+        <div className="site-wrap mt-12 grid gap-px bg-border sm:grid-cols-3">
           {[
             { label: "Based in", value: "Shikohabad, UP" },
             { label: "Focus", value: "Creative + Digital" },
             { label: "Built for", value: "Local brands" },
           ].map((item, i) => (
             <Reveal key={item.label} delayMs={i * 40}>
-              <div className="border border-border bg-background px-5 py-5">
-                <p className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-muted">
+              <div className="bg-background px-5 py-6">
+                <p className="text-[0.62rem] uppercase tracking-[0.2em] text-muted">
                   {item.label}
                 </p>
-                <p className="mt-2 font-display text-lg font-semibold tracking-tight">
-                  {item.value}
-                </p>
+                <p className="mt-2 font-display text-xl tracking-tight">{item.value}</p>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* What we believe */}
-      <section className="border-b border-border px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-6xl">
+      <section className="border-b border-border py-16 sm:py-20">
+        <div className="site-wrap">
           <Reveal>
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
-              What we believe
-            </p>
-            <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+            <SectionLabel>Beliefs</SectionLabel>
+            <h2 className="display-title mt-4 text-[clamp(1.8rem,3.5vw,2.8rem)] text-navy">
               How we work with brands.
             </h2>
           </Reveal>
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
+          <ul className="mt-10 grid gap-px bg-border sm:grid-cols-2">
             {values.map((value, index) => (
               <Reveal key={value.title} as="li" delayMs={index * 50}>
-                <article className="h-full border border-border bg-surface p-6 transition hover:border-accent/40">
-                  <p className="font-mono text-xs tracking-[0.18em] text-accent">
+                <article className="h-full bg-background p-7">
+                  <p className="text-[0.68rem] tracking-[0.2em] text-coral">
                     0{index + 1}
                   </p>
-                  <h3 className="mt-3 font-display text-lg font-semibold tracking-tight">
+                  <h3 className="mt-4 font-display text-xl tracking-tight">
                     {value.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
-                    {value.body}
-                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">{value.body}</p>
                 </article>
               </Reveal>
             ))}
@@ -174,30 +192,25 @@ export function AboutPageView() {
         </div>
       </section>
 
-      {/* What we do */}
-      <section className="border-b border-border bg-surface px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-6xl">
+      <section className="border-b border-border bg-surface py-16 sm:py-20">
+        <div className="site-wrap">
           <Reveal>
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
-              What we do
-            </p>
-            <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+            <SectionLabel>Practice</SectionLabel>
+            <h2 className="display-title mt-4 text-[clamp(1.8rem,3.5vw,2.8rem)] text-navy">
               Four things. Done properly.
             </h2>
           </Reveal>
-          <ul className="mt-8 divide-y divide-border border-y border-border">
+          <ul className="mt-8 border-t border-border">
             {CORE_SERVICES.map((service, index) => (
               <Reveal key={service.num} as="li" delayMs={index * 40}>
-                <div className="grid gap-2 py-5 sm:grid-cols-12 sm:items-center sm:gap-6">
-                  <span className="font-mono text-xs tracking-[0.18em] text-accent sm:col-span-1">
+                <div className="grid gap-2 border-b border-border py-6 sm:grid-cols-12 sm:items-baseline sm:gap-6">
+                  <span className="text-[0.68rem] tracking-[0.18em] text-coral sm:col-span-1">
                     {service.num}
                   </span>
-                  <p className="font-display text-base font-semibold tracking-tight sm:col-span-4 sm:text-lg">
+                  <p className="font-display text-lg tracking-tight sm:col-span-4">
                     {service.title}
                   </p>
-                  <p className="text-sm text-muted sm:col-span-7">
-                    {service.description}
-                  </p>
+                  <p className="text-sm text-muted sm:col-span-7">{service.description}</p>
                 </div>
               </Reveal>
             ))}
@@ -205,34 +218,31 @@ export function AboutPageView() {
         </div>
       </section>
 
-      {/* Team */}
-      <section className="border-b border-border px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-6xl">
+      <section className="border-b border-border py-16 sm:py-20">
+        <div className="site-wrap">
           <Reveal>
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
-              The team
-            </p>
-            <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-              People behind the work.
+            <SectionLabel>People</SectionLabel>
+            <h2 className="display-title mt-4 text-[clamp(1.8rem,3.5vw,2.8rem)] text-navy">
+              The studio.
             </h2>
           </Reveal>
-          <ul className="mt-10 grid gap-8 sm:grid-cols-3">
+          <ul className="mt-12 grid gap-10 sm:grid-cols-3">
             {team.map((person, index) => (
               <Reveal key={person.name} as="li" delayMs={index * 60}>
-                <article className="text-center">
-                  <div className="relative mx-auto aspect-square w-full max-w-[14rem] overflow-hidden rounded-full border-[4px] border-white bg-surface shadow-[0_18px_40px_-20px_rgba(11,19,43,0.45)] sm:max-w-[15rem]">
+                <article className="mx-auto max-w-[16rem] text-center">
+                  <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-full bg-navy">
                     <Image
                       src={person.image}
                       alt={person.alt}
                       fill
-                      className="object-cover object-center"
-                      sizes="240px"
+                      className="scale-[1.18] object-cover object-center"
+                      sizes="256px"
                     />
                   </div>
-                  <h3 className="mt-5 font-display text-lg font-semibold tracking-tight">
+                  <h3 className="mt-5 font-display text-xl tracking-tight">
                     {person.name}
                   </h3>
-                  <p className="mt-1 text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                  <p className="mt-1 text-[0.65rem] uppercase tracking-[0.18em] text-coral">
                     {person.role}
                   </p>
                 </article>
@@ -242,10 +252,9 @@ export function AboutPageView() {
         </div>
       </section>
 
-      {/* Local identity */}
       <section className="border-b border-border">
-        <div className="mx-auto grid max-w-6xl items-center md:grid-cols-2">
-          <div className="relative mx-auto aspect-[1207/1303] w-full max-w-[14rem] py-8 sm:max-w-[18rem] md:py-10">
+        <div className="site-wrap grid items-center gap-10 py-16 lg:grid-cols-2">
+          <div className="relative mx-auto aspect-[1207/1303] w-full max-w-[16rem] sm:max-w-[20rem]">
             <Image
               src="/images/City.png"
               alt="Shikohabad — local streets, local understanding, digital reach"
@@ -254,49 +263,36 @@ export function AboutPageView() {
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
-          <div className="flex flex-col justify-center px-4 py-12 sm:px-8 sm:py-14 lg:px-12">
-            <Reveal>
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
-                Where we create from
-              </p>
-              <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-                Based in Shikohabad.
-                <br />
-                Creating beyond it.
-              </h2>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
-                Our roots keep the work grounded. Our creative reach helps brands
-                travel further — across feeds, screens and real-world moments.
-              </p>
-            </Reveal>
-          </div>
+          <Reveal>
+            <SectionLabel>Origin</SectionLabel>
+            <h2 className="display-title mt-4 text-[clamp(1.8rem,3.5vw,2.8rem)] text-navy">
+              Based in Shikohabad.
+              <br />
+              Creating beyond it.
+            </h2>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
+              Our roots keep the work grounded. Our creative reach helps brands
+              travel further — across feeds, screens and real-world moments.
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-6xl">
+      <section className="py-16 sm:py-20">
+        <div className="site-wrap">
           <Reveal>
-            <h2 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+            <h2 className="display-title text-[clamp(1.8rem,3.5vw,3rem)] text-navy">
               Ready to make your brand
               <br />
-              <span className="text-accent">impossible to ignore?</span>
+              impossible to ignore?
             </h2>
             <p className="mt-4 max-w-md text-sm text-muted">
-              Tell us what you&apos;re building — we&apos;ll help people notice
-              it.
+              Tell us what you&apos;re building — we&apos;ll help people notice it.
             </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button href="/contact" className="px-6 py-3 text-[0.65rem]">
-                Start a project
-              </Button>
-              <Button
-                href="/work"
-                variant="secondary"
-                arrow={false}
-                className="px-6 py-3 text-[0.65rem]"
-              >
-                View our work
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href="/contact">Start a brief</Button>
+              <Button href="/work" variant="outline" arrow={false}>
+                See the work
               </Button>
             </div>
           </Reveal>

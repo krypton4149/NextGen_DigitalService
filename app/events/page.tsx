@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { PageHero } from "@/components/PageHero";
 import { Button } from "@/components/Button";
-import { CreativeMarquee } from "@/components/CreativeMarquee";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -40,54 +40,47 @@ const pillars = [
 export default function EventsPage() {
   return (
     <main>
-      <section className="grain relative border-b border-border py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-accent">
-              Events & experiences
-            </p>
-            <h1 className="mt-5 max-w-4xl font-display text-4xl font-bold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-              WE DON&apos;T JUST
-              <br />
-              PROMOTE EVENTS.
-              <br />
-              <span className="text-accent">WE CREATE EXPERIENCES.</span>
-            </h1>
-            <p className="mt-8 max-w-xl text-lg text-muted">
-              Event management and promotion for brands that want energy people
-              remember — and share.
-            </p>
-            <div className="mt-10">
-              <Button href="/contact">Plan an event</Button>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        label="Events & experiences"
+        title={
+          <>
+            We don&apos;t just promote events.
+            <br />
+            We stage them.
+          </>
+        }
+        body="Event management and promotion for brands that want energy people remember — and share."
+        cta={{ href: "/contact", label: "Plan an event" }}
+      />
 
-      <CreativeMarquee reverse />
-
-      <section className="border-b border-border py-20 sm:py-28">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-12 md:px-8 lg:px-8">
-          <Reveal className="md:col-span-7">
-            <div className="img-frame min-h-[22rem] md:min-h-[26rem] lg:min-h-[32rem]">
-              <Image
-                src="/images/work-events.jpg"
-                alt="Experiential event atmosphere by Shikohabad Creative Co."
-                fill
-                className="img-zoom object-cover"
-                sizes="(max-width: 1024px) 100vw, 58vw"
-                priority
-              />
-              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-primary/55 via-transparent to-transparent" />
-              <p className="img-stamp">Experience.</p>
-            </div>
+      <section className="py-16 sm:py-24">
+        <div className="site-wrap grid gap-12 lg:grid-cols-12">
+          <Reveal className="lg:col-span-7">
+            <figure>
+              <div className="relative min-h-[20rem] overflow-hidden rounded-[1.6rem] md:min-h-[26rem] lg:min-h-[32rem]">
+                <Image
+                  src="/images/work-events.jpg"
+                  alt="Experiential event atmosphere by Shikohabad Creative Co."
+                  fill
+                  className="img-zoom object-cover"
+                  sizes="(max-width: 1024px) 100vw, 58vw"
+                  priority
+                />
+              </div>
+              <figcaption className="mt-3 text-[0.68rem] uppercase tracking-[0.18em] text-muted">
+                Fig. 03 — Live production
+              </figcaption>
+            </figure>
           </Reveal>
-          <div className="md:col-span-5">
-            <ul className="space-y-0 divide-y divide-border border-y border-border">
+          <div className="lg:col-span-5">
+            <ul className="border-t border-border">
               {pillars.map((item, index) => (
                 <Reveal key={item.title} as="li" delayMs={index * 50}>
-                  <article className="py-6">
-                    <h2 className="font-display text-xl font-bold uppercase tracking-tight">
+                  <article className="border-b border-border py-6">
+                    <p className="text-[0.65rem] tracking-[0.18em] text-coral">
+                      0{index + 1}
+                    </p>
+                    <h2 className="mt-2 font-display text-xl tracking-tight">
                       {item.title}
                     </h2>
                     <p className="mt-2 text-sm text-muted">{item.body}</p>
@@ -99,16 +92,18 @@ export default function EventsPage() {
         </div>
       </section>
 
-      <section className="border-b border-border bg-surface py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="bg-navy py-16 text-white sm:py-24">
+        <div className="site-wrap">
           <Reveal>
-            <h2 className="font-display text-3xl font-bold tracking-tight sm:text-5xl">
+            <h2 className="display-title text-[clamp(2rem,5vw,3.8rem)]">
               Ready to put your
               <br />
-              <span className="text-accent">event on the map?</span>
+              event on the map?
             </h2>
             <div className="mt-8">
-              <Button href="/contact">Start a project</Button>
+              <Button href="/contact" className="bg-coral hover:bg-accent-dim">
+                Start a brief
+              </Button>
             </div>
           </Reveal>
         </div>

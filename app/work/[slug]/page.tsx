@@ -31,71 +31,64 @@ export default async function WorkProjectPage({ params }: PageProps) {
 
   return (
     <main>
-      <section className="border-b border-border px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-6xl">
+      <section className="relative overflow-hidden bg-navy py-8 text-white sm:py-10">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+          <div className="agency-orb agency-orb-a absolute -left-8 top-0 size-32" />
+        </div>
+        <div className="site-wrap relative">
           <Link
             href="/work"
-            className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted transition hover:text-accent"
+            className="text-sm text-white/60 transition hover:text-white"
           >
             ← All work
           </Link>
           <Reveal>
-            <p className="mt-6 font-mono text-xs tracking-[0.18em] text-accent">
+            <p className="mt-4 text-[0.68rem] tracking-[0.2em] text-coral">
               {project.num} · Case study
             </p>
-            <h1 className="mt-3 max-w-3xl font-display text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
+            <h1 className="display-title mt-2 max-w-3xl text-[clamp(1.7rem,3.6vw,2.6rem)]">
               {project.name}
             </h1>
-            <p className="mt-3 text-sm text-muted">{project.industry}</p>
+            <p className="mt-2 text-sm text-white/65">{project.industry}</p>
           </Reveal>
         </div>
       </section>
 
-      <section className="border-b border-border px-4 py-10 sm:px-6 lg:px-8">
-        <div
-          className={`relative mx-auto aspect-[16/9] max-w-6xl overflow-hidden rounded-2xl ${isFramedProject(project) ? "border border-border bg-white" : "img-frame"}`}
-        >
-          <Image
-            src={project.image}
-            alt={`Creative presentation for ${project.name}`}
-            fill
-            unoptimized={isFramedProject(project)}
-            className={`relative z-[1] ${isFramedProject(project) ? "object-contain p-6" : "object-cover"}`}
-            sizes="100vw"
-            priority
-          />
-          {isFramedProject(project) ? null : (
-            <>
-              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-foreground/50 via-transparent to-transparent" />
-              <p className="img-stamp">{project.name}</p>
-            </>
-          )}
+      <section className="border-b border-border py-10">
+        <div className="site-wrap">
+          <div
+            className={`relative aspect-[16/9] overflow-hidden rounded-[1.4rem] ${isFramedProject(project) ? "border border-border bg-white" : "bg-surface"}`}
+          >
+            <Image
+              src={project.image}
+              alt={`Creative presentation for ${project.name}`}
+              fill
+              unoptimized={isFramedProject(project)}
+              className={isFramedProject(project) ? "object-contain p-6" : "object-cover"}
+              sizes="100vw"
+              priority
+            />
+          </div>
         </div>
       </section>
 
-      <section className="border-b border-border px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-12 md:gap-10 lg:gap-12">
-          <div className="space-y-6 md:col-span-4">
+      <section className="py-12 sm:py-16">
+        <div className="site-wrap grid gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="space-y-6 border-t border-border pt-6 lg:col-span-4">
             <div>
-              <p className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-muted">
-                Client
-              </p>
-              <p className="mt-2 text-sm font-medium">{project.name}</p>
+              <p className="text-[0.62rem] uppercase tracking-[0.2em] text-muted">Client</p>
+              <p className="mt-2 text-sm">{project.name}</p>
             </div>
             <div>
-              <p className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-muted">
-                Industry
-              </p>
+              <p className="text-[0.62rem] uppercase tracking-[0.2em] text-muted">Industry</p>
               <p className="mt-2 text-sm">{project.industry}</p>
             </div>
             <div>
-              <p className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-muted">
-                What we did
-              </p>
+              <p className="text-[0.62rem] uppercase tracking-[0.2em] text-muted">What we did</p>
               <ul className="mt-3 space-y-2">
                 {project.services.map((s) => (
-                  <li key={s} className="flex gap-2 text-sm text-foreground">
-                    <span className="text-accent">✦</span>
+                  <li key={s} className="flex gap-2 text-sm">
+                    <span className="text-coral">—</span>
                     {s}
                   </li>
                 ))}
@@ -103,17 +96,15 @@ export default async function WorkProjectPage({ params }: PageProps) {
             </div>
           </div>
 
-          <div className="md:col-span-8">
-            <p className="whitespace-pre-line font-display text-xl font-semibold leading-snug tracking-tight sm:text-2xl">
+          <div className="lg:col-span-8">
+            <p className="font-display text-xl leading-snug tracking-tight sm:text-2xl">
               {project.headline}
             </p>
             <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
               {project.approach}
             </p>
             <div className="mt-8">
-              <Button href="/contact" className="px-6 py-3 text-[0.65rem]">
-                Start a project
-              </Button>
+              <Button href="/contact">Start a brief</Button>
             </div>
           </div>
         </div>

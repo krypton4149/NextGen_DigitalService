@@ -3,93 +3,86 @@ import Link from "next/link";
 import { PORTFOLIO_PROJECTS, isFramedProject } from "@/lib/portfolio";
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
+import { PageHero } from "@/components/PageHero";
 
 export function WorkPageView() {
   return (
     <div>
-      <section className="border-b border-border px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <Reveal>
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
-              Selected work · 2024—2026
-            </p>
-            <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[0.9] tracking-tight sm:text-6xl">
-              Work that
-              <br />
-              people <span className="text-accent">notice.</span>
-            </h1>
-            <p className="mt-5 max-w-lg font-display text-lg leading-snug text-muted">
-              Real clients. Real creative direction — hospitality, beauty,
-              fashion, products and local brands.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        label="Selected work · 2024—2026"
+        title={
+          <>
+            Work people
+            <br />
+            actually notice.
+          </>
+        }
+        body="Real clients. Real creative direction — hospitality, beauty, fashion, products and local brands."
+      />
 
-      <section className="border-b border-border px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="py-12 sm:py-16">
+        <div className="site-wrap grid gap-x-8 gap-y-14 sm:grid-cols-2">
           {PORTFOLIO_PROJECTS.map((project, index) => (
-            <Reveal key={project.id} delayMs={index * 40}>
+            <Reveal
+              key={project.id}
+              delayMs={index * 40}
+              className={index === 0 ? "sm:col-span-2" : ""}
+            >
               <Link href={`/work/${project.slug}`} className="group block">
                 <div
-                  className={`relative aspect-[4/3] overflow-hidden rounded-2xl ${
-                    isFramedProject(project) ? "border border-border bg-white" : "bg-surface"
-                  }`}
+                  className={`relative overflow-hidden rounded-[1.4rem] bg-surface ${
+                    index === 0 ? "aspect-[16/8] min-h-[16rem]" : "aspect-[4/3]"
+                  } ${isFramedProject(project) ? "border border-border bg-white" : ""}`}
                 >
                   <Image
                     src={project.image}
                     alt={`Creative presentation for ${project.name}`}
                     fill
                     unoptimized={isFramedProject(project)}
-                    className={`${isFramedProject(project) ? "object-contain p-2" : "object-cover"} transition duration-500 group-hover:scale-[1.04]`}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className={`${isFramedProject(project) ? "object-contain p-4" : "object-cover"} transition duration-700 group-hover:scale-[1.03]`}
+                    sizes={
+                      index === 0
+                        ? "100vw"
+                        : "(max-width: 640px) 100vw, 50vw"
+                    }
                   />
-                  {isFramedProject(project) ? null : (
-                    <div className="absolute inset-0 bg-primary/0 transition duration-300 group-hover:bg-primary/25" />
-                  )}
-                  <span className="absolute left-4 top-4 rounded-full bg-white/95 px-2.5 py-1 font-display text-xs font-bold text-primary">
+                </div>
+                <div className="mt-4 flex items-baseline justify-between gap-4">
+                  <div>
+                    <p className="text-[0.62rem] uppercase tracking-[0.2em] text-coral">
+                      {project.industry}
+                    </p>
+                    <h2 className="mt-1 font-display text-2xl tracking-tight transition group-hover:text-coral">
+                      {project.name}
+                    </h2>
+                    <p className="mt-1 line-clamp-1 text-sm text-muted">
+                      {project.services.slice(0, 3).join(" · ")}
+                    </p>
+                  </div>
+                  <span className="text-[0.7rem] tracking-[0.16em] text-muted">
                     {project.num}
                   </span>
-                  <span className="hover-reveal absolute bottom-4 right-4 translate-y-2 rounded-full bg-white px-3 py-1.5 text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-primary opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                    View case ↗
-                  </span>
                 </div>
-                <p className="mt-4 text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-accent">
-                  {project.industry}
-                </p>
-                <h2 className="mt-1.5 font-display text-lg font-bold tracking-tight transition group-hover:text-accent sm:text-xl">
-                  {project.name}
-                </h2>
-                <p className="mt-1.5 line-clamp-1 text-sm text-muted">
-                  {project.services.slice(0, 3).join(" · ")}
-                </p>
               </Link>
             </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-7xl">
+      <section className="py-16 sm:py-20">
+        <div className="site-wrap">
           <Reveal>
-            <h2 className="font-display text-4xl font-bold tracking-tight sm:text-5xl">
+            <h2 className="display-title text-[clamp(2rem,4.5vw,3.6rem)] text-navy">
               Your brand could
               <br />
-              <span className="text-accent">be next.</span>
+              be next.
             </h2>
             <p className="mt-4 max-w-md text-sm text-muted">
               Have a business, launch or idea that deserves attention?
             </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button href="/contact" className="px-6 py-3 text-[0.65rem]">
-                Start a project
-              </Button>
-              <Button
-                href="/services"
-                variant="secondary"
-                arrow={false}
-                className="px-6 py-3 text-[0.65rem]"
-              >
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href="/contact">Start a brief</Button>
+              <Button href="/services" variant="outline" arrow={false}>
                 View services
               </Button>
             </div>

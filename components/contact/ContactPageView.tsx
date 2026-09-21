@@ -12,6 +12,7 @@ import {
   buildContactMailto,
 } from "@/lib/contact";
 import { SOCIAL_LINKS } from "@/lib/social";
+import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 
 const subjects = [
@@ -21,6 +22,9 @@ const subjects = [
   "Event Management",
   "Other",
 ] as const;
+
+const fieldClass =
+  "mt-2 w-full border-0 border-b border-navy/20 bg-transparent px-0 py-3 text-base outline-none transition focus:border-coral";
 
 export function ContactPageView() {
   const [sent, setSent] = useState(false);
@@ -41,37 +45,26 @@ export function ContactPageView() {
 
   return (
     <div>
-      <section className="border-b border-border px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <Reveal>
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">
-              Contact · Shikohabad Creative Co.
-            </p>
-            <h1 className="mt-4 max-w-2xl font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-              Let&apos;s make your brand
-              <br />
-              <span className="text-accent">impossible to ignore.</span>
-            </h1>
-            <p className="mt-5 max-w-lg text-sm leading-relaxed text-muted sm:text-base">
-              Tell us about your project — social, branding, website or event.
-              Based in Shikohabad. Creating beyond it.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        label="Contact"
+        title={
+          <>
+            Let&apos;s make your brand impossible to ignore.
+          </>
+        }
+        body="Tell us about the project — social, branding, website or event. Based in Shikohabad. Creating beyond it."
+      />
 
-      <section className="border-b border-border px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-12 md:gap-10 lg:gap-12">
-          <Reveal className="md:col-span-7">
-            <h2 className="font-display text-xl font-semibold tracking-tight sm:text-2xl">
-              Send a message
-            </h2>
-            <form className="mt-7 space-y-5" onSubmit={handleSubmit}>
-              <div className="grid gap-5 sm:grid-cols-2">
+      <section className="py-12 sm:py-16">
+        <div className="site-wrap grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <Reveal className="lg:col-span-7">
+            <h2 className="font-display text-2xl tracking-tight">Send a brief</h2>
+            <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+              <div className="grid gap-6 sm:grid-cols-2">
                 <div>
                   <label
                     htmlFor="contact-name"
-                    className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-muted"
+                    className="text-[0.62rem] uppercase tracking-[0.2em] text-muted"
                   >
                     Full name
                   </label>
@@ -80,13 +73,13 @@ export function ContactPageView() {
                     name="name"
                     required
                     autoComplete="name"
-                    className="mt-2 w-full border border-border bg-surface px-4 py-3 text-base outline-none transition focus:border-accent"
+                    className={fieldClass}
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="contact-email"
-                    className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-muted"
+                    className="text-[0.62rem] uppercase tracking-[0.2em] text-muted"
                   >
                     Email
                   </label>
@@ -96,7 +89,7 @@ export function ContactPageView() {
                     type="email"
                     required
                     autoComplete="email"
-                    className="mt-2 w-full border border-border bg-surface px-4 py-3 text-base outline-none transition focus:border-accent"
+                    className={fieldClass}
                   />
                 </div>
               </div>
@@ -104,7 +97,7 @@ export function ContactPageView() {
               <div>
                 <label
                   htmlFor="contact-subject"
-                  className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-muted"
+                  className="text-[0.62rem] uppercase tracking-[0.2em] text-muted"
                 >
                   Service
                 </label>
@@ -113,7 +106,7 @@ export function ContactPageView() {
                   name="subject"
                   required
                   defaultValue={subjects[0]}
-                  className="mt-2 w-full appearance-none border border-border bg-surface px-4 py-3 text-base outline-none transition focus:border-accent"
+                  className={`${fieldClass} appearance-none`}
                 >
                   {subjects.map((s) => (
                     <option key={s} value={s}>
@@ -126,7 +119,7 @@ export function ContactPageView() {
               <div>
                 <label
                   htmlFor="contact-message"
-                  className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-muted"
+                  className="text-[0.62rem] uppercase tracking-[0.2em] text-muted"
                 >
                   Message
                 </label>
@@ -136,13 +129,13 @@ export function ContactPageView() {
                   required
                   rows={5}
                   placeholder="Tell us what you're building..."
-                  className="mt-2 w-full resize-y border border-border bg-surface px-4 py-3 text-base outline-none transition focus:border-accent"
+                  className={`${fieldClass} resize-y`}
                 />
               </div>
 
               <button
                 type="submit"
-                className="min-h-11 bg-primary px-6 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-accent-ink transition hover:bg-accent"
+                className="min-h-11 rounded-full bg-navy px-6 py-2.5 text-[0.9rem] font-medium text-white transition hover:bg-coral"
               >
                 {sent ? "Opening mail…" : "Send message"}
               </button>
@@ -152,7 +145,7 @@ export function ContactPageView() {
                   If your mail client did not open, email{" "}
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
-                    className="text-accent hover:underline"
+                    className="text-coral hover:underline"
                   >
                     {CONTACT_EMAIL}
                   </a>
@@ -161,61 +154,49 @@ export function ContactPageView() {
             </form>
           </Reveal>
 
-          <div className="flex flex-col gap-5 md:col-span-5">
+          <div className="flex flex-col gap-8 lg:col-span-5">
             <Reveal delayMs={60}>
-              <div className="border border-border bg-surface p-6 sm:p-7">
-                <h2 className="font-display text-lg font-semibold tracking-tight">
-                  Direct contact
-                </h2>
-                <ul className="mt-6 space-y-5">
-                  <li>
+              <div className="border border-border p-7">
+                <h2 className="font-display text-xl tracking-tight">Direct lines</h2>
+                <ul className="mt-6 divide-y divide-border border-y border-border">
+                  <li className="py-4">
                     <a
                       href={`mailto:${CONTACT_EMAIL}`}
-                      className="group flex gap-3 transition hover:text-accent"
+                      className="group flex gap-3 hover:text-coral"
                     >
-                      <span className="flex size-10 shrink-0 items-center justify-center border border-border text-accent">
-                        <Mail className="size-4" aria-hidden />
-                      </span>
+                      <Mail className="mt-0.5 size-4 text-coral" aria-hidden />
                       <span>
-                        <span className="block text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-muted">
+                        <span className="block text-[0.62rem] uppercase tracking-[0.18em] text-muted">
                           Email
                         </span>
-                        <span className="mt-1 block break-all text-sm">
-                          {CONTACT_EMAIL}
-                        </span>
+                        <span className="mt-1 block break-all text-sm">{CONTACT_EMAIL}</span>
                       </span>
                     </a>
                   </li>
-                  <li>
+                  <li className="py-4">
                     <a
                       href={`tel:${CONTACT_PHONE_TEL}`}
-                      className="group flex gap-3 transition hover:text-accent"
+                      className="group flex gap-3 hover:text-coral"
                     >
-                      <span className="flex size-10 shrink-0 items-center justify-center border border-border text-accent">
-                        <Phone className="size-4" aria-hidden />
-                      </span>
+                      <Phone className="mt-0.5 size-4 text-coral" aria-hidden />
                       <span>
-                        <span className="block text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-muted">
+                        <span className="block text-[0.62rem] uppercase tracking-[0.18em] text-muted">
                           Phone
                         </span>
-                        <span className="mt-1 block text-sm">
-                          {CONTACT_PHONE_DISPLAY}
-                        </span>
+                        <span className="mt-1 block text-sm">{CONTACT_PHONE_DISPLAY}</span>
                       </span>
                     </a>
                   </li>
-                  <li>
+                  <li className="py-4">
                     <a
                       href={CONTACT_WHATSAPP_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex gap-3 transition hover:text-accent"
+                      className="group flex gap-3 hover:text-coral"
                     >
-                      <span className="flex size-10 shrink-0 items-center justify-center border border-border text-accent">
-                        <MessageCircle className="size-4" aria-hidden />
-                      </span>
+                      <MessageCircle className="mt-0.5 size-4 text-coral" aria-hidden />
                       <span>
-                        <span className="block text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-muted">
+                        <span className="block text-[0.62rem] uppercase tracking-[0.18em] text-muted">
                           WhatsApp
                         </span>
                         <span className="mt-1 block text-sm">Chat with us</span>
@@ -223,12 +204,11 @@ export function ContactPageView() {
                     </a>
                   </li>
                 </ul>
-
                 <a
                   href={CONTACT_WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-7 flex w-full items-center justify-center gap-2 bg-primary px-5 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-accent-ink transition hover:bg-accent"
+                  className="mt-7 flex w-full items-center justify-center rounded-full bg-navy px-5 py-3 text-[0.9rem] font-medium text-white transition hover:bg-coral"
                 >
                   Start on WhatsApp
                 </a>
@@ -236,8 +216,8 @@ export function ContactPageView() {
             </Reveal>
 
             <Reveal delayMs={100}>
-              <div className="overflow-hidden rounded-3xl border border-border bg-surface">
-                <div className="relative aspect-[3/2] w-full">
+              <div className="border border-border">
+                <div className="relative aspect-[3/2] w-full bg-surface">
                   <Image
                     src="/images/Studio.png"
                     alt="Shikohabad Creative Co. studio"
@@ -246,27 +226,22 @@ export function ContactPageView() {
                     sizes="(max-width: 1024px) 100vw, 32vw"
                   />
                 </div>
-                <div className="p-6 sm:p-7">
-                <h2 className="font-display text-lg font-semibold tracking-tight">
-                  Studio
-                </h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  Shikohabad, Uttar Pradesh, India
-                </p>
-                <p className="mt-3 text-sm text-muted">
-                  Meetings by appointment. Remote collaborations welcome.
-                </p>
-                <p className="mt-5 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-accent">
-                  Local Roots. Creative Reach.
-                </p>
-                <a
-                  href={SOCIAL_LINKS.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-5 inline-flex text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-foreground transition hover:text-accent"
-                >
-                  Instagram ↗
-                </a>
+                <div className="p-7">
+                  <h2 className="font-display text-xl tracking-tight">Studio</h2>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    Shikohabad, Uttar Pradesh, India
+                  </p>
+                  <p className="mt-3 text-sm text-muted">
+                    Meetings by appointment. Remote collaborations welcome.
+                  </p>
+                  <a
+                    href={SOCIAL_LINKS.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex text-[0.65rem] uppercase tracking-[0.2em] text-navy transition hover:text-coral"
+                  >
+                    Instagram ↗
+                  </a>
                 </div>
               </div>
             </Reveal>

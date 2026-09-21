@@ -1,36 +1,30 @@
 const SERVICES = [
-  "Video Editing",
-  "UI/UX Design",
-  "Website Development",
+  "Branding",
+  "Websites",
   "App Development",
-  "Performance Marketing",
-  "Social Media Marketing",
-  "Meta Ads",
+  "Video Editing",
+  "Digital Marketing",
+  "Social Media",
   "SEO",
+  "Meta Ads",
+  "UI/UX",
+  "Events",
 ] as const;
 
 function TickerRow({ reverse = false }: { reverse?: boolean }) {
   return (
-    <div className="overflow-hidden bg-[#F4F4F4] py-3.5 sm:py-4">
-      <div
-        className={`flex w-max ${reverse ? "marquee-track-reverse" : "marquee-track"}`}
-      >
+    <div className="overflow-hidden py-3.5">
+      <div className={`flex w-max ${reverse ? "marquee-track-reverse" : "marquee-track"}`}>
         {[0, 1].map((copy) => (
           <p
             key={copy}
-            className="flex items-center gap-8 px-4 font-display text-xl font-bold uppercase tracking-[0.06em] text-black sm:gap-10 sm:text-2xl md:text-[1.65rem]"
+            className="flex items-center gap-7 px-4 font-display text-xl font-bold uppercase tracking-[0.04em] text-navy sm:gap-9 sm:text-2xl"
             aria-hidden={copy === 1}
           >
             {SERVICES.map((item) => (
-              <span
-                key={`${copy}-${item}`}
-                className="flex items-center gap-8 sm:gap-10"
-              >
+              <span key={`${copy}-${item}`} className="flex items-center gap-7 sm:gap-9">
                 <span className="whitespace-nowrap">{item}</span>
-                <span
-                  className="size-2 shrink-0 rounded-full bg-[#FFC107] sm:size-2.5"
-                  aria-hidden
-                />
+                <span className="size-2 shrink-0 rounded-full bg-coral" aria-hidden />
               </span>
             ))}
           </p>
@@ -42,10 +36,10 @@ function TickerRow({ reverse = false }: { reverse?: boolean }) {
 
 export function ServicesTicker() {
   return (
-    <section className="ticker-strips bg-white" aria-label="Services">
+    <section className="ticker-strips border-y border-border bg-surface" aria-label="Services">
       <p className="sr-only">{SERVICES.join(", ")}</p>
-      <div className="flex flex-col gap-2">
-        <TickerRow />
+      <TickerRow />
+      <div className="border-t border-border">
         <TickerRow reverse />
       </div>
     </section>

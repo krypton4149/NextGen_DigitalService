@@ -44,7 +44,7 @@ export function CaseStudyOverlay({ project, onClose }: CaseStudyOverlayProps) {
         aria-label="Close case study"
         onClick={onClose}
       />
-      <div className="relative z-[1] flex max-h-[92dvh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl border border-border bg-surface sm:max-h-[90vh]">
+      <div className="relative z-[1] flex max-h-[92dvh] w-full max-w-5xl flex-col overflow-hidden border border-border bg-background sm:max-h-[90vh]">
         <div className="flex items-start justify-between gap-4 border-b border-border px-5 py-4 sm:px-8 sm:py-5">
           <div className="min-w-0">
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-accent">

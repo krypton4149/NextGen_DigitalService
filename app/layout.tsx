@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat, Noto_Sans_Devanagari, Poppins } from "next/font/google";
+import { Noto_Sans_Devanagari, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import "./globals.css";
 
-const display = Poppins({
+const display = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["500", "600", "700"],
   adjustFontFallback: true,
 });
 
-const body = Montserrat({
+const body = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",

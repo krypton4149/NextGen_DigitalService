@@ -1,18 +1,20 @@
 import Link from "next/link";
 import type { ComponentProps } from "react";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "secondary" | "ghost" | "outline";
 
 const base =
-  "group inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
+  "group inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-[0.82rem] font-semibold tracking-[-0.01em] transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-navy text-white hover:bg-coral focus-visible:outline-coral",
+    "btn-shine bg-coral text-white shadow-[0_12px_30px_-12px_rgba(255,90,60,0.8)] hover:bg-accent-dim focus-visible:outline-coral",
   secondary:
-    "border border-foreground/25 bg-transparent text-foreground hover:border-accent hover:text-accent focus-visible:outline-accent",
+    "border border-white/25 bg-white/8 text-white backdrop-blur-sm hover:border-white/60 hover:bg-white/12 focus-visible:outline-white",
+  outline:
+    "border border-navy/15 bg-white text-navy hover:border-coral hover:text-coral focus-visible:outline-coral",
   ghost:
-    "bg-transparent text-foreground underline-offset-4 hover:text-accent hover:underline focus-visible:outline-accent",
+    "bg-transparent px-0 text-navy hover:text-coral focus-visible:outline-coral",
 };
 
 type ButtonProps = {
@@ -38,15 +40,10 @@ export function Button({
       className={`${base} ${variants[variant]} ${className ?? ""}`}
       {...props}
     >
-      <span>{children}</span>
+      <span className="relative z-[1]">{children}</span>
       {arrow ? (
-        <span className="relative inline-grid size-[1em] place-items-center" aria-hidden>
-          <span className="col-start-1 row-start-1 transition duration-300 group-hover:opacity-0">
-            →
-          </span>
-          <span className="col-start-1 row-start-1 opacity-0 transition duration-300 group-hover:opacity-100">
-            ↗
-          </span>
+        <span className="relative z-[1] transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden>
+          →
         </span>
       ) : null}
     </Link>

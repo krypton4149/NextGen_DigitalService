@@ -9,20 +9,38 @@ import { SOCIAL_LINKS } from "@/lib/social";
 
 const nav = [
   { href: "/", label: "Home" },
-  { href: "/work", label: "Work" },
+  { href: "/about", label: "Studio" },
   { href: "/services", label: "Services" },
+  { href: "/work", label: "Work" },
   { href: "/events", label: "Events" },
-  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-white pb-[env(safe-area-inset-bottom)] text-navy">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
-        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-12 lg:grid-cols-12 lg:gap-8">
-          {/* Brand */}
-          <div className="sm:col-span-2 md:col-span-5 lg:col-span-5">
+    <footer className="bg-navy pb-[env(safe-area-inset-bottom)] text-white">
+      <div className="site-wrap py-16 lg:py-20">
+        <div className="flex flex-col gap-8 border-b border-white/10 pb-12 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-coral">
+              Shikohabad Creative Co.
+            </p>
+            <p className="display-title mt-4 max-w-xl text-4xl sm:text-5xl">
+              Local roots.
+              <br />
+              Creative reach.
+            </p>
+          </div>
+          <Link
+            href="/contact"
+            className="btn-shine inline-flex min-h-12 items-center rounded-full bg-coral px-6 text-[0.85rem] font-semibold text-white"
+          >
+            Start a project →
+          </Link>
+        </div>
+
+        <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-12">
+          <div className="lg:col-span-5">
             <Link href="/" prefetch>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -30,95 +48,58 @@ export function Footer() {
                 alt="Shikohabad Creative Co."
                 width={280}
                 height={105}
-                className="h-16 w-auto rounded-lg sm:h-20"
+                className="h-12 w-auto brightness-0 invert sm:h-14"
               />
             </Link>
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-navy/75">
-              Creative studio in Shikohabad — social media, branding, websites
-              and events for brands that want to be noticed.
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/60">
+              Creative studio in Shikohabad — social, branding, websites and
+              events for brands that want to be noticed.
             </p>
-            <Link
-              href="/contact"
-              className="mt-6 inline-flex items-center gap-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-coral transition hover:text-navy"
-            >
-              Start a project ↗
-            </Link>
           </div>
-
-          {/* Pages */}
-          <div className="md:col-span-3 lg:col-span-3">
-            <h3 className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-coral">
-              Pages
-            </h3>
+          <div className="lg:col-span-3">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-coral">Pages</p>
             <ul className="mt-4 space-y-2.5">
               {nav.map((item) => (
                 <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-navy/80 transition hover:text-coral"
-                  >
+                  <Link href={item.href} className="text-sm text-white/70 hover:text-white">
                     {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-
-          {/* Connect */}
-          <div className="md:col-span-4 lg:col-span-4">
-            <h3 className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-coral">
-              Connect
-            </h3>
-            <ul className="mt-4 space-y-2.5 text-sm text-navy/80">
+          <div className="lg:col-span-4">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-coral">Studio</p>
+            <ul className="mt-4 space-y-2.5 text-sm text-white/70">
               <li>
-                <a
-                  href={`mailto:${CONTACT_EMAIL}`}
-                  className="break-all transition hover:text-coral"
-                >
+                <a href={`mailto:${CONTACT_EMAIL}`} className="break-all hover:text-white">
                   {CONTACT_EMAIL}
                 </a>
               </li>
               <li>
-                <a
-                  href={`tel:${CONTACT_PHONE_TEL}`}
-                  className="transition hover:text-coral"
-                >
+                <a href={`tel:${CONTACT_PHONE_TEL}`} className="hover:text-white">
                   {CONTACT_PHONE_DISPLAY}
                 </a>
               </li>
-              <li className="flex gap-5 pt-1">
-                <a
-                  href={CONTACT_WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition hover:text-coral"
-                >
+              <li>
+                <a href={CONTACT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white">
                   WhatsApp
                 </a>
-                <a
-                  href={SOCIAL_LINKS.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition hover:text-coral"
-                >
+              </li>
+              <li>
+                <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white">
                   Instagram
                 </a>
               </li>
+              <li className="pt-1 text-white/45">Shikohabad, Uttar Pradesh</li>
             </ul>
-            <p className="mt-5 text-sm text-navy/80">
-              Shikohabad, Uttar Pradesh, India
-            </p>
           </div>
         </div>
       </div>
-
-      <div className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-navy/55 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <p>
-            © {new Date().getFullYear()} Shikohabad Creative Co. All rights
-            reserved.
-          </p>
-          <p className="tracking-[0.14em] uppercase">Based in Shikohabad</p>
+      <div className="border-t border-white/10">
+        <div className="site-wrap flex flex-col gap-2 py-5 text-xs text-white/40 sm:flex-row sm:justify-between">
+          <p>© {new Date().getFullYear()} Shikohabad Creative Co.</p>
+          <p>Digital growth agency</p>
         </div>
       </div>
     </footer>

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   CONTACT_EMAIL,
   CONTACT_WHATSAPP_URL,
@@ -9,64 +8,33 @@ import { Reveal } from "./Reveal";
 
 export function CTASection() {
   return (
-    <section className="relative overflow-hidden border-b border-border">
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero-abstract.jpg"
-          alt=""
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-primary/78" />
+    <section className="relative overflow-hidden bg-navy text-white">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+        <div className="agency-orb agency-orb-a absolute -left-10 top-0 size-48" />
+        <div className="agency-orb agency-orb-b absolute -right-8 bottom-0 size-40" />
       </div>
-
-      <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 md:px-8 lg:px-8 lg:py-14">
+      <div className="site-wrap relative py-20 lg:py-24">
         <Reveal>
-          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-white/70">
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-coral">
             Next chapter
           </p>
-          <h2 className="mt-3 max-w-4xl font-display text-[clamp(1.75rem,6vw,3.5rem)] font-bold leading-[0.9] tracking-[-0.04em] text-white">
-            GOT A BRAND
-            <br />
-            PEOPLE SHOULD
-            <br />
-            KNOW?
+          <h2 className="display-title mt-5 max-w-3xl text-[clamp(2.3rem,6vw,4.6rem)]">
+            Got a brand people
+            should already know?
           </h2>
-          <p className="mt-4 max-w-md font-display text-base text-white/85 sm:text-lg">
-            Let&apos;s make them notice.
-          </p>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <Button href="/contact" className="bg-coral text-white hover:bg-accent-dim">
-              Start a project
-            </Button>
-            <Button
-              href={CONTACT_WHATSAPP_URL}
-              variant="secondary"
-              arrow={false}
-              className="border-white/40 text-white hover:border-white hover:bg-white/10"
-            >
+          <p className="mt-5 max-w-md text-lg text-white/70">Let&apos;s make them notice.</p>
+          <div className="mt-9 flex flex-wrap items-center gap-3">
+            <Button href="/contact">Start a project</Button>
+            <Button href={CONTACT_WHATSAPP_URL} variant="secondary" arrow={false}>
               WhatsApp
             </Button>
           </div>
-          <div className="mt-6 flex flex-wrap gap-6 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
-            <a href={`mailto:${CONTACT_EMAIL}`} className="transition hover:text-white">
-              Email
-            </a>
-            <a
-              href={SOCIAL_LINKS.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition hover:text-white"
-            >
+          <div className="mt-10 flex flex-wrap gap-6 text-sm text-white/45">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white">Email</a>
+            <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white">
               Instagram
             </a>
-            <a
-              href={CONTACT_WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition hover:text-white"
-            >
+            <a href={CONTACT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white">
               WhatsApp
             </a>
           </div>

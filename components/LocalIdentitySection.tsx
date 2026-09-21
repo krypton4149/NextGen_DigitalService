@@ -1,34 +1,30 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { SectionLabel } from "./SectionLabel";
 
 export function LocalIdentitySection() {
   return (
-    <section className="relative border-b border-border bg-surface py-10 sm:py-12 lg:py-14">
-      <div className="mx-auto grid max-w-7xl items-center gap-6 px-4 sm:px-6 md:grid-cols-2 md:gap-8 md:px-8 lg:px-8">
-        <Reveal>
-          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-accent">
-            Where we create from
-          </p>
-          <h2 className="mt-3 font-display text-3xl font-bold leading-[0.9] tracking-tight sm:text-5xl">
-            FROM SHIKOHABAD
-            <br />
-            <span className="text-accent">TO EVERYWHERE.</span>
+    <section className="py-20 lg:py-24">
+      <div className="site-wrap grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+        <Reveal className="lg:col-span-7">
+          <SectionLabel>Origin</SectionLabel>
+          <h2 className="display-title mt-5 text-[clamp(2.1rem,5vw,4rem)] text-navy">
+            From Shikohabad
+            <span className="text-coral"> to everywhere.</span>
           </h2>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-muted sm:text-base">
-            Based in Shikohabad. Creating beyond it. We understand local
-            businesses, local audiences — and build work that travels digitally.
+          <p className="mt-6 max-w-md text-[1.02rem] leading-relaxed text-muted">
+            We understand local businesses and local audiences — then build work
+            that travels digitally, without losing the place it came from.
           </p>
         </Reveal>
-
-        <Reveal delayMs={120} className="relative">
-          <div className="relative mx-auto aspect-[1207/1303] w-full max-w-[16.5rem] sm:max-w-[19rem] md:ml-auto md:max-w-[22rem]">
+        <Reveal delayMs={120} className="lg:col-span-5">
+          <div className="relative mx-auto aspect-[1207/1303] w-full max-w-[18rem] lg:ml-auto lg:max-w-[22rem]">
             <Image
               src="/images/City.png"
-              alt="Shikohabad — local streets, local understanding, digital reach"
+              alt="Shikohabad — local understanding, digital reach"
               fill
               className="object-contain object-center"
-              sizes="(max-width: 768px) 280px, 352px"
-              priority={false}
+              sizes="352px"
             />
           </div>
         </Reveal>

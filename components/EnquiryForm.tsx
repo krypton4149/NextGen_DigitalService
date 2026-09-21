@@ -2,7 +2,6 @@
 
 import type { FormEvent } from "react";
 import { useState } from "react";
-import { Send } from "lucide-react";
 import { buildContactMailto } from "@/lib/contact";
 
 const SERVICES = [
@@ -22,7 +21,7 @@ const SERVICES = [
 ] as const;
 
 const fieldClass =
-  "mt-2 w-full rounded-xl bg-surface px-4 py-3.5 text-base text-foreground outline-none ring-1 ring-transparent transition placeholder:text-muted/70 focus:ring-coral";
+  "mt-2 w-full border-0 border-b border-navy/20 bg-transparent px-0 py-3 text-base text-foreground outline-none transition placeholder:text-muted/70 focus:border-coral";
 
 type EnquiryFormProps = {
   idPrefix?: string;
@@ -64,36 +63,36 @@ export function EnquiryForm({
   }
 
   return (
-    <form className="space-y-5" onSubmit={handleSubmit}>
-      <div className="grid gap-5 sm:grid-cols-2">
+    <form className="space-y-6" onSubmit={handleSubmit}>
+      <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label
             htmlFor={`${idPrefix}-first`}
-            className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-muted"
+            className="text-[0.62rem] uppercase tracking-[0.2em] text-muted"
           >
-            Who is this from?
+            First name
           </label>
           <input
             id={`${idPrefix}-first`}
             name="firstName"
             required
             autoComplete="given-name"
-            placeholder="My name is..."
+            placeholder="Your name"
             className={fieldClass}
           />
         </div>
         <div>
           <label
             htmlFor={`${idPrefix}-last`}
-            className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-muted"
+            className="text-[0.62rem] uppercase tracking-[0.2em] text-muted"
           >
-            Your family name
+            Last name
           </label>
           <input
             id={`${idPrefix}-last`}
             name="lastName"
             autoComplete="family-name"
-            placeholder="My family name is..."
+            placeholder="Family name"
             className={fieldClass}
           />
         </div>
@@ -102,9 +101,9 @@ export function EnquiryForm({
       <div>
         <label
           htmlFor={`${idPrefix}-email`}
-          className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-muted"
+          className="text-[0.62rem] uppercase tracking-[0.2em] text-muted"
         >
-          Where can we reach you?
+          Email
         </label>
         <input
           id={`${idPrefix}-email`}
@@ -112,14 +111,14 @@ export function EnquiryForm({
           type="email"
           required
           autoComplete="email"
-          placeholder="My email is..."
+          placeholder="you@studio.com"
           className={fieldClass}
         />
       </div>
 
       <fieldset>
-        <legend className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-muted">
-          What services do you need?
+        <legend className="text-[0.62rem] uppercase tracking-[0.2em] text-muted">
+          What do you need?
         </legend>
         <div className="mt-3 flex flex-wrap gap-2">
           {SERVICES.map((service) => {
@@ -129,10 +128,10 @@ export function EnquiryForm({
                 key={service}
                 type="button"
                 onClick={() => toggleService(service)}
-                className={`rounded-full border px-3 py-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.12em] transition ${
+                className={`rounded-full border px-3.5 py-1.5 text-[0.78rem] transition ${
                   on
-                    ? "border-coral bg-coral text-white"
-                    : "border-border bg-white text-muted hover:border-coral hover:text-navy"
+                    ? "border-navy bg-navy text-white"
+                    : "border-border text-muted hover:border-navy/40 hover:text-navy"
                 }`}
               >
                 {service}
@@ -145,26 +144,26 @@ export function EnquiryForm({
       <div>
         <label
           htmlFor={`${idPrefix}-message`}
-          className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-muted"
+          className="text-[0.62rem] uppercase tracking-[0.2em] text-muted"
         >
-          Tell us your story
+          The brief
         </label>
         <textarea
           id={`${idPrefix}-message`}
           name="message"
           required
           rows={5}
-          placeholder="Here's what I have in mind..."
+          placeholder="What should people notice?"
           className={`${fieldClass} resize-y`}
         />
       </div>
 
       <button
         type="submit"
-        className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-navy px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-coral sm:w-auto"
+        className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-navy px-6 py-2.5 text-[0.9rem] font-medium text-white transition hover:bg-coral sm:w-auto"
       >
         {sent ? "Opening mail…" : submitLabel}
-        <Send className="size-3.5" strokeWidth={2.25} aria-hidden />
+        <span aria-hidden>→</span>
       </button>
     </form>
   );

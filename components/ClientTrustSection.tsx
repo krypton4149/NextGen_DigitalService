@@ -1,65 +1,43 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "./Reveal";
+import { SectionLabel } from "./SectionLabel";
 import { PORTFOLIO_PROJECTS } from "@/lib/portfolio";
 
 export function ClientTrustSection() {
   return (
-    <section className="partners-strips border-b border-border bg-white py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal className="text-center">
-          <p className="inline-flex items-center gap-2 rounded-full border border-coral/30 bg-white px-3.5 py-1.5">
-            <span className="size-1.5 rounded-full bg-coral" aria-hidden />
-            <span className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-accent">
-              Our Partners
-            </span>
-          </p>
-          <h2 className="mt-6 font-display text-[clamp(1.75rem,4vw,3rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-navy">
-            Collaborations With
-            <br />
-            <span className="text-accent">Leading Brands</span>
+    <section className="bg-surface py-20 lg:py-24">
+      <div className="site-wrap">
+        <Reveal>
+          <SectionLabel>Selected work</SectionLabel>
+          <h2 className="display-title mt-5 max-w-2xl text-[clamp(2rem,4.2vw,3.3rem)] text-navy">
+            Brands that trusted the studio.
           </h2>
-          <span className="mx-auto mt-5 block h-1 w-14 bg-navy" aria-hidden />
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-            Get to know the brands that trust Shikohabad Creative Co. We build
-            long-term relationships through work people notice.
-          </p>
         </Reveal>
-      </div>
-
-      <p className="sr-only">
-        {PORTFOLIO_PROJECTS.map((client) => client.name).join(", ")}
-      </p>
-
-      <div className="mt-12 overflow-hidden">
-        <div className="flex w-max marquee-track">
-          {[0, 1].map((copy) => (
-            <ul
-              key={copy}
-              className="flex items-center gap-6 px-3 sm:gap-8"
-              aria-hidden={copy === 1}
-            >
-              {[...PORTFOLIO_PROJECTS].reverse().map((client) => (
-                <li key={`${copy}-${client.id}`} className="w-[12.5rem] shrink-0 sm:w-[15rem]">
-                  <Link
-                    href={`/work/${client.slug}`}
-                    className="group block outline-none"
-                  >
-                    <span className="relative flex aspect-[16/10] w-full overflow-hidden rounded-xl">
-                      <Image
-                        src={client.image}
-                        alt={copy === 0 ? client.name : ""}
-                        fill
-                        className="object-contain transition duration-300 group-hover:scale-[1.03]"
-                        sizes="(max-width: 640px) 200px, 240px"
-                      />
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {PORTFOLIO_PROJECTS.map((client, index) => (
+            <Reveal key={client.id} as="li" delayMs={Math.min(index * 50, 200)}>
+              <Link
+                href={`/work/${client.slug}`}
+                className="group block overflow-hidden rounded-[1.4rem] border border-border bg-white transition duration-300 hover:-translate-y-1 hover:border-coral/30 hover:shadow-[0_24px_50px_-28px_rgba(11,19,43,0.35)]"
+              >
+                <span className="relative flex aspect-[16/10] overflow-hidden bg-surface">
+                  <Image
+                    src={client.image}
+                    alt={client.name}
+                    fill
+                    className="object-contain p-5 transition duration-500 group-hover:scale-[1.04]"
+                    sizes="(max-width: 1024px) 50vw, 33vw"
+                  />
+                </span>
+                <span className="flex items-center justify-between px-5 py-4">
+                  <span className="font-display font-bold text-navy">{client.name}</span>
+                  <span className="text-xs font-bold text-coral">{client.num}</span>
+                </span>
+              </Link>
+            </Reveal>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
