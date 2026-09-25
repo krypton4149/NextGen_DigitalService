@@ -2,42 +2,95 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "./Reveal";
 import { SectionLabel } from "./SectionLabel";
-import { PORTFOLIO_PROJECTS } from "@/lib/portfolio";
+import { Button } from "./Button";
+import {
+  PORTFOLIO_PROJECTS,
+  isLogoMark,
+  logoFitClass,
+  projectLogo,
+} from "@/lib/portfolio";
+
+const HOME_CLIENT_COUNT = 4;
+
+function logoShell(image: string) {
+  if (image.includes("eventz") || image.includes("airsupra.png")) return "bg-navy";
+  return "bg-white";
+}
 
 export function ClientTrustSection() {
+  const featured = PORTFOLIO_PROJECTS.slice(0, HOME_CLIENT_COUNT);
+  const remaining = PORTFOLIO_PROJECTS.length - featured.length;
+
   return (
-    <section className="bg-surface py-20 lg:py-24">
-      <div className="site-wrap">
+    <section className="border-b border-border">
+      <div className="site-wrap py-24 lg:py-28">
         <Reveal>
-          <SectionLabel>Selected work</SectionLabel>
-          <h2 className="display-title mt-5 max-w-2xl text-[clamp(2rem,4.2vw,3.3rem)] text-navy">
-            Brands that trusted the studio.
-          </h2>
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <SectionLabel>Selected work</SectionLabel>
+              <h2 className="display-title mt-6 text-[clamp(2.4rem,4.5vw,3.8rem)] text-navy">
+                Brands we move.
+              </h2>
+            </div>
+            <p className="max-w-xs text-sm leading-[1.7] text-muted sm:text-right">
+              Marketing, advertising and events — for clients who want results that show.
+            </p>
+          </div>
         </Reveal>
-        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {PORTFOLIO_PROJECTS.map((client, index) => (
-            <Reveal key={client.id} as="li" delayMs={Math.min(index * 50, 200)}>
-              <Link
-                href={`/work/${client.slug}`}
-                className="group block overflow-hidden rounded-[1.4rem] border border-border bg-white transition duration-300 hover:-translate-y-1 hover:border-coral/30 hover:shadow-[0_24px_50px_-28px_rgba(11,19,43,0.35)]"
+
+        <ul className="mt-16 grid grid-cols-2 sm:grid-cols-4">
+          {featured.map((client, index) => {
+            const mark = projectLogo(client);
+            const framed = isLogoMark(mark);
+            return (
+              <Reveal
+                key={client.id}
+                as="li"
+                delayMs={Math.min(index * 40, 160)}
               >
-                <span className="relative flex aspect-[16/10] overflow-hidden bg-surface">
-                  <Image
-                    src={client.image}
-                    alt={client.name}
-                    fill
-                    className="object-contain p-5 transition duration-500 group-hover:scale-[1.04]"
-                    sizes="(max-width: 1024px) 50vw, 33vw"
-                  />
-                </span>
-                <span className="flex items-center justify-between px-5 py-4">
-                  <span className="font-display font-bold text-navy">{client.name}</span>
-                  <span className="text-xs font-bold text-coral">{client.num}</span>
-                </span>
-              </Link>
-            </Reveal>
-          ))}
+                <Link
+                  href={`/work/${client.slug}`}
+                  className="group flex h-full flex-col items-center border border-border bg-background px-4 py-10 text-center transition hover:bg-surface sm:px-5 sm:py-12"
+                >
+                  <span
+                    className={`relative flex size-[5.5rem] items-center justify-center overflow-hidden rounded-full sm:size-[6.25rem] ${logoShell(mark)}`}
+                  >
+                    <Image
+                      src={mark}
+                      alt=""
+                      fill
+                      unoptimized={framed}
+                      className={
+                        framed
+                          ? logoFitClass(mark, { hover: true })
+                          : "object-cover transition duration-500 group-hover:scale-105"
+                      }
+                      sizes="100px"
+                      aria-hidden
+                    />
+                  </span>
+                  <span className="eyebrow mt-6">{client.industry}</span>
+                  <span className="mt-3 font-display text-xl tracking-tight text-navy transition group-hover:text-coral">
+                    {client.name}
+                  </span>
+                </Link>
+              </Reveal>
+            );
+          })}
         </ul>
+
+        <Reveal delayMs={60}>
+          <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-border pt-10 sm:flex-row sm:items-center">
+            <p className="text-sm text-muted">
+              {remaining > 0
+                ? `${remaining} more on the work page.`
+                : "Full stories on the work page."}
+            </p>
+            <Button href="/work" variant="outline">
+              View more
+            </Button>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

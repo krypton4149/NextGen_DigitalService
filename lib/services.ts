@@ -17,7 +17,7 @@ export const CORE_SERVICES: CoreService[] = [
     title: "Social Media Management",
     titleLines: ["SOCIAL", "MEDIA", "MANAGEMENT"],
     description:
-      "We manage your social presence from strategy to execution — content planning, creative posts, reels, captions, campaigns and consistent brand communication.",
+      "Marketing that stays on — strategy, content calendars, reels, captions and campaigns that keep your brand active and discoverable.",
     tags: ["CONTENT", "REELS", "STRATEGY", "GROWTH"],
     image: "/images/Social.png",
     href: "/contact",
@@ -29,8 +29,8 @@ export const CORE_SERVICES: CoreService[] = [
     title: "Branding",
     titleLines: ["BRANDING"],
     description:
-      "We build visual identities that make businesses recognizable — from logos and brand direction to social creatives, promotional designs and complete visual systems.",
-    tags: ["LOGO", "IDENTITY", "CREATIVE", "DESIGN"],
+      "Advertising-ready identity — logos, brand systems, promo creatives and visual direction built so every campaign looks like you.",
+    tags: ["LOGO", "IDENTITY", "CREATIVE", "ADS"],
     image: "/images/Brand.png",
     href: "/contact",
     variation: "offset",

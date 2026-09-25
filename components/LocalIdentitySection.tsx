@@ -4,7 +4,7 @@ import { SectionLabel } from "./SectionLabel";
 
 export function LocalIdentitySection() {
   return (
-    <section className="py-20 lg:py-24">
+    <section className="border-b border-border bg-surface py-20 lg:py-24">
       <div className="site-wrap grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-7">
           <SectionLabel>Origin</SectionLabel>
@@ -12,7 +12,7 @@ export function LocalIdentitySection() {
             From Shikohabad
             <span className="text-coral"> to everywhere.</span>
           </h2>
-          <p className="mt-6 max-w-md text-[1.02rem] leading-relaxed text-muted">
+          <p className="mt-6 max-w-md text-[1.05rem] leading-relaxed text-muted">
             We understand local businesses and local audiences — then build work
             that travels digitally, without losing the place it came from.
           </p>

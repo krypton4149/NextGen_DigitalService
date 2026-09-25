@@ -2,31 +2,36 @@ import { Reveal } from "./Reveal";
 import { SectionLabel } from "./SectionLabel";
 
 const steps = [
-  { num: "01", title: "Discover", body: "Understand the brand, the audience, and the gap." },
-  { num: "02", title: "Think", body: "Set the creative direction before a pixel is made." },
-  { num: "03", title: "Create", body: "Design, content, campaigns and systems that hold." },
-  { num: "04", title: "Launch", body: "Put the work in front of the right people." },
-  { num: "05", title: "Grow", body: "Measure, refine, and scale what is already working." },
+  { num: "01", title: "Listen", body: "Brand, audience, offer — we map what needs to move." },
+  { num: "02", title: "Shape", body: "Strategy for marketing, ads and events before we produce." },
+  { num: "03", title: "Make", body: "Creatives, content and experience design with polish." },
+  { num: "04", title: "Release", body: "Launch online and on-ground where people actually show up." },
+  { num: "05", title: "Refine", body: "Measure, tighten and keep the work performing." },
 ] as const;
 
 export function ProcessSection() {
   return (
-    <section className="py-20 lg:py-24">
-      <div className="site-wrap">
+    <section className="border-b border-border bg-surface">
+      <div className="site-wrap py-24 lg:py-28">
         <Reveal>
           <SectionLabel>Method</SectionLabel>
-          <h2 className="display-title mt-5 text-[clamp(2rem,4.2vw,3.3rem)] text-navy">
-            How the work gets made.
+          <h2 className="display-title mt-6 max-w-xl text-[clamp(2.4rem,4.5vw,3.8rem)] text-navy">
+            How we work.
           </h2>
         </Reveal>
-        <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+
+        <ol className="mt-16">
           {steps.map((step, index) => (
-            <Reveal key={step.num} as="li" delayMs={index * 80}>
-              <article className="h-full rounded-[1.4rem] border border-border bg-surface p-5 transition duration-300 hover:-translate-y-1 hover:border-coral/40 hover:bg-white">
-                <span className="font-display text-sm font-bold text-coral">{step.num}</span>
-                <h3 className="mt-6 font-display text-2xl font-bold tracking-tight">{step.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{step.body}</p>
-              </article>
+            <Reveal key={step.num} as="li" delayMs={index * 50}>
+              <div className="grid gap-2 border-t border-border py-8 last:border-b sm:grid-cols-12 sm:items-baseline sm:gap-8 sm:py-9">
+                <span className="eyebrow sm:col-span-1">{step.num}</span>
+                <h3 className="display-title text-2xl text-navy sm:col-span-3 sm:text-3xl">
+                  {step.title}
+                </h3>
+                <p className="text-[0.95rem] leading-[1.7] text-muted sm:col-span-8">
+                  {step.body}
+                </p>
+              </div>
             </Reveal>
           ))}
         </ol>

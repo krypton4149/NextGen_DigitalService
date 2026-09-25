@@ -14,7 +14,7 @@ const pillars = [
 
 export function EventsSection() {
   return (
-    <section id="events" className="scroll-mt-24 bg-surface py-20 lg:py-24">
+    <section id="events" className="scroll-mt-24 border-b border-border bg-white py-20 lg:py-24">
       <div className="site-wrap">
         <div className="grid items-end gap-8 lg:grid-cols-12">
           <Reveal className="lg:col-span-8">
@@ -38,27 +38,31 @@ export function EventsSection() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-12">
+        <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:gap-12">
           <Reveal className="lg:col-span-8">
-            <div className="relative min-h-[16rem] overflow-hidden rounded-[1.6rem] sm:min-h-[22rem]">
+            <div className="relative min-h-[18rem] overflow-hidden bg-surface sm:min-h-[26rem]">
               <Image
                 src="/images/work-events.jpg"
                 alt="Event atmosphere by Shikohabad Creative Co."
                 fill
-                className="object-cover transition duration-700 hover:scale-105"
+                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 66vw"
               />
             </div>
           </Reveal>
           <Reveal delayMs={100} className="lg:col-span-4">
-            <ol className="space-y-3">
+            <ol className="border-t border-border">
               {pillars.map((item, i) => (
                 <li
                   key={item}
-                  className="flex items-center gap-3 rounded-2xl border border-border bg-white px-4 py-3"
+                  className="flex items-baseline gap-4 border-b border-border py-4"
                 >
-                  <span className="text-xs font-bold text-coral">0{i + 1}</span>
-                  <span className="font-display font-bold text-navy">{item}</span>
+                  <span className="text-[0.65rem] tracking-[0.16em] text-coral">
+                    0{i + 1}
+                  </span>
+                  <span className="font-display text-lg tracking-tight text-navy">
+                    {item}
+                  </span>
                 </li>
               ))}
             </ol>

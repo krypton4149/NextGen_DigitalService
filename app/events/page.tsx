@@ -57,12 +57,12 @@ export default function EventsPage() {
         <div className="site-wrap grid gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
             <figure>
-              <div className="relative min-h-[20rem] overflow-hidden rounded-[1.6rem] md:min-h-[26rem] lg:min-h-[32rem]">
+              <div className="relative min-h-[20rem] overflow-hidden bg-surface md:min-h-[26rem] lg:min-h-[32rem]">
                 <Image
                   src="/images/work-events.jpg"
                   alt="Experiential event atmosphere by Shikohabad Creative Co."
                   fill
-                  className="img-zoom object-cover"
+                  className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 58vw"
                   priority
                 />

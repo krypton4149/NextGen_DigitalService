@@ -102,7 +102,7 @@ export function Header() {
       <header
         className={`fixed inset-x-0 top-0 z-50 border-b pt-[env(safe-area-inset-top)] transition-colors duration-300 ${
           scrolled || menuOpen
-            ? "border-border bg-background/92 backdrop-blur-md"
+            ? "border-border bg-background/90 backdrop-blur-md"
             : "border-transparent bg-background"
         }`}
       >
@@ -112,14 +112,14 @@ export function Header() {
             <img
               src="/images/Logo1.png"
               alt="Shikohabad Creative Co."
-              width={220}
+              width={240}
               height={80}
-              className="h-8 w-auto sm:h-9"
+              className="h-10 w-auto sm:h-11 lg:h-12"
             />
           </Link>
 
           <nav
-            className="hidden flex-1 items-center justify-center gap-8 lg:flex"
+            className="hidden flex-1 items-center justify-center gap-9 lg:flex"
             aria-label="Main"
           >
             {links.map(({ href, label }) => {
@@ -129,38 +129,32 @@ export function Header() {
                   key={href}
                   href={href}
                   prefetch
-                  className={`group relative text-[0.85rem] font-semibold transition ${
-                    active ? "text-navy" : "text-muted hover:text-navy"
+                  className={`text-[0.78rem] font-medium tracking-[0.06em] uppercase transition ${
+                    active ? "text-coral" : "text-muted hover:text-navy"
                   }`}
                 >
                   {label}
-                  <span
-                    className={`absolute -bottom-1 left-0 h-0.5 bg-coral transition-all duration-300 ${
-                      active ? "w-full" : "w-0 group-hover:w-full"
-                    }`}
-                    aria-hidden
-                  />
                 </Link>
               );
             })}
           </nav>
 
-          <div className="ml-auto flex items-center gap-1">
+          <div className="ml-auto flex items-center gap-2">
             <button
               type="button"
-              className="flex size-10 items-center justify-center text-navy/70 transition hover:text-navy"
+              className="flex size-10 items-center justify-center text-navy/55 transition hover:text-navy"
               aria-label="Search"
               onClick={() => {
                 setMenuOpen(false);
                 setSearchOpen(true);
               }}
             >
-              <Search className="size-[1.15rem]" strokeWidth={1.6} aria-hidden />
+              <Search className="size-[1.1rem]" strokeWidth={1.5} aria-hidden />
             </button>
             <Link
               href="/contact"
               prefetch
-              className="btn-shine hidden min-h-10 items-center rounded-full bg-coral px-4 text-[0.82rem] font-semibold text-white shadow-[0_10px_24px_-12px_rgba(255,90,60,0.85)] transition hover:bg-accent-dim lg:inline-flex"
+              className="hidden min-h-10 items-center bg-coral px-4 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-accent-dim lg:inline-flex"
             >
               Start a project
             </Link>
@@ -173,9 +167,9 @@ export function Header() {
               onClick={() => setMenuOpen((o) => !o)}
             >
               {menuOpen ? (
-                <X className="size-6" strokeWidth={1.6} aria-hidden />
+                <X className="size-5" strokeWidth={1.5} aria-hidden />
               ) : (
-                <Menu className="size-6" strokeWidth={1.6} aria-hidden />
+                <Menu className="size-5" strokeWidth={1.5} aria-hidden />
               )}
             </button>
           </div>
@@ -220,7 +214,7 @@ export function Header() {
                 href={CONTACT_WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex min-h-11 items-center rounded-full border border-white/25 px-5 text-[0.9rem] font-medium text-white"
+                className="mt-6 inline-flex min-h-11 items-center bg-coral px-5 text-[0.9rem] font-semibold text-white"
               >
                 WhatsApp
               </a>

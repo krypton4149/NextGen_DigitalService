@@ -113,7 +113,7 @@ export function ContactSection() {
         </Reveal>
 
         <Reveal delayMs={80} className="lg:col-span-7">
-          <div className="rounded-[1.6rem] border border-border bg-surface p-6 sm:p-8 lg:p-10">
+          <div className="border border-border bg-surface p-6 sm:p-8 lg:p-10">
             <EnquiryForm idPrefix="home" submitLabel="Send the brief" />
           </div>
         </Reveal>

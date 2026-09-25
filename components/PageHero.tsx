@@ -10,21 +10,17 @@ type PageHeroProps = {
 
 export function PageHero({ label, title, body, cta }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-navy text-white">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-        <div className="agency-orb agency-orb-a absolute -left-16 top-0 size-40" />
-        <div className="agency-orb agency-orb-b absolute -right-10 bottom-0 size-32" />
-      </div>
-      <div className="site-wrap relative py-8 sm:py-10 lg:py-12">
-        <SectionLabel className="text-coral">{label}</SectionLabel>
-        <h1 className="display-title mt-3 max-w-3xl text-[clamp(1.85rem,4.2vw,3.15rem)]">
+    <section className="border-b border-border bg-background">
+      <div className="site-wrap py-14 sm:py-16 lg:py-20">
+        <SectionLabel>{label}</SectionLabel>
+        <h1 className="display-title mt-6 max-w-3xl text-[clamp(2.4rem,5.5vw,4.2rem)] text-navy">
           {title}
         </h1>
-        <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/70 sm:text-[0.95rem]">
+        <p className="mt-5 max-w-lg text-[1rem] leading-[1.7] text-muted">
           {body}
         </p>
         {cta ? (
-          <div className="mt-5">
+          <div className="mt-8">
             <Button href={cta.href}>{cta.label}</Button>
           </div>
         ) : null}

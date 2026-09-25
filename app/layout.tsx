@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_Devanagari, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
+import { Cormorant_Garamond, Manrope, Noto_Sans_Devanagari } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import "./globals.css";
 
-const display = Space_Grotesk({
+const display = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   adjustFontFallback: true,
 });
 
-const body = Plus_Jakarta_Sans({
+const body = Manrope({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
@@ -38,24 +38,24 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Shikohabad Creative Co. | Creative & Digital Agency",
+    default: "Shikohabad Creative Co. | Marketing, Advertising & Events",
     template: "%s | Shikohabad Creative Co.",
   },
   description:
-    "Shikohabad Creative Co. is a creative digital agency helping businesses grow through social media, branding, digital presence, content and events.",
+    "Marketing agency, advertising studio and event management company in Shikohabad — social, branding, campaigns, websites and on-ground events.",
   keywords: [
-    "Digital agency in Shikohabad",
-    "Creative agency in Shikohabad",
-    "Social media agency in Shikohabad",
-    "Social media management Shikohabad",
-    "Branding agency Shikohabad",
+    "Marketing agency Shikohabad",
+    "Advertising agency Shikohabad",
     "Event management Shikohabad",
     "Digital marketing Shikohabad",
+    "Social media agency Shikohabad",
+    "Branding agency Shikohabad",
+    "Creative agency Shikohabad",
   ],
   openGraph: {
-    title: "Shikohabad Creative Co. | Creative & Digital Agency",
+    title: "Shikohabad Creative Co. | Marketing, Advertising & Events",
     description:
-      "Local roots. Creative reach. Social media, branding, digital presence, content and events from Shikohabad, Uttar Pradesh.",
+      "Three crafts. One studio. Marketing, advertising and event management from Shikohabad, Uttar Pradesh.",
     type: "website",
     locale: "en_IN",
     siteName: "Shikohabad Creative Co.",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shikohabad Creative Co.",
     description:
-      "Creative & digital agency in Shikohabad — social, branding, content and events.",
+      "Marketing, advertising and events — one creative studio in Shikohabad.",
   },
   icons: {
     icon: [

@@ -16,11 +16,11 @@ const values = [
   },
   {
     title: "Full journey",
-    body: "From idea to execution — social, branding, websites and events under one creative studio.",
+    body: "From idea to execution — marketing, advertising creatives, websites and live events under one studio.",
   },
   {
     title: "Real presence",
-    body: "Online and on-ground. We help brands show up where attention actually happens.",
+    body: "Campaigns that sell and events people show up for. Online and on-ground, same brand voice.",
   },
 ] as const;
 
@@ -52,12 +52,15 @@ export function AboutPageView() {
         label="Studio · About"
         title={
           <>
-            Not another
+            Marketing.
             <br />
-            digital agency.
+            Advertising.
+            <br />
+            Events.
           </>
         }
-        body="A creative studio based in Shikohabad — helping local and growing businesses turn attention into connection through social, branding, websites and events."
+        body="Shikohabad Creative Co. is a marketing and advertising agency that also manages events — one studio for brands that need to look sharp online and feel alive on the ground."
+        cta={{ href: "/contact", label: "Work with us" }}
       />
 
       <section className="py-16 sm:py-20">
