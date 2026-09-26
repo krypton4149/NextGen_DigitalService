@@ -9,6 +9,7 @@ type AnimatedWordProps = {
 
 export function AnimatedWord({ words, className = "" }: AnimatedWordProps) {
   const [index, setIndex] = useState(0);
+  const [phase, setPhase] = useState<"in" | "out">("in");
   const [reduce, setReduce] = useState(false);
 
   useEffect(() => {
@@ -20,18 +21,26 @@ export function AnimatedWord({ words, className = "" }: AnimatedWordProps) {
   useEffect(() => {
     if (reduce || words.length < 2) return;
     const id = window.setInterval(() => {
-      setIndex((current) => (current + 1) % words.length);
-    }, 2200);
+      setPhase("out");
+      window.setTimeout(() => {
+        setIndex((current) => (current + 1) % words.length);
+        setPhase("in");
+      }, 280);
+    }, 2400);
     return () => window.clearInterval(id);
   }, [reduce, words.length]);
 
   const word = words[index] ?? words[0] ?? "";
 
   return (
-    <span className={`inline-block text-coral ${className}`}>
-      <span key={word} className="word-fade inline-block">
+    <span className={`relative inline-block text-coral ${className}`}>
+      <span
+        key={word}
+        className={`kinetic-word inline-block ${phase === "in" ? "kinetic-in" : "kinetic-out"}`}
+      >
         {word}
       </span>
+      <span className="text-shimmer absolute inset-x-0 -bottom-1 h-[3px] rounded-full" aria-hidden />
     </span>
   );
 }

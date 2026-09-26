@@ -13,6 +13,11 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <div className="color-band" aria-hidden>
+        <span />
+        <span />
+        <span />
+      </div>
       <ServicesTicker />
       <PillarsSection />
       <ProofBar />

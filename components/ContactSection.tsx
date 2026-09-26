@@ -54,14 +54,19 @@ const socials = [
 
 export function ContactSection() {
   return (
-    <section id="contact" className="scroll-mt-24 bg-white py-20 lg:py-24">
-      <div className="site-wrap grid items-start gap-14 lg:grid-cols-12 lg:gap-16">
+    <section id="contact" className="scroll-mt-24 bg-background py-20 lg:py-24">
+      <div className="color-band mb-0" aria-hidden>
+        <span />
+        <span />
+        <span />
+      </div>
+      <div className="site-wrap grid items-start gap-14 pt-16 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-5">
           <SectionLabel>Enquire</SectionLabel>
           <h2 className="display-title mt-5 text-[clamp(2rem,4.4vw,3.4rem)] text-navy">
             Tell us what
             <br />
-            you&apos;re building.
+            you&apos;re <span className="text-coral">building.</span>
           </h2>
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted sm:text-base">
             Have a vision? Send a brief. We&apos;ll come back with a clear next
@@ -79,7 +84,7 @@ export function ContactSection() {
                   className="group flex items-start gap-4 py-4"
                 >
                   <item.Icon
-                    className="mt-0.5 size-4 text-coral"
+                    className="mt-0.5 size-4 text-coral transition group-hover:scale-110"
                     strokeWidth={1.7}
                     aria-hidden
                   />
@@ -87,7 +92,7 @@ export function ContactSection() {
                     <span className="block text-[0.62rem] uppercase tracking-[0.2em] text-muted">
                       {item.label}
                     </span>
-                    <span className="mt-1 block text-sm text-navy group-hover:text-coral">
+                    <span className="mt-1 block text-sm text-navy transition group-hover:text-coral">
                       {item.value}
                     </span>
                   </span>
@@ -104,7 +109,7 @@ export function ContactSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="text-navy transition hover:text-coral"
+                className="text-navy transition hover:scale-110 hover:text-coral"
               >
                 <Icon className="size-4" />
               </a>
@@ -112,8 +117,8 @@ export function ContactSection() {
           </div>
         </Reveal>
 
-        <Reveal delayMs={80} className="lg:col-span-7">
-          <div className="border border-border bg-surface p-6 sm:p-8 lg:p-10">
+        <Reveal delayMs={90} className="lg:col-span-7">
+          <div className="border border-border bg-white p-6 shadow-[0_24px_60px_-40px_rgba(11,19,43,0.35)] sm:p-8 lg:p-10">
             <EnquiryForm idPrefix="home" submitLabel="Send the brief" />
           </div>
         </Reveal>

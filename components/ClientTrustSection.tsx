@@ -22,23 +22,25 @@ export function ClientTrustSection() {
   const remaining = PORTFOLIO_PROJECTS.length - featured.length;
 
   return (
-    <section className="border-b border-border">
-      <div className="site-wrap py-24 lg:py-28">
+    <section className="border-b border-border bg-surface">
+      <div className="site-wrap py-20 lg:py-24">
         <Reveal>
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <SectionLabel>Selected work</SectionLabel>
-              <h2 className="display-title mt-6 text-[clamp(2.4rem,4.5vw,3.8rem)] text-navy">
-                Brands we move.
+              <h2 className="display-title mt-5 text-[clamp(2.2rem,4.5vw,3.6rem)] text-navy">
+                Brands we
+                <span className="text-coral"> move.</span>
               </h2>
             </div>
             <p className="max-w-xs text-sm leading-[1.7] text-muted sm:text-right">
-              Marketing, advertising and events — for clients who want results that show.
+              Marketing, advertising and events — for clients who want results
+              that show.
             </p>
           </div>
         </Reveal>
 
-        <ul className="mt-16 grid grid-cols-2 sm:grid-cols-4">
+        <ul className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
           {featured.map((client, index) => {
             const mark = projectLogo(client);
             const framed = isLogoMark(mark);
@@ -46,14 +48,15 @@ export function ClientTrustSection() {
               <Reveal
                 key={client.id}
                 as="li"
-                delayMs={Math.min(index * 40, 160)}
+                delayMs={Math.min(index * 70, 200)}
+                variant={index % 2 === 0 ? "up" : "scale"}
               >
                 <Link
                   href={`/work/${client.slug}`}
-                  className="group flex h-full flex-col items-center border border-border bg-background px-4 py-10 text-center transition hover:bg-surface sm:px-5 sm:py-12"
+                  className="hover-lift group flex h-full flex-col items-center border border-border bg-white px-4 py-10 text-center sm:px-5 sm:py-12"
                 >
                   <span
-                    className={`relative flex size-[5.5rem] items-center justify-center overflow-hidden rounded-full sm:size-[6.25rem] ${logoShell(mark)}`}
+                    className={`relative flex size-[5.5rem] items-center justify-center overflow-hidden rounded-full ring-2 ring-coral/25 transition duration-500 group-hover:ring-coral/60 sm:size-[6.25rem] ${logoShell(mark)}`}
                   >
                     <Image
                       src={mark}
@@ -79,7 +82,7 @@ export function ClientTrustSection() {
           })}
         </ul>
 
-        <Reveal delayMs={60}>
+        <Reveal delayMs={80}>
           <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-border pt-10 sm:flex-row sm:items-center">
             <p className="text-sm text-muted">
               {remaining > 0

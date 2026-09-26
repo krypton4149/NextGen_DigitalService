@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { BrandCta } from "@/components/BrandCta";
 import { PageHero } from "@/components/PageHero";
-import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
+import { SectionLabel } from "@/components/SectionLabel";
 
 export const metadata: Metadata = {
   title: "Events",
@@ -42,47 +43,61 @@ export default function EventsPage() {
     <main>
       <PageHero
         label="Events & experiences"
+        tone="navy"
         title={
           <>
             We don&apos;t just promote events.
             <br />
-            We stage them.
+            We <span className="text-coral">stage</span> them.
           </>
         }
         body="Event management and promotion for brands that want energy people remember — and share."
         cta={{ href: "/contact", label: "Plan an event" }}
       />
 
-      <section className="py-16 sm:py-24">
+      <div className="color-band" aria-hidden>
+        <span />
+        <span />
+        <span />
+      </div>
+
+      <section className="bg-surface py-16 sm:py-24">
         <div className="site-wrap grid gap-12 lg:grid-cols-12">
-          <Reveal className="lg:col-span-7">
+          <Reveal className="group lg:col-span-7">
             <figure>
-              <div className="relative min-h-[20rem] overflow-hidden bg-surface md:min-h-[26rem] lg:min-h-[32rem]">
+              <div className="relative min-h-[20rem] overflow-hidden bg-navy md:min-h-[26rem] lg:min-h-[32rem]">
                 <Image
                   src="/images/work-events.jpg"
                   alt="Experiential event atmosphere by Shikohabad Creative Co."
                   fill
-                  className="object-cover"
+                  className="img-zoom object-cover"
                   sizes="(max-width: 1024px) 100vw, 58vw"
                   priority
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent" />
               </div>
               <figcaption className="mt-3 text-[0.68rem] uppercase tracking-[0.18em] text-muted">
-                Fig. 03 — Live production
+                Live production · Shikohabad Creative Co.
               </figcaption>
             </figure>
           </Reveal>
           <div className="lg:col-span-5">
-            <ul className="border-t border-border">
+            <Reveal>
+              <SectionLabel>What we cover</SectionLabel>
+              <h2 className="display-title mt-4 text-[clamp(1.7rem,3vw,2.3rem)] text-navy">
+                From teaser to final cut.
+              </h2>
+            </Reveal>
+            <ul className="mt-8 border-t border-border">
               {pillars.map((item, index) => (
                 <Reveal key={item.title} as="li" delayMs={index * 50}>
-                  <article className="border-b border-border py-6">
+                  <article className="border-b border-border py-5 transition hover:bg-coral/5">
                     <p className="text-[0.65rem] tracking-[0.18em] text-coral">
                       0{index + 1}
                     </p>
-                    <h2 className="mt-2 font-display text-xl tracking-tight">
+                    <h3 className="mt-2 font-display text-xl tracking-tight text-navy">
                       {item.title}
-                    </h2>
+                    </h3>
                     <p className="mt-2 text-sm text-muted">{item.body}</p>
                   </article>
                 </Reveal>
@@ -92,22 +107,20 @@ export default function EventsPage() {
         </div>
       </section>
 
-      <section className="bg-navy py-16 text-white sm:py-24">
-        <div className="site-wrap">
-          <Reveal>
-            <h2 className="display-title text-[clamp(2rem,5vw,3.8rem)]">
-              Ready to put your
-              <br />
-              event on the map?
-            </h2>
-            <div className="mt-8">
-              <Button href="/contact" className="bg-coral hover:bg-accent-dim">
-                Start a brief
-              </Button>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <BrandCta
+        label="Book the date"
+        title={
+          <>
+            Ready to put your
+            <br />
+            event on the map?
+          </>
+        }
+        body="Planning, creatives, promotion and on-ground — one studio."
+        primary={{ href: "/contact", label: "Start a brief" }}
+        secondary={{ href: "/work", label: "See event work" }}
+        tone="navy"
+      />
     </main>
   );
 }

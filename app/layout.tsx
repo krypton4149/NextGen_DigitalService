@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Manrope, Noto_Sans_Devanagari } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -84,6 +85,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${hindi.variable}`}>
       <body className="min-h-dvh bg-background font-sans text-foreground antialiased">
+        <ScrollProgress />
         <Header />
         {children}
         <Footer />

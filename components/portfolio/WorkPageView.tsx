@@ -12,7 +12,7 @@ import {
   type PortfolioFilter,
   type PortfolioProject,
 } from "@/lib/portfolio";
-import { Button } from "@/components/Button";
+import { BrandCta } from "@/components/BrandCta";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
 import { SectionLabel } from "@/components/SectionLabel";
@@ -105,6 +105,7 @@ export function WorkPageView() {
     <div>
       <PageHero
         label={`Selected work · ${PORTFOLIO_PROJECTS.length} brands`}
+        tone="navy"
         title={
           <>
             Clients we
@@ -115,6 +116,12 @@ export function WorkPageView() {
         body="Hospitality, beauty, fashion, products, consultancy and events — real brands, real creative direction from Shikohabad."
       />
 
+      <div className="color-band" aria-hidden>
+        <span />
+        <span />
+        <span />
+      </div>
+
       <section className="border-b border-border bg-surface py-10 sm:py-12">
         <div className="site-wrap">
           <Reveal>
@@ -122,8 +129,7 @@ export function WorkPageView() {
               <div>
                 <SectionLabel>Client roster</SectionLabel>
                 <p className="mt-3 max-w-lg font-display text-xl tracking-tight text-navy sm:text-2xl">
-                  A few featured brands — open more whenever you want the full
-                  roster.
+                  Featured brands — open more whenever you want the full roster.
                 </p>
               </div>
               <p className="text-sm text-muted lg:max-w-xs lg:text-right">
@@ -150,8 +156,8 @@ export function WorkPageView() {
                   onClick={() => setFilter(item)}
                   className={`shrink-0 border px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] transition ${
                     active
-                      ? "border-navy bg-navy text-white"
-                      : "border-border bg-white text-muted hover:border-navy/40 hover:text-navy"
+                      ? "border-coral bg-coral text-white"
+                      : "border-border bg-white text-muted hover:border-coral/50 hover:text-navy"
                   }`}
                 >
                   {item === "ALL" ? "All clients" : item}
@@ -192,7 +198,7 @@ export function WorkPageView() {
 
                   <div
                     className={`flex flex-col justify-center px-5 py-10 sm:px-8 sm:py-14 lg:col-span-7 lg:px-12 xl:px-16 ${
-                      reverse ? "lg:order-1 bg-surface" : "bg-white"
+                      reverse ? "lg:order-1 bg-coral-soft" : "bg-white"
                     }`}
                   >
                     <div className="flex items-start gap-4">
@@ -219,14 +225,9 @@ export function WorkPageView() {
                         </li>
                       ))}
                     </ul>
-                    <span className="mt-8 inline-flex items-center gap-2 text-[0.78rem] font-semibold text-navy transition group-hover:text-coral">
+                    <span className="link-arrow mt-8 text-[0.78rem] font-semibold text-navy group-hover:text-coral">
                       View case
-                      <span
-                        aria-hidden
-                        className="transition group-hover:translate-x-1"
-                      >
-                        →
-                      </span>
+                      <span aria-hidden>→</span>
                     </span>
                   </div>
                 </Link>
@@ -283,28 +284,20 @@ export function WorkPageView() {
         ) : null}
       </section>
 
-      <section className="border-t border-border bg-surface py-20 sm:py-24">
-        <div className="site-wrap">
-          <Reveal>
-            <SectionLabel>Next</SectionLabel>
-            <h2 className="display-title mt-6 text-[clamp(2.4rem,5vw,3.8rem)] text-navy">
-              Your brand could
-              <br />
-              be next.
-            </h2>
-            <p className="mt-5 max-w-md text-[1rem] leading-[1.7] text-muted">
-              Have a business, launch or idea that deserves a quieter kind of
-              attention?
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button href="/contact">Start a brief</Button>
-              <Button href="/services" variant="ghost" arrow={false}>
-                View services
-              </Button>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <BrandCta
+        label="Next"
+        title={
+          <>
+            Your brand could
+            <br />
+            be next.
+          </>
+        }
+        body="Have a business, launch or idea that deserves attention people feel?"
+        primary={{ href: "/contact", label: "Start a brief" }}
+        secondary={{ href: "/services", label: "View services" }}
+        tone="coral"
+      />
     </div>
   );
 }

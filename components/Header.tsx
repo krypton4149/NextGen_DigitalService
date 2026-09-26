@@ -129,9 +129,10 @@ export function Header() {
                   key={href}
                   href={href}
                   prefetch
-                  className={`text-[0.78rem] font-medium tracking-[0.06em] uppercase transition ${
+                  className={`nav-underline text-[0.78rem] font-medium tracking-[0.06em] uppercase transition ${
                     active ? "text-coral" : "text-muted hover:text-navy"
                   }`}
+                  data-active={active ? "true" : "false"}
                 >
                   {label}
                 </Link>
@@ -154,7 +155,7 @@ export function Header() {
             <Link
               href="/contact"
               prefetch
-              className="hidden min-h-10 items-center bg-coral px-4 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-accent-dim lg:inline-flex"
+              className="btn-shine relative hidden min-h-10 items-center overflow-hidden bg-coral px-4 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white transition duration-300 hover:bg-accent-dim hover:shadow-[0_10px_28px_-12px_rgba(255,90,60,0.8)] lg:inline-flex"
             >
               Start a project
             </Link>

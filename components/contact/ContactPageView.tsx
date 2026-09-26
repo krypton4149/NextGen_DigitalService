@@ -47,118 +47,132 @@ export function ContactPageView() {
     <div>
       <PageHero
         label="Contact"
+        tone="navy"
         title={
           <>
-            Let&apos;s make your brand impossible to ignore.
+            Let&apos;s make your brand{" "}
+            <span className="text-coral">impossible</span> to ignore.
           </>
         }
         body="Tell us about the project — social, branding, website or event. Based in Shikohabad. Creating beyond it."
       />
 
-      <section className="py-12 sm:py-16">
+      <div className="color-band" aria-hidden>
+        <span />
+        <span />
+        <span />
+      </div>
+
+      <section className="bg-surface py-12 sm:py-16">
         <div className="site-wrap grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-7">
-            <h2 className="font-display text-2xl tracking-tight">Send a brief</h2>
-            <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-              <div className="grid gap-6 sm:grid-cols-2">
+            <div className="border border-border bg-white p-6 sm:p-8 lg:p-10">
+              <h2 className="display-title text-2xl text-navy sm:text-3xl">
+                Send a brief
+              </h2>
+              <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="contact-name"
+                      className="text-[0.62rem] uppercase tracking-[0.2em] text-muted"
+                    >
+                      Full name
+                    </label>
+                    <input
+                      id="contact-name"
+                      name="name"
+                      required
+                      autoComplete="name"
+                      className={fieldClass}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="contact-email"
+                      className="text-[0.62rem] uppercase tracking-[0.2em] text-muted"
+                    >
+                      Email
+                    </label>
+                    <input
+                      id="contact-email"
+                      name="email"
+                      type="email"
+                      required
+                      autoComplete="email"
+                      className={fieldClass}
+                    />
+                  </div>
+                </div>
+
                 <div>
                   <label
-                    htmlFor="contact-name"
+                    htmlFor="contact-subject"
                     className="text-[0.62rem] uppercase tracking-[0.2em] text-muted"
                   >
-                    Full name
+                    Service
                   </label>
-                  <input
-                    id="contact-name"
-                    name="name"
+                  <select
+                    id="contact-subject"
+                    name="subject"
                     required
-                    autoComplete="name"
-                    className={fieldClass}
-                  />
+                    defaultValue={subjects[0]}
+                    className={`${fieldClass} appearance-none`}
+                  >
+                    {subjects.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
+                  </select>
                 </div>
+
                 <div>
                   <label
-                    htmlFor="contact-email"
+                    htmlFor="contact-message"
                     className="text-[0.62rem] uppercase tracking-[0.2em] text-muted"
                   >
-                    Email
+                    Message
                   </label>
-                  <input
-                    id="contact-email"
-                    name="email"
-                    type="email"
+                  <textarea
+                    id="contact-message"
+                    name="message"
                     required
-                    autoComplete="email"
-                    className={fieldClass}
+                    rows={5}
+                    placeholder="Tell us what you're building..."
+                    className={`${fieldClass} resize-y`}
                   />
                 </div>
-              </div>
 
-              <div>
-                <label
-                  htmlFor="contact-subject"
-                  className="text-[0.62rem] uppercase tracking-[0.2em] text-muted"
+                <button
+                  type="submit"
+                  className="min-h-12 bg-coral px-7 py-2.5 text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-accent-dim"
                 >
-                  Service
-                </label>
-                <select
-                  id="contact-subject"
-                  name="subject"
-                  required
-                  defaultValue={subjects[0]}
-                  className={`${fieldClass} appearance-none`}
-                >
-                  {subjects.map((s) => (
-                    <option key={s} value={s}>
-                      {s}
-                    </option>
-                  ))}
-                </select>
-              </div>
+                  {sent ? "Opening mail…" : "Send message →"}
+                </button>
 
-              <div>
-                <label
-                  htmlFor="contact-message"
-                  className="text-[0.62rem] uppercase tracking-[0.2em] text-muted"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="contact-message"
-                  name="message"
-                  required
-                  rows={5}
-                  placeholder="Tell us what you're building..."
-                  className={`${fieldClass} resize-y`}
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="min-h-11 rounded-full bg-navy px-6 py-2.5 text-[0.9rem] font-medium text-white transition hover:bg-coral"
-              >
-                {sent ? "Opening mail…" : "Send message"}
-              </button>
-
-              {sent ? (
-                <p className="text-sm text-muted" role="status">
-                  If your mail client did not open, email{" "}
-                  <a
-                    href={`mailto:${CONTACT_EMAIL}`}
-                    className="text-coral hover:underline"
-                  >
-                    {CONTACT_EMAIL}
-                  </a>
-                </p>
-              ) : null}
-            </form>
+                {sent ? (
+                  <p className="text-sm text-muted" role="status">
+                    If your mail client did not open, email{" "}
+                    <a
+                      href={`mailto:${CONTACT_EMAIL}`}
+                      className="text-coral hover:underline"
+                    >
+                      {CONTACT_EMAIL}
+                    </a>
+                  </p>
+                ) : null}
+              </form>
+            </div>
           </Reveal>
 
-          <div className="flex flex-col gap-8 lg:col-span-5">
+          <div className="flex flex-col gap-6 lg:col-span-5">
             <Reveal delayMs={60}>
-              <div className="border border-border p-7">
-                <h2 className="font-display text-xl tracking-tight">Direct lines</h2>
-                <ul className="mt-6 divide-y divide-border border-y border-border">
+              <div className="bg-navy p-7 text-white sm:p-8">
+                <h2 className="font-display text-xl tracking-tight">
+                  Direct lines
+                </h2>
+                <ul className="mt-6 divide-y divide-white/12 border-y border-white/12">
                   <li className="py-4">
                     <a
                       href={`mailto:${CONTACT_EMAIL}`}
@@ -166,10 +180,12 @@ export function ContactPageView() {
                     >
                       <Mail className="mt-0.5 size-4 text-coral" aria-hidden />
                       <span>
-                        <span className="block text-[0.62rem] uppercase tracking-[0.18em] text-muted">
+                        <span className="block text-[0.62rem] uppercase tracking-[0.18em] text-white/45">
                           Email
                         </span>
-                        <span className="mt-1 block break-all text-sm">{CONTACT_EMAIL}</span>
+                        <span className="mt-1 block break-all text-sm">
+                          {CONTACT_EMAIL}
+                        </span>
                       </span>
                     </a>
                   </li>
@@ -180,10 +196,12 @@ export function ContactPageView() {
                     >
                       <Phone className="mt-0.5 size-4 text-coral" aria-hidden />
                       <span>
-                        <span className="block text-[0.62rem] uppercase tracking-[0.18em] text-muted">
+                        <span className="block text-[0.62rem] uppercase tracking-[0.18em] text-white/45">
                           Phone
                         </span>
-                        <span className="mt-1 block text-sm">{CONTACT_PHONE_DISPLAY}</span>
+                        <span className="mt-1 block text-sm">
+                          {CONTACT_PHONE_DISPLAY}
+                        </span>
                       </span>
                     </a>
                   </li>
@@ -194,9 +212,12 @@ export function ContactPageView() {
                       rel="noopener noreferrer"
                       className="group flex gap-3 hover:text-coral"
                     >
-                      <MessageCircle className="mt-0.5 size-4 text-coral" aria-hidden />
+                      <MessageCircle
+                        className="mt-0.5 size-4 text-coral"
+                        aria-hidden
+                      />
                       <span>
-                        <span className="block text-[0.62rem] uppercase tracking-[0.18em] text-muted">
+                        <span className="block text-[0.62rem] uppercase tracking-[0.18em] text-white/45">
                           WhatsApp
                         </span>
                         <span className="mt-1 block text-sm">Chat with us</span>
@@ -208,7 +229,7 @@ export function ContactPageView() {
                   href={CONTACT_WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-7 flex w-full items-center justify-center rounded-full bg-navy px-5 py-3 text-[0.9rem] font-medium text-white transition hover:bg-coral"
+                  className="mt-7 flex w-full items-center justify-center bg-coral px-5 py-3 text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-accent-dim"
                 >
                   Start on WhatsApp
                 </a>
@@ -216,8 +237,8 @@ export function ContactPageView() {
             </Reveal>
 
             <Reveal delayMs={100}>
-              <div className="border border-border">
-                <div className="relative aspect-[3/2] w-full bg-surface">
+              <div className="overflow-hidden border border-border bg-white">
+                <div className="relative aspect-[3/2] w-full bg-coral-soft">
                   <Image
                     src="/images/Studio.png"
                     alt="Shikohabad Creative Co. studio"
@@ -227,7 +248,9 @@ export function ContactPageView() {
                   />
                 </div>
                 <div className="p-7">
-                  <h2 className="font-display text-xl tracking-tight">Studio</h2>
+                  <h2 className="font-display text-xl tracking-tight text-navy">
+                    Studio
+                  </h2>
                   <p className="mt-3 text-sm leading-relaxed text-muted">
                     Shikohabad, Uttar Pradesh, India
                   </p>
@@ -238,9 +261,9 @@ export function ContactPageView() {
                     href={SOCIAL_LINKS.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-5 inline-flex text-[0.65rem] uppercase tracking-[0.2em] text-navy transition hover:text-coral"
+                    className="link-arrow mt-5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-navy hover:text-coral"
                   >
-                    Instagram ↗
+                    Instagram <span aria-hidden>↗</span>
                   </a>
                 </div>
               </div>

@@ -14,7 +14,10 @@ const pillars = [
 
 export function EventsSection() {
   return (
-    <section id="events" className="scroll-mt-24 border-b border-border bg-white py-20 lg:py-24">
+    <section
+      id="events"
+      className="scroll-mt-24 border-b border-border bg-background py-20 lg:py-24"
+    >
       <div className="site-wrap">
         <div className="grid items-end gap-8 lg:grid-cols-12">
           <Reveal className="lg:col-span-8">
@@ -31,21 +34,22 @@ export function EventsSection() {
             </p>
             <Link
               href="/events"
-              className="mt-4 inline-flex font-semibold text-coral transition hover:translate-x-0.5"
+              className="link-arrow mt-4 font-semibold text-coral"
             >
-              Explore events →
+              Explore events <span aria-hidden>→</span>
             </Link>
           </Reveal>
         </div>
 
         <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:gap-12">
-          <Reveal className="lg:col-span-8">
+          <Reveal className="group lg:col-span-8">
             <div className="relative min-h-[18rem] overflow-hidden bg-surface sm:min-h-[26rem]">
+              <div className="absolute inset-0 z-10 bg-gradient-to-t from-navy/40 to-transparent opacity-60" />
               <Image
                 src="/images/work-events.jpg"
                 alt="Event atmosphere by Shikohabad Creative Co."
                 fill
-                className="object-cover"
+                className="img-zoom object-cover"
                 sizes="(max-width: 1024px) 100vw, 66vw"
               />
             </div>
@@ -55,7 +59,7 @@ export function EventsSection() {
               {pillars.map((item, i) => (
                 <li
                   key={item}
-                  className="flex items-baseline gap-4 border-b border-border py-4"
+                  className="flex items-baseline gap-4 border-b border-border py-4 transition hover:bg-coral/5"
                 >
                   <span className="text-[0.65rem] tracking-[0.16em] text-coral">
                     0{i + 1}

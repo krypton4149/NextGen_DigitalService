@@ -4,11 +4,11 @@ import type { ComponentProps } from "react";
 type Variant = "primary" | "secondary" | "ghost" | "outline";
 
 const base =
-  "group inline-flex min-h-12 items-center justify-center gap-2 px-6 py-3 text-[0.78rem] font-semibold tracking-[0.06em] uppercase transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
+  "btn-shine group relative inline-flex min-h-12 items-center justify-center gap-2 overflow-hidden px-6 py-3 text-[0.78rem] font-semibold tracking-[0.06em] uppercase transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-coral text-white hover:bg-accent-dim focus-visible:outline-coral",
+    "bg-coral text-white hover:bg-accent-dim hover:shadow-[0_14px_36px_-12px_rgba(255,90,60,0.75)] focus-visible:outline-coral",
   secondary:
     "border border-white/30 text-white hover:border-white hover:bg-white/8 focus-visible:outline-white",
   outline:
@@ -40,10 +40,10 @@ export function Button({
       className={`${base} ${variants[variant]} ${className ?? ""}`}
       {...props}
     >
-      <span>{children}</span>
+      <span className="relative z-[1]">{children}</span>
       {arrow ? (
         <span
-          className="transition-transform duration-300 group-hover:translate-x-0.5"
+          className="relative z-[1] transition-transform duration-300 group-hover:translate-x-1"
           aria-hidden
         >
           →
