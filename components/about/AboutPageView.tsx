@@ -28,7 +28,7 @@ const team = [
   {
     name: "Piyush Yadav",
     role: "Founder & CEO",
-    image: "/images/ceo-piyush-yadav.png",
+    image: "/images/piyush.png",
     alt: "Portrait of Piyush Yadav, Founder and CEO",
   },
   {
@@ -69,10 +69,10 @@ export function AboutPageView() {
             <figure className="mx-auto max-w-[16rem] text-center lg:mx-0">
               <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-full bg-navy">
                 <Image
-                  src="/images/ceo-piyush-yadav.png"
+                  src="/images/piyush.png"
                   alt="Piyush Yadav, Founder of Shikohabad Creative Co."
                   fill
-                  className="scale-[1.18] object-cover object-center"
+                  className="object-cover object-center"
                   sizes="256px"
                   priority
                 />
@@ -238,7 +238,11 @@ export function AboutPageView() {
                       src={person.image}
                       alt={person.alt}
                       fill
-                      className="scale-[1.18] object-cover object-center"
+                      className={
+                        person.image.includes("piyush")
+                          ? "object-cover object-center"
+                          : "scale-[1.18] object-cover object-center"
+                      }
                       sizes="256px"
                     />
                   </div>

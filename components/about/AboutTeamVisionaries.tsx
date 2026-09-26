@@ -5,7 +5,7 @@ const leaders = [
   {
     name: "Piyush Yadav",
     role: "Founder & CEO",
-    image: "/images/ceo-piyush-yadav.png",
+    image: "/images/piyush.png",
     alt: "Portrait of Piyush Yadav, Founder and CEO",
   },
   {
