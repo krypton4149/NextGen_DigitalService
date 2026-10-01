@@ -31,7 +31,7 @@ const features = [
 
 function FeatureIcon({ icon: Icon }: { icon: (typeof features)[number]["icon"] }) {
   return (
-    <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-surface text-brand sm:size-12">
+    <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-surface text-coral sm:size-12">
       <Icon className="size-5 sm:size-6" strokeWidth={2} aria-hidden />
     </span>
   );
@@ -48,7 +48,7 @@ export function EdgePhilosophySection() {
           <h2 className="text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-[2.35rem] lg:leading-[1.12]">
             The Edge Your
             <br />
-            <span className="text-brand">Business Deserves</span>
+            <span className="text-coral">Business Deserves</span>
           </h2>
           <div className="mt-10 grid gap-8 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10">
             {features.map(({ icon, title, body }) => (
@@ -65,11 +65,11 @@ export function EdgePhilosophySection() {
         <div className="min-w-0">
           <div className="rounded-3xl border border-border bg-background p-8 shadow-sm sm:p-10 lg:p-11">
             <div className="flex items-start gap-4">
-              <span className="flex size-14 shrink-0 items-center justify-center rounded-full bg-brand text-white shadow-md shadow-brand/25">
+              <span className="flex size-14 shrink-0 items-center justify-center rounded-full bg-coral text-white shadow-md shadow-coral/30">
                 <User className="size-7" strokeWidth={2} aria-hidden />
               </span>
               <div>
-                <h3 className="text-xl font-bold text-brand-navy sm:text-2xl">
+                <h3 className="text-xl font-bold text-foreground sm:text-2xl">
                   Shikohabad Creative Co. Philosophy
                 </h3>
                 <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-muted">

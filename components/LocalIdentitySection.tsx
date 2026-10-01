@@ -8,7 +8,7 @@ export function LocalIdentitySection() {
       <div className="site-wrap grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-7">
           <SectionLabel>Origin</SectionLabel>
-          <h2 className="display-title mt-5 text-[clamp(2.1rem,5vw,4rem)] text-navy">
+          <h2 className="display-title mt-5 text-[clamp(2.1rem,5vw,4rem)] text-foreground">
             From Shikohabad
             <span className="text-coral"> to everywhere.</span>
           </h2>

@@ -5,7 +5,7 @@ export function AboutJourneyGrid() {
   return (
     <section className="border-t border-border bg-surface py-16 sm:py-20 lg:py-24">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 px-4 sm:gap-6 sm:px-6 md:grid-cols-2 lg:px-8">
-        <article className="rounded-2xl border border-border bg-white p-8 shadow-sm shadow-slate-200/40 sm:p-10">
+        <article className="rounded-2xl border border-border bg-surface-elevated p-8 shadow-sm shadow-slate-200/40 sm:p-10">
           <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Our Journey
           </h2>
@@ -24,7 +24,7 @@ export function AboutJourneyGrid() {
             </p>
           </div>
         </article>
-        <article className="flex min-h-[220px] flex-col justify-between rounded-2xl bg-brand p-8 text-white shadow-lg shadow-brand/25 sm:min-h-[240px] sm:p-10">
+        <article className="flex min-h-[220px] flex-col justify-between rounded-2xl border border-coral/30 bg-soft-navy p-8 text-white sm:min-h-[240px] sm:p-10">
           <Rocket
             className="size-10 shrink-0 opacity-95 sm:size-12"
             strokeWidth={1.5}

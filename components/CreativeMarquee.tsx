@@ -8,7 +8,7 @@ const items = [
 export function CreativeMarquee({ reverse = false }: { reverse?: boolean }) {
   return (
     <section
-      className="overflow-hidden border-y border-navy bg-navy py-5 text-white"
+      className="overflow-hidden border-y border-foreground/25 bg-navy py-5 text-white"
       aria-label="Creative statement"
     >
       <div

@@ -84,7 +84,7 @@ export default function EventsPage() {
           <div className="lg:col-span-5">
             <Reveal>
               <SectionLabel>What we cover</SectionLabel>
-              <h2 className="display-title mt-4 text-[clamp(1.7rem,3vw,2.3rem)] text-navy">
+              <h2 className="display-title mt-4 text-[clamp(1.7rem,3vw,2.3rem)] text-foreground">
                 From teaser to final cut.
               </h2>
             </Reveal>
@@ -95,7 +95,7 @@ export default function EventsPage() {
                     <p className="text-[0.65rem] tracking-[0.18em] text-coral">
                       0{index + 1}
                     </p>
-                    <h3 className="mt-2 font-display text-xl tracking-tight text-navy">
+                    <h3 className="mt-2 font-display text-xl tracking-tight text-foreground">
                       {item.title}
                     </h3>
                     <p className="mt-2 text-sm text-muted">{item.body}</p>

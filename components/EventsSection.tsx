@@ -22,7 +22,7 @@ export function EventsSection() {
         <div className="grid items-end gap-8 lg:grid-cols-12">
           <Reveal className="lg:col-span-8">
             <SectionLabel>Events</SectionLabel>
-            <h2 className="display-title mt-5 text-[clamp(2rem,4.6vw,3.6rem)] text-navy">
+            <h2 className="display-title mt-5 text-[clamp(2rem,4.6vw,3.6rem)] text-foreground">
               We don&apos;t just promote events.
               <span className="text-coral"> We stage them.</span>
             </h2>
@@ -64,7 +64,7 @@ export function EventsSection() {
                   <span className="text-[0.65rem] tracking-[0.16em] text-coral">
                     0{i + 1}
                   </span>
-                  <span className="font-display text-lg tracking-tight text-navy">
+                  <span className="font-display text-lg tracking-tight text-foreground">
                     {item}
                   </span>
                 </li>

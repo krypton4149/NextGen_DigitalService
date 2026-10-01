@@ -28,7 +28,7 @@ export function ClientTrustSection() {
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <SectionLabel>Selected work</SectionLabel>
-              <h2 className="display-title mt-5 text-[clamp(2.2rem,4.5vw,3.6rem)] text-navy">
+              <h2 className="display-title mt-5 text-[clamp(2.2rem,4.5vw,3.6rem)] text-foreground">
                 Brands we
                 <span className="text-coral"> move.</span>
               </h2>
@@ -53,7 +53,7 @@ export function ClientTrustSection() {
               >
                 <Link
                   href={`/work/${client.slug}`}
-                  className="hover-lift group flex h-full flex-col items-center border border-border bg-white px-4 py-10 text-center sm:px-5 sm:py-12"
+                  className="hover-lift group flex h-full flex-col items-center border border-border bg-surface-elevated px-4 py-10 text-center sm:px-5 sm:py-12"
                 >
                   <span
                     className={`relative flex size-[5.5rem] items-center justify-center overflow-hidden rounded-full ring-2 ring-coral/25 transition duration-500 group-hover:ring-coral/60 sm:size-[6.25rem] ${logoShell(mark)}`}
@@ -73,7 +73,7 @@ export function ClientTrustSection() {
                     />
                   </span>
                   <span className="eyebrow mt-6">{client.industry}</span>
-                  <span className="mt-3 font-display text-xl tracking-tight text-navy transition group-hover:text-coral">
+                  <span className="mt-3 text-balance font-display text-[1.05rem] leading-snug tracking-tight text-foreground transition group-hover:text-coral sm:text-xl">
                     {client.name}
                   </span>
                 </Link>

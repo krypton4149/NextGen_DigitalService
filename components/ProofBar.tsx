@@ -19,22 +19,23 @@ export function ProofBar() {
       <div className="site-wrap relative">
         <ul className="grid grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, index) => (
-            <Reveal
+            <li
               key={stat.label}
-              as="li"
-              delayMs={index * 80}
-              variant="scale"
-              className="stat-pop"
+              className="flex border-white/10 max-lg:[&:nth-child(-n+2)]:border-b max-lg:[&:nth-child(odd)]:border-r lg:border-r lg:last:border-r-0"
             >
-              <div className="border-white/10 py-10 pr-6 sm:py-12 lg:border-r lg:pr-8 lg:last:border-r-0 [&:nth-child(odd)]:border-r lg:[&:nth-child(odd)]:border-r">
-                <p className="display-title text-[clamp(2.2rem,4vw,3rem)] text-white">
+              <Reveal
+                delayMs={index * 80}
+                variant="scale"
+                className="stat-pop flex w-full flex-col items-center justify-center px-4 py-12 text-center sm:py-16"
+              >
+                <p className="display-title text-[clamp(2.4rem,4vw,3.25rem)] text-white">
                   <CountUp end={stat.end} suffix={stat.suffix} />
                 </p>
-                <p className="mt-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-coral">
+                <p className="mt-2 max-w-[9rem] text-balance text-[0.62rem] font-semibold uppercase leading-snug tracking-[0.14em] text-coral sm:max-w-none sm:text-[0.68rem] sm:tracking-[0.22em]">
                   {stat.label}
                 </p>
-              </div>
-            </Reveal>
+              </Reveal>
+            </li>
           ))}
         </ul>
       </div>

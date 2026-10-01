@@ -71,7 +71,7 @@ export function ClientSuccessSection() {
           Client Success
         </h2>
         <div
-          className="mt-4 flex justify-center gap-1 text-brand"
+          className="mt-4 flex justify-center gap-1 text-coral"
           aria-label="5 out of 5 stars"
         >
           {Array.from({ length: 5 }).map((_, i) => (
@@ -101,8 +101,8 @@ export function ClientSuccessSection() {
                     )}
                   </span>
                   <div className="min-w-0">
-                    <p className="truncate font-bold text-brand-navy">{t.name}</p>
-                    <p className="mt-0.5 text-xs font-semibold uppercase tracking-[0.14em] text-brand">
+                    <p className="truncate font-bold text-foreground">{t.name}</p>
+                    <p className="mt-0.5 text-xs font-semibold uppercase tracking-[0.14em] text-coral">
                       {t.role}
                     </p>
                   </div>

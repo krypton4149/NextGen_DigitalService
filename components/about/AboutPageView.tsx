@@ -146,7 +146,7 @@ export function AboutPageView() {
                 </div>
               </div>
               <figcaption className="mt-5">
-                <p className="font-display text-xl tracking-tight text-navy">
+                <p className="font-display text-xl tracking-tight text-foreground">
                   Piyush Yadav
                 </p>
                 <p className="mt-1 text-[0.65rem] uppercase tracking-[0.18em] text-coral">
@@ -158,7 +158,7 @@ export function AboutPageView() {
 
           <Reveal delayMs={80} className="lg:col-span-8">
             <SectionLabel>Founder</SectionLabel>
-            <h2 className="display-title mt-4 text-[clamp(1.9rem,3.6vw,2.9rem)] text-navy">
+            <h2 className="display-title mt-4 text-[clamp(1.9rem,3.6vw,2.9rem)] text-foreground">
               Building a studio for brands
               <br className="hidden sm:block" /> that deserve to be seen.
             </h2>
@@ -188,7 +188,7 @@ export function AboutPageView() {
                   <dt className="text-[0.62rem] uppercase tracking-[0.2em] text-coral">
                     {item.label}
                   </dt>
-                  <dd className="mt-1.5 font-display text-lg tracking-tight text-navy">
+                  <dd className="mt-1.5 font-display text-lg tracking-tight text-foreground">
                     {item.value}
                   </dd>
                 </div>
@@ -255,18 +255,18 @@ export function AboutPageView() {
         <div className="site-wrap py-16 sm:py-20">
           <Reveal>
             <SectionLabel>Beliefs</SectionLabel>
-            <h2 className="display-title mt-4 max-w-xl text-[clamp(1.9rem,3.6vw,2.9rem)] text-navy">
+            <h2 className="display-title mt-4 max-w-xl text-[clamp(1.9rem,3.6vw,2.9rem)] text-foreground">
               How we work with brands.
             </h2>
           </Reveal>
           <ul className="mt-12 grid gap-4 sm:grid-cols-2">
             {values.map((value, index) => (
               <Reveal key={value.title} as="li" delayMs={index * 50}>
-                <article className="group h-full border border-border bg-surface p-7 transition duration-300 hover:border-coral/45 hover:bg-white sm:p-8">
+                <article className="group h-full border border-border bg-surface p-7 transition duration-300 hover:border-coral/45 hover:bg-surface-elevated sm:p-8">
                   <p className="font-display text-4xl tracking-tight text-coral/80 transition group-hover:text-coral">
                     0{index + 1}
                   </p>
-                  <h3 className="mt-5 display-title text-[1.55rem] text-navy">
+                  <h3 className="mt-5 display-title text-[1.55rem] text-foreground">
                     {value.title}
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted sm:text-[0.95rem]">
@@ -324,7 +324,7 @@ export function AboutPageView() {
         <div className="site-wrap py-16 sm:py-20">
           <Reveal>
             <SectionLabel>People</SectionLabel>
-            <h2 className="display-title mt-4 text-[clamp(1.9rem,3.6vw,2.9rem)] text-navy">
+            <h2 className="display-title mt-4 text-[clamp(1.9rem,3.6vw,2.9rem)] text-foreground">
               The studio.
             </h2>
             <p className="mt-4 max-w-md text-muted">
@@ -356,7 +356,7 @@ export function AboutPageView() {
                       />
                     </div>
                   </div>
-                  <h3 className="mt-6 font-display text-2xl tracking-tight text-navy">
+                  <h3 className="mt-6 font-display text-2xl tracking-tight text-foreground">
                     {person.name}
                   </h3>
                   <p className="mt-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-coral">
@@ -389,7 +389,7 @@ export function AboutPageView() {
           </Reveal>
           <Reveal delayMs={70}>
             <SectionLabel>Origin</SectionLabel>
-            <h2 className="display-title mt-4 text-[clamp(1.9rem,3.6vw,2.9rem)] text-navy">
+            <h2 className="display-title mt-4 text-[clamp(1.9rem,3.6vw,2.9rem)] text-foreground">
               Based in Shikohabad.
               <br />
               <span className="text-coral">Creating beyond it.</span>
@@ -400,7 +400,7 @@ export function AboutPageView() {
             </p>
             <Link
               href="/events"
-              className="mt-8 inline-flex text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-navy transition hover:text-coral"
+              className="mt-8 inline-flex text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-foreground transition hover:text-coral"
             >
               Explore events →
             </Link>

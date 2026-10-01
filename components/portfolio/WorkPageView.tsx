@@ -128,7 +128,7 @@ export function WorkPageView() {
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div>
                 <SectionLabel>Client roster</SectionLabel>
-                <p className="mt-3 max-w-lg font-display text-xl tracking-tight text-navy sm:text-2xl">
+                <p className="mt-3 max-w-lg font-display text-xl tracking-tight text-foreground sm:text-2xl">
                   Featured brands — open more whenever you want the full roster.
                 </p>
               </div>
@@ -157,7 +157,7 @@ export function WorkPageView() {
                   className={`shrink-0 border px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] transition ${
                     active
                       ? "border-coral bg-coral text-white"
-                      : "border-border bg-white text-muted hover:border-coral/50 hover:text-navy"
+                      : "border-border bg-surface-elevated text-muted hover:border-coral/50 hover:text-foreground"
                   }`}
                 >
                   {item === "ALL" ? "All clients" : item}
@@ -198,7 +198,7 @@ export function WorkPageView() {
 
                   <div
                     className={`flex flex-col justify-center px-5 py-10 sm:px-8 sm:py-14 lg:col-span-7 lg:px-12 xl:px-16 ${
-                      reverse ? "lg:order-1 bg-coral-soft" : "bg-white"
+                      reverse ? "lg:order-1 bg-coral-soft" : "bg-surface-elevated"
                     }`}
                   >
                     <div className="flex items-start gap-4">
@@ -207,7 +207,7 @@ export function WorkPageView() {
                         <p className="text-[0.65rem] uppercase tracking-[0.2em] text-coral">
                           {project.industry}
                         </p>
-                        <h2 className="display-title mt-2 text-[clamp(1.5rem,2.8vw,2.4rem)] text-navy transition group-hover:text-coral">
+                        <h2 className="display-title mt-2 text-[clamp(1.5rem,2.8vw,2.4rem)] text-foreground transition group-hover:text-coral">
                           {project.name}
                         </h2>
                       </div>
@@ -219,13 +219,13 @@ export function WorkPageView() {
                       {project.services.map((service) => (
                         <li
                           key={service}
-                          className="text-[0.65rem] uppercase tracking-[0.16em] text-navy/55"
+                          className="text-[0.65rem] uppercase tracking-[0.16em] text-foreground/55"
                         >
                           {service}
                         </li>
                       ))}
                     </ul>
-                    <span className="link-arrow mt-8 text-[0.78rem] font-semibold text-navy group-hover:text-coral">
+                    <span className="link-arrow mt-8 text-[0.78rem] font-semibold text-foreground group-hover:text-coral">
                       View case
                       <span aria-hidden>→</span>
                     </span>
@@ -238,7 +238,7 @@ export function WorkPageView() {
 
         {projects.length === 0 ? (
           <div className="site-wrap py-20 text-center">
-            <p className="font-display text-xl text-navy">
+            <p className="font-display text-xl text-foreground">
               No clients in this filter.
             </p>
             <button
@@ -266,7 +266,7 @@ export function WorkPageView() {
                       Math.min(count + LOAD_MORE_COUNT, filtered.length),
                     )
                   }
-                  className="min-h-12 border border-navy bg-navy px-8 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-coral hover:border-coral"
+                  className="min-h-12 rounded-full border border-coral bg-coral px-8 text-[0.84rem] font-semibold text-white transition hover:bg-accent-dim"
                 >
                   View more
                 </button>
@@ -275,7 +275,7 @@ export function WorkPageView() {
               <button
                 type="button"
                 onClick={() => setVisibleCount(INITIAL_COUNT)}
-                className="min-h-12 border border-border bg-white px-8 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-navy transition hover:border-coral hover:text-coral"
+                className="min-h-12 border border-border bg-surface-elevated px-8 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-foreground transition hover:border-coral hover:text-coral"
               >
                 Show less
               </button>

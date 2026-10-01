@@ -41,7 +41,7 @@ export function PageHero({
         </div>
         <h1
           className={`hero-enter display-title mt-6 max-w-3xl text-[clamp(2.4rem,5.5vw,4.2rem)] ${
-            navy ? "text-white" : "text-navy"
+            navy ? "text-white" : "text-foreground"
           }`}
           style={{ animationDelay: "160ms" }}
         >

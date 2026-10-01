@@ -10,13 +10,7 @@ const ITEMS = [
   "On-ground Events",
 ] as const;
 
-function TickerRow({
-  reverse = false,
-  light = false,
-}: {
-  reverse?: boolean;
-  light?: boolean;
-}) {
+function TickerRow({ reverse = false }: { reverse?: boolean }) {
   return (
     <div className="overflow-hidden py-3.5">
       <div
@@ -25,9 +19,7 @@ function TickerRow({
         {[0, 1].map((copy) => (
           <p
             key={copy}
-            className={`flex items-center gap-7 px-4 font-display text-2xl tracking-tight sm:gap-9 sm:text-3xl ${
-              light ? "text-white" : "text-navy"
-            }`}
+            className="flex items-center gap-7 px-4 text-[0.92rem] font-medium text-white/75 sm:gap-9"
             aria-hidden={copy === 1}
           >
             {ITEMS.map((item) => (
@@ -36,10 +28,9 @@ function TickerRow({
                 className="flex items-center gap-7 sm:gap-9"
               >
                 <span className="whitespace-nowrap">{item}</span>
-                <span
-                  className="pulse-dot size-1.5 shrink-0 rounded-full bg-coral"
-                  aria-hidden
-                />
+                <span className="text-coral" aria-hidden>
+                  ✦
+                </span>
               </span>
             ))}
           </p>
@@ -51,12 +42,12 @@ function TickerRow({
 
 export function ServicesTicker() {
   return (
-    <section className="ticker-strips bg-navy" aria-label="What we do">
+    <section
+      className="ticker-strips border-y border-white/10 bg-black/25"
+      aria-label="What we do"
+    >
       <p className="sr-only">{ITEMS.join(", ")}</p>
-      <TickerRow light />
-      <div className="border-t border-white/10 bg-coral">
-        <TickerRow reverse light />
-      </div>
+      <TickerRow />
     </section>
   );
 }

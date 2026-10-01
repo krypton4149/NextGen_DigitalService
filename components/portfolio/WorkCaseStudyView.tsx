@@ -102,7 +102,7 @@ export function WorkCaseStudyView({ project }: { project: PortfolioProject }) {
         <div className="site-wrap grid gap-10 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <SectionLabel>The brief</SectionLabel>
-            <h2 className="display-title mt-4 text-[clamp(1.6rem,3vw,2.4rem)] text-navy">
+            <h2 className="display-title mt-4 text-[clamp(1.6rem,3vw,2.4rem)] text-foreground">
               {headlineLines.map((line) => (
                 <span key={line} className="block">
                   {line}
@@ -115,19 +115,19 @@ export function WorkCaseStudyView({ project }: { project: PortfolioProject }) {
               {project.approach}
             </p>
             <dl className="mt-10 grid gap-4 sm:grid-cols-2">
-              <div className="border-l-2 border-coral bg-white px-4 py-3">
+              <div className="border-l-2 border-coral bg-surface-elevated px-4 py-3">
                 <dt className="text-[0.62rem] uppercase tracking-[0.2em] text-coral">
                   Client
                 </dt>
-                <dd className="mt-2 font-display text-lg tracking-tight text-navy">
+                <dd className="mt-2 font-display text-lg tracking-tight text-foreground">
                   {project.name}
                 </dd>
               </div>
-              <div className="border-l-2 border-navy/30 bg-white px-4 py-3">
+              <div className="border-l-2 border-foreground/30 bg-surface-elevated px-4 py-3">
                 <dt className="text-[0.62rem] uppercase tracking-[0.2em] text-muted">
                   Industry
                 </dt>
-                <dd className="mt-2 font-display text-lg tracking-tight text-navy">
+                <dd className="mt-2 font-display text-lg tracking-tight text-foreground">
                   {project.industry}
                 </dd>
               </div>
@@ -139,7 +139,7 @@ export function WorkCaseStudyView({ project }: { project: PortfolioProject }) {
                   {project.services.map((service) => (
                     <span
                       key={service}
-                      className="border border-coral/30 bg-coral-soft px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-navy"
+                      className="border border-coral/30 bg-coral-soft px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-foreground"
                     >
                       {service}
                     </span>
@@ -155,7 +155,7 @@ export function WorkCaseStudyView({ project }: { project: PortfolioProject }) {
         <div className="site-wrap">
           <Reveal>
             <SectionLabel>Presentation</SectionLabel>
-            <h2 className="display-title mt-4 text-[clamp(1.5rem,2.8vw,2.2rem)] text-navy">
+            <h2 className="display-title mt-4 text-[clamp(1.5rem,2.8vw,2.2rem)] text-foreground">
               How the brand shows up.
             </h2>
           </Reveal>
@@ -163,7 +163,7 @@ export function WorkCaseStudyView({ project }: { project: PortfolioProject }) {
             <div
               className={`group relative mt-8 overflow-hidden ${
                 framed
-                  ? "aspect-[16/10] border border-border bg-white sm:aspect-[21/9]"
+                  ? "aspect-[16/10] border border-border bg-surface-elevated sm:aspect-[21/9]"
                   : "aspect-[16/9] bg-surface sm:aspect-[21/9]"
               }`}
             >

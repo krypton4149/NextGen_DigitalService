@@ -24,7 +24,7 @@ const subjects = [
 ] as const;
 
 const fieldClass =
-  "mt-2 w-full border-0 border-b border-navy/20 bg-transparent px-0 py-3 text-base outline-none transition focus:border-coral";
+  "mt-2 w-full border-0 border-b border-foreground/20 bg-transparent px-0 py-3 text-base outline-none transition focus:border-coral";
 
 export function ContactPageView() {
   const [sent, setSent] = useState(false);
@@ -66,8 +66,8 @@ export function ContactPageView() {
       <section className="bg-surface py-12 sm:py-16">
         <div className="site-wrap grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-7">
-            <div className="border border-border bg-white p-6 sm:p-8 lg:p-10">
-              <h2 className="display-title text-2xl text-navy sm:text-3xl">
+            <div className="border border-border bg-surface-elevated p-6 sm:p-8 lg:p-10">
+              <h2 className="display-title text-2xl text-foreground sm:text-3xl">
                 Send a brief
               </h2>
               <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -237,7 +237,7 @@ export function ContactPageView() {
             </Reveal>
 
             <Reveal delayMs={100}>
-              <div className="overflow-hidden border border-border bg-white">
+              <div className="overflow-hidden border border-border bg-surface-elevated">
                 <div className="relative aspect-[3/2] w-full bg-coral-soft">
                   <Image
                     src="/images/Studio.png"
@@ -248,7 +248,7 @@ export function ContactPageView() {
                   />
                 </div>
                 <div className="p-7">
-                  <h2 className="font-display text-xl tracking-tight text-navy">
+                  <h2 className="font-display text-xl tracking-tight text-foreground">
                     Studio
                   </h2>
                   <p className="mt-3 text-sm leading-relaxed text-muted">
@@ -261,7 +261,7 @@ export function ContactPageView() {
                     href={SOCIAL_LINKS.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="link-arrow mt-5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-navy hover:text-coral"
+                    className="link-arrow mt-5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground hover:text-coral"
                   >
                     Instagram <span aria-hidden>↗</span>
                   </a>

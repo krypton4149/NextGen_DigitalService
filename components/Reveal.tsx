@@ -30,17 +30,20 @@ export function Reveal({
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
 
+  const clip = variant === "clip";
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    const animated = clip ? (el.firstElementChild as HTMLElement | null) ?? el : el;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      el.classList.add("is-visible");
+      animated.classList.add("is-visible");
       return;
     }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
-          el.classList.add("is-visible");
+          animated.classList.add("is-visible");
           observer.unobserve(el);
         }
       },
@@ -48,7 +51,20 @@ export function Reveal({
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [clip]);
+
+  if (clip) {
+    return (
+      <Tag ref={ref as never} className={className}>
+        <div
+          className={variantClass.clip}
+          style={delayMs ? { transitionDelay: `${delayMs}ms` } : undefined}
+        >
+          {children}
+        </div>
+      </Tag>
+    );
+  }
 
   return (
     <Tag

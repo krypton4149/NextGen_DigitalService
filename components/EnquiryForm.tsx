@@ -21,7 +21,7 @@ const SERVICES = [
 ] as const;
 
 const fieldClass =
-  "mt-2 w-full border-0 border-b border-navy/20 bg-transparent px-0 py-3 text-base text-foreground outline-none transition placeholder:text-muted/70 focus:border-coral";
+  "mt-2 w-full border-0 border-b border-foreground/20 bg-transparent px-0 py-3 text-base text-foreground outline-none transition placeholder:text-muted/70 focus:border-coral";
 
 type EnquiryFormProps = {
   idPrefix?: string;
@@ -130,8 +130,8 @@ export function EnquiryForm({
                 onClick={() => toggleService(service)}
                 className={`rounded-full border px-3.5 py-1.5 text-[0.78rem] transition ${
                   on
-                    ? "border-navy bg-navy text-white"
-                    : "border-border text-muted hover:border-navy/40 hover:text-navy"
+                    ? "border-coral bg-coral text-white"
+                    : "border-border text-muted hover:border-foreground/40 hover:text-foreground"
                 }`}
               >
                 {service}

@@ -31,7 +31,7 @@ function ProjectCard({
     >
       <div
         className={`relative aspect-[4/3] overflow-hidden rounded-2xl ${
-          framed ? "border border-border bg-white" : "bg-surface"
+          framed ? "border border-border bg-surface-elevated" : "bg-surface"
         }`}
       >
         <Image
@@ -48,7 +48,7 @@ function ProjectCard({
         <span className="absolute left-4 top-4 rounded-full bg-white/95 px-2.5 py-1 font-display text-xs font-bold text-primary">
           {project.num}
         </span>
-        <span className="hover-reveal absolute bottom-4 right-4 translate-y-2 rounded-full bg-white px-3 py-1.5 text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-primary opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+        <span className="hover-reveal absolute bottom-4 right-4 translate-y-2 rounded-full bg-coral px-3 py-1.5 text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
           View case ↗
         </span>
       </div>

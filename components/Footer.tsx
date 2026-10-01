@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLockup } from "@/components/BrandLockup";
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE_DISPLAY,
@@ -31,25 +32,24 @@ export function Footer() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex min-h-11 items-center bg-coral px-5 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-accent-dim"
+            className="inline-flex min-h-11 items-center rounded-full bg-coral px-5 text-[0.84rem] font-semibold text-white transition hover:bg-accent-dim"
           >
             Start a project →
           </Link>
         </div>
 
-        <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-12">
+        <Link
+          href="/"
+          prefetch
+          className="mt-12 inline-flex max-w-full"
+          aria-label="Shikohabad Creative Co."
+        >
+          <BrandLockup large />
+        </Link>
+
+        <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Link href="/" prefetch>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/Logo1.png"
-                alt="Shikohabad Creative Co."
-                width={220}
-                height={74}
-                className="h-11 w-auto brightness-0 invert"
-              />
-            </Link>
-            <p className="mt-6 max-w-sm text-sm leading-[1.7] text-white/60">
+            <p className="max-w-sm text-sm leading-[1.7] text-white/60">
               Marketing agency, advertising studio and event management company
               — one team for brands that want to be seen, heard and experienced.
             </p>
@@ -77,7 +77,7 @@ export function Footer() {
             </p>
             <ul className="mt-4 space-y-2 text-sm text-white/60">
               <li>
-                <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white">
+                <a href={`mailto:${CONTACT_EMAIL}`} className="break-all hover:text-white">
                   {CONTACT_EMAIL}
                 </a>
               </li>

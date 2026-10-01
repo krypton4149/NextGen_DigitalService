@@ -62,7 +62,7 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
         onClick={onClose}
       />
       <div className="absolute left-1/2 top-[min(16vh,7rem)] w-[min(92vw,36rem)] -translate-x-1/2 border border-border bg-background p-7 sm:p-9">
-        <div className="flex items-center gap-3 border-b border-navy/20 pb-3">
+        <div className="flex items-center gap-3 border-b border-foreground/20 pb-3">
           <Search className="size-5 shrink-0 text-coral" strokeWidth={1.8} aria-hidden />
           <input
             ref={inputRef}
@@ -70,12 +70,12 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search the studio"
-            className="min-w-0 flex-1 bg-transparent text-base text-navy outline-none placeholder:text-muted"
+            className="min-w-0 flex-1 bg-transparent text-base text-foreground outline-none placeholder:text-muted"
             autoComplete="off"
           />
           <button
             type="button"
-            className="flex size-8 shrink-0 items-center justify-center text-navy"
+            className="flex size-8 shrink-0 items-center justify-center text-foreground"
             aria-label="Close search"
             onClick={onClose}
           >
@@ -92,7 +92,7 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
                 href={href}
                 prefetch
                 onClick={onClose}
-                className="flex min-h-12 items-center justify-between py-3 text-sm text-navy transition hover:text-coral"
+                className="flex min-h-12 items-center justify-between py-3 text-sm text-foreground transition hover:text-coral"
               >
                 {label}
                 <span aria-hidden>↗</span>
@@ -114,7 +114,7 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
                 href={item.href}
                 prefetch
                 onClick={onClose}
-                className="rounded-full border border-border px-3.5 py-1.5 text-[0.8rem] text-navy transition hover:border-navy"
+                className="rounded-full border border-border px-3.5 py-1.5 text-[0.8rem] text-foreground transition hover:border-foreground/25"
               >
                 {item.label}
               </Link>

@@ -63,7 +63,7 @@ export function ContactSection() {
       <div className="site-wrap grid items-start gap-14 pt-16 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-5">
           <SectionLabel>Enquire</SectionLabel>
-          <h2 className="display-title mt-5 text-[clamp(2rem,4.4vw,3.4rem)] text-navy">
+          <h2 className="display-title mt-5 text-[clamp(2rem,4.4vw,3.4rem)] text-foreground">
             Tell us what
             <br />
             you&apos;re <span className="text-coral">building.</span>
@@ -92,7 +92,7 @@ export function ContactSection() {
                     <span className="block text-[0.62rem] uppercase tracking-[0.2em] text-muted">
                       {item.label}
                     </span>
-                    <span className="mt-1 block text-sm text-navy transition group-hover:text-coral">
+                    <span className="mt-1 block text-sm text-foreground transition group-hover:text-coral">
                       {item.value}
                     </span>
                   </span>
@@ -109,7 +109,7 @@ export function ContactSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="text-navy transition hover:scale-110 hover:text-coral"
+                className="text-foreground transition hover:scale-110 hover:text-coral"
               >
                 <Icon className="size-4" />
               </a>
@@ -118,7 +118,7 @@ export function ContactSection() {
         </Reveal>
 
         <Reveal delayMs={90} className="lg:col-span-7">
-          <div className="border border-border bg-white p-6 shadow-[0_24px_60px_-40px_rgba(11,19,43,0.35)] sm:p-8 lg:p-10">
+          <div className="border border-border bg-surface-elevated p-6 shadow-[0_24px_60px_-40px_rgba(11,19,43,0.35)] sm:p-8 lg:p-10">
             <EnquiryForm idPrefix="home" submitLabel="Send the brief" />
           </div>
         </Reveal>

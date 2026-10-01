@@ -15,7 +15,7 @@ import { BrandIconGoogle, BrandIconGoogleSeo } from "@/components/icons/BrandMar
 
 function IconTile({ children }: { children: ReactNode }) {
   return (
-    <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-surface text-brand">
+    <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-surface text-coral">
       {children}
     </span>
   );
@@ -26,7 +26,7 @@ export function ServicesDetailBento() {
     <section className="border-t border-border bg-surface py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-6xl space-y-6 px-4 sm:px-6 lg:px-8">
         <div className="grid gap-6 md:grid-cols-12 md:items-stretch">
-          <article className="flex h-full min-h-[300px] flex-col rounded-2xl border border-border bg-white p-8 shadow-sm md:col-span-7">
+          <article className="flex h-full min-h-[300px] flex-col rounded-2xl border border-border bg-surface-elevated p-8 shadow-sm md:col-span-7">
             <BrandIconGoogle />
             <h2 className="mt-6 text-xl font-bold text-foreground sm:text-2xl">
               Google Business Profile Setup
@@ -36,12 +36,12 @@ export function ServicesDetailBento() {
               appear in the &quot;Local 3-Pack,&quot; driving immediate foot traffic and
               phone calls from customers ready to buy.
             </p>
-            <p className="mt-auto pt-8 text-xs font-bold uppercase tracking-[0.2em] text-brand">
+            <p className="mt-auto pt-8 text-xs font-bold uppercase tracking-[0.2em] text-coral">
               Local dominance
             </p>
           </article>
 
-          <article className="flex h-full min-h-[300px] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm md:col-span-5">
+          <article className="flex h-full min-h-[300px] flex-col overflow-hidden rounded-2xl border border-border bg-surface-elevated shadow-sm md:col-span-5">
             <div className="relative aspect-[16/10] w-full bg-surface">
               <Image
                 src="/images/portfolio-business.jpg"
@@ -64,7 +64,7 @@ export function ServicesDetailBento() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-12 md:items-stretch">
-          <article className="flex h-full min-h-[280px] flex-col rounded-2xl border border-border bg-white p-8 shadow-sm md:col-span-7">
+          <article className="flex h-full min-h-[280px] flex-col rounded-2xl border border-border bg-surface-elevated p-8 shadow-sm md:col-span-7">
             <IconTile>
               <CloudCog className="size-6" strokeWidth={2} aria-hidden />
             </IconTile>
@@ -79,7 +79,7 @@ export function ServicesDetailBento() {
             </p>
             <Link
               href="/contact"
-              className="mt-6 inline-flex w-fit items-center gap-1 text-xs font-bold uppercase tracking-wide text-brand transition hover:text-accent"
+              className="mt-6 inline-flex w-fit items-center gap-1 text-xs font-bold uppercase tracking-wide text-coral transition hover:text-accent"
             >
               Discuss your SaaS
               <span aria-hidden>→</span>
@@ -117,7 +117,7 @@ export function ServicesDetailBento() {
             </p>
           </article>
 
-          <article className="flex h-full min-h-[280px] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm sm:flex-row md:col-span-7">
+          <article className="flex h-full min-h-[280px] flex-col overflow-hidden rounded-2xl border border-border bg-surface-elevated shadow-sm sm:flex-row md:col-span-7">
             <div className="flex flex-1 flex-col p-8">
               <h2 className="text-xl font-bold text-foreground sm:text-2xl">
                 Logo &amp; Banner Design
@@ -127,7 +127,7 @@ export function ServicesDetailBento() {
                 communicate professionalism, trust, and your unique value proposition.
               </p>
             </div>
-            <div className="flex min-h-[10rem] shrink-0 items-center justify-center bg-brand px-10 py-8 sm:w-[42%] sm:min-h-0 lg:w-[38%]">
+            <div className="flex min-h-[10rem] shrink-0 items-center justify-center bg-coral px-10 py-8 sm:w-[42%] sm:min-h-0 lg:w-[38%]">
               <Paintbrush
                 className="size-14 text-white/95 sm:size-16"
                 strokeWidth={1.5}
@@ -149,7 +149,7 @@ export function ServicesDetailBento() {
             </p>
             <Link
               href="/contact"
-              className="mt-6 inline-flex w-fit items-center gap-1 text-xs font-bold uppercase tracking-wide text-brand transition hover:text-accent"
+              className="mt-6 inline-flex w-fit items-center gap-1 text-xs font-bold uppercase tracking-wide text-coral transition hover:text-accent"
             >
               Launch your bot
               <span aria-hidden>→</span>
@@ -164,11 +164,11 @@ export function ServicesDetailBento() {
             </p>
             <ul className="mt-6 space-y-3 text-sm text-foreground">
               <li className="flex items-center gap-2">
-                <Check className="size-5 shrink-0 text-brand" aria-hidden />
+                <Check className="size-5 shrink-0 text-coral" aria-hidden />
                 React Native &amp; Flutter
               </li>
               <li className="flex items-center gap-2">
-                <Check className="size-5 shrink-0 text-brand" aria-hidden />
+                <Check className="size-5 shrink-0 text-coral" aria-hidden />
                 Seamless UX design
               </li>
             </ul>
@@ -200,7 +200,7 @@ export function ServicesDetailBento() {
         </div>
 
         <article className="flex flex-col gap-6 rounded-2xl border border-border bg-surface p-8 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:gap-10 sm:p-10">
-          <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-brand-navy text-white">
+          <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-coral text-white">
             <Mail className="size-7" strokeWidth={1.75} aria-hidden />
           </div>
           <div className="min-w-0 flex-1">
@@ -214,7 +214,7 @@ export function ServicesDetailBento() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex shrink-0 items-center justify-center self-start rounded-full border border-border bg-background px-6 py-2.5 text-xs font-bold uppercase tracking-wide text-brand transition hover:border-accent hover:bg-surface sm:self-center"
+            className="inline-flex shrink-0 items-center justify-center self-start rounded-full border border-border bg-background px-6 py-2.5 text-xs font-bold uppercase tracking-wide text-coral transition hover:border-accent hover:bg-surface sm:self-center"
           >
             Learn more
           </Link>

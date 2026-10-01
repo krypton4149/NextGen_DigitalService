@@ -3,13 +3,14 @@
 import { Menu, Search, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE_DISPLAY,
   CONTACT_PHONE_TEL,
   CONTACT_WHATSAPP_URL,
 } from "@/lib/contact";
+import { BrandLockup } from "@/components/BrandLockup";
 import { SearchOverlay } from "@/components/SearchOverlay";
 
 const links = [
@@ -31,6 +32,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -38,10 +40,15 @@ export function Header() {
   }, [pathname]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const node = sentinelRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setScrolled(!entry.isIntersecting),
+      { threshold: 1 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -97,29 +104,46 @@ export function Header() {
     };
   }, [menuOpen, searchOpen]);
 
+  const floating = scrolled && !menuOpen;
+
   return (
     <>
+      <div
+        ref={sentinelRef}
+        aria-hidden
+        className="pointer-events-none absolute top-7 left-0 h-px w-px"
+      />
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-b pt-[env(safe-area-inset-top)] transition-colors duration-300 ${
-          scrolled || menuOpen
-            ? "border-border bg-background/90 backdrop-blur-md"
-            : "border-transparent bg-background"
+        data-scrolled={floating ? "true" : "false"}
+        className={`fixed inset-x-0 z-50 transition-all duration-500 ${
+          menuOpen
+            ? "top-0 border-b border-white/10 bg-[#0c060a]/90 pt-[env(safe-area-inset-top)] backdrop-blur-md"
+            : floating
+              ? "top-3 px-3 sm:top-4 sm:px-5"
+              : "top-0 pt-[env(safe-area-inset-top)]"
         }`}
       >
-        <div className="site-wrap flex h-[4.5rem] items-center gap-6 lg:h-[5rem]">
-          <Link href="/" className="min-w-0 shrink-0" prefetch>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/Logo1.png"
-              alt="Shikohabad Creative Co."
-              width={240}
-              height={80}
-              className="h-10 w-auto sm:h-11 lg:h-12"
-            />
+        <div
+          className={`mx-auto flex items-center transition-all duration-500 ${
+            floating
+              ? "h-14 max-w-6xl gap-2 rounded-full border border-white/[0.08] bg-[#12080e]/88 px-2.5 shadow-[0_18px_50px_-28px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:h-16 sm:gap-4 sm:px-4"
+              : "site-wrap h-16 gap-5 lg:h-[4.75rem]"
+          }`}
+          style={{ minHeight: floating ? "3.5rem" : "4rem" }}
+        >
+          <Link
+            href="/"
+            className="min-w-0"
+            prefetch
+            aria-label="Shikohabad Creative Co."
+          >
+            <BrandLockup compact={floating} />
           </Link>
 
           <nav
-            className="hidden flex-1 items-center justify-center gap-9 lg:flex"
+            className={`hidden flex-1 items-center justify-center lg:flex ${
+              floating ? "gap-6" : "gap-9"
+            }`}
             aria-label="Main"
           >
             {links.map(({ href, label }) => {
@@ -129,8 +153,10 @@ export function Header() {
                   key={href}
                   href={href}
                   prefetch
-                  className={`nav-underline text-[0.78rem] font-medium tracking-[0.06em] uppercase transition ${
-                    active ? "text-coral" : "text-muted hover:text-navy"
+                  className={`nav-underline font-medium tracking-[-0.01em] transition ${
+                    floating ? "text-[0.84rem]" : "text-[0.92rem]"
+                  } ${
+                    active ? "text-white" : "text-white/60 hover:text-white"
                   }`}
                   data-active={active ? "true" : "false"}
                 >
@@ -140,10 +166,10 @@ export function Header() {
             })}
           </nav>
 
-          <div className="ml-auto flex items-center gap-2">
+          <div className="ml-auto flex shrink-0 items-center gap-1 sm:gap-2">
             <button
               type="button"
-              className="flex size-10 items-center justify-center text-navy/55 transition hover:text-navy"
+              className="flex size-10 items-center justify-center text-white/55 transition hover:text-white"
               aria-label="Search"
               onClick={() => {
                 setMenuOpen(false);
@@ -155,13 +181,13 @@ export function Header() {
             <Link
               href="/contact"
               prefetch
-              className="btn-shine relative hidden min-h-10 items-center overflow-hidden bg-coral px-4 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white transition duration-300 hover:bg-accent-dim hover:shadow-[0_10px_28px_-12px_rgba(255,90,60,0.8)] lg:inline-flex"
+              className="btn-shine relative hidden min-h-10 items-center gap-1.5 overflow-hidden rounded-full bg-coral px-4 text-[0.84rem] font-semibold text-white transition duration-300 hover:bg-accent-dim hover:shadow-[0_10px_28px_-12px_rgba(255,61,110,0.85)] lg:inline-flex"
             >
-              Start a project
+              Get started →
             </Link>
             <button
               type="button"
-              className="flex size-10 items-center justify-center text-navy lg:hidden"
+              className="flex size-10 items-center justify-center text-white lg:hidden"
               aria-expanded={menuOpen}
               aria-controls="mobile-nav"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -215,7 +241,7 @@ export function Header() {
                 href={CONTACT_WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex min-h-11 items-center bg-coral px-5 text-[0.9rem] font-semibold text-white"
+                className="mt-6 inline-flex min-h-11 items-center rounded-full bg-coral px-5 text-[0.9rem] font-semibold text-white"
               >
                 WhatsApp
               </a>

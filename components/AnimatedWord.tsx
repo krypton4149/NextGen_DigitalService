@@ -33,14 +33,13 @@ export function AnimatedWord({ words, className = "" }: AnimatedWordProps) {
   const word = words[index] ?? words[0] ?? "";
 
   return (
-    <span className={`relative inline-block text-coral ${className}`}>
+    <span className={`relative inline-block text-white ${className}`}>
       <span
         key={word}
         className={`kinetic-word inline-block ${phase === "in" ? "kinetic-in" : "kinetic-out"}`}
       >
         {word}
       </span>
-      <span className="text-shimmer absolute inset-x-0 -bottom-1 h-[3px] rounded-full" aria-hidden />
     </span>
   );
 }

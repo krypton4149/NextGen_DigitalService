@@ -49,9 +49,9 @@ export function ServicesPageView() {
         <div className="site-wrap grid gap-4 sm:grid-cols-3">
           {groups.map((group, i) => (
             <Reveal key={group.label} delayMs={i * 70}>
-              <div className="border-l-2 border-coral bg-white px-5 py-5">
+              <div className="border-l-2 border-coral bg-surface-elevated px-5 py-5">
                 <p className="eyebrow">{group.label}</p>
-                <p className="mt-2 font-display text-xl tracking-tight text-navy">
+                <p className="mt-2 font-display text-xl tracking-tight text-foreground">
                   {group.hint}
                 </p>
               </div>
@@ -64,7 +64,7 @@ export function ServicesPageView() {
         <div className="site-wrap">
           <Reveal>
             <SectionLabel>Full menu</SectionLabel>
-            <h2 className="display-title mt-4 max-w-xl text-[clamp(1.8rem,3.4vw,2.6rem)] text-navy">
+            <h2 className="display-title mt-4 max-w-xl text-[clamp(1.8rem,3.4vw,2.6rem)] text-foreground">
               Pick a craft. Start a brief.
             </h2>
           </Reveal>
@@ -73,16 +73,16 @@ export function ServicesPageView() {
               <Reveal key={service.num} as="li" delayMs={Math.min(index * 40, 200)}>
                 <Link
                   href="/contact"
-                  className="hover-lift group flex h-full flex-col border border-border bg-white p-7 sm:p-8"
+                  className="hover-lift group flex h-full flex-col border border-border bg-surface-elevated p-7 sm:p-8"
                 >
                   <span className="eyebrow">{service.num}</span>
-                  <h2 className="display-title mt-5 text-[clamp(1.45rem,2.4vw,1.85rem)] text-navy transition group-hover:text-coral">
+                  <h2 className="display-title mt-5 text-[clamp(1.45rem,2.4vw,1.85rem)] text-foreground transition group-hover:text-coral">
                     {service.title}
                   </h2>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
                     {service.summary}
                   </p>
-                  <span className="link-arrow mt-6 text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-navy group-hover:text-coral">
+                  <span className="link-arrow mt-6 text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-foreground group-hover:text-coral">
                     Start a brief <span aria-hidden>→</span>
                   </span>
                 </Link>

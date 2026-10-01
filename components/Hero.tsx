@@ -1,67 +1,64 @@
 import Image from "next/image";
 import { AnimatedWord } from "./AnimatedWord";
 import { Button } from "./Button";
-
-const pillars = ["Marketing", "Advertising", "Events"] as const;
+import { HeroCursor } from "./HeroCursor";
 
 export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[min(90vh,54rem)] overflow-hidden bg-navy text-white"
+      className="relative overflow-hidden text-white lg:min-h-[min(92vh,56rem)]"
     >
+      <HeroCursor />
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div className="agency-orb agency-orb-a absolute -left-20 top-8 size-[24rem] sm:size-[30rem]" />
-        <div className="agency-orb agency-orb-b absolute -right-16 bottom-0 size-[22rem] sm:size-[28rem]" />
-        <div className="hero-grid absolute inset-0 opacity-[0.07]" />
+        <div className="agency-orb agency-orb-a absolute -left-24 top-10 size-[28rem] opacity-80 sm:size-[36rem]" />
+        <div className="agency-orb agency-orb-b absolute -right-20 bottom-0 size-[22rem] opacity-70 sm:size-[28rem]" />
       </div>
 
-      <div className="site-wrap relative grid min-h-[min(90vh,54rem)] items-center gap-12 py-14 lg:grid-cols-12 lg:gap-10 lg:py-16">
-        <div className="lg:col-span-7">
-          <p className="eyebrow hero-enter text-coral" style={{ animationDelay: "80ms" }}>
-            Shikohabad Creative Co.
-          </p>
+      <div className="site-wrap relative grid items-center gap-10 py-12 sm:gap-12 sm:py-16 lg:min-h-[min(92vh,56rem)] lg:grid-cols-12 lg:gap-8 lg:py-20">
+        <div className="lg:col-span-6">
           <p
-            className="hero-enter mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.78rem] font-medium tracking-[0.14em] uppercase text-white/55"
-            style={{ animationDelay: "180ms" }}
+            className="hero-enter inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-coral/35 bg-coral/10 px-3.5 py-1.5 text-[0.75rem] font-medium text-coral"
+            style={{ animationDelay: "80ms" }}
           >
-            {pillars.map((item, i) => (
-              <span key={item} className="inline-flex items-center gap-3">
-                {i > 0 ? (
-                  <span
-                    className="pulse-dot size-1.5 rounded-full bg-coral"
-                    aria-hidden
-                  />
-                ) : null}
-                {item}
-              </span>
-            ))}
+            <span aria-hidden>✦</span>
+            Build campaigns in one studio — no handoffs
           </p>
           <h1
-            className="hero-enter display-title mt-6 text-[clamp(2.9rem,7vw,5.6rem)]"
-            style={{ animationDelay: "280ms" }}
+            className="hero-enter mt-6 font-display text-[2.45rem] font-extrabold leading-[1.08] tracking-[-0.045em] sm:mt-7 sm:text-[clamp(3.1rem,6.4vw,5.5rem)] sm:leading-[1.36] sm:tracking-[-0.05em]"
+            style={{ animationDelay: "180ms" }}
           >
-            We make brands
+            A studio that
             <br />
-            people{" "}
-            <span className="text-coral">
+            performs
+            <br />
+            for{" "}
+            <span
+              className="inline-block bg-coral text-white shadow-[0_16px_40px_-18px_rgba(255,61,110,0.9)]"
+              style={{
+                borderRadius: "0.16em",
+                lineHeight: 1,
+                padding: "0.26em 0.18em",
+              }}
+            >
               <AnimatedWord
-                words={["notice.", "talk about.", "show up for.", "remember."]}
+                words={["brands.", "people.", "events.", "growth."]}
               />
             </span>
           </h1>
           <p
-            className="hero-enter mt-7 max-w-lg text-[1.05rem] leading-[1.7] text-white/68"
-            style={{ animationDelay: "420ms" }}
+            className="hero-enter mt-7 max-w-md text-[1.02rem] leading-[1.7] text-white/62"
+            style={{ animationDelay: "320ms" }}
           >
-            Marketing, advertising and event management under one studio —
-            campaigns that sell, creatives that stick, and events people feel.
+            Pick a direction, fill in the brief, and publish work you&apos;ll be
+            proud to share. Marketing, advertising and events — beautiful, fast,
+            and entirely yours.
           </p>
           <div
-            className="hero-enter mt-10 flex flex-wrap items-center gap-3"
-            style={{ animationDelay: "540ms" }}
+            className="hero-enter mt-9 flex flex-wrap items-center gap-3"
+            style={{ animationDelay: "440ms" }}
           >
-            <Button href="/contact">Start a project</Button>
+            <Button href="/contact">Start building</Button>
             <Button href="/work" variant="secondary" arrow={false}>
               See the work
             </Button>
@@ -69,29 +66,40 @@ export function Hero() {
         </div>
 
         <div
-          className="hero-enter-scale lg:col-span-5"
-          style={{ animationDelay: "400ms" }}
+          className="hero-enter-scale lg:col-span-6"
+          style={{ animationDelay: "280ms" }}
         >
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-md lg:ml-auto lg:max-w-none">
-            <div className="pointer-events-none absolute inset-8 rounded-full bg-coral/20 blur-3xl" aria-hidden />
-            <div className="float-slow absolute inset-0">
-              <Image
-                src="/images/Hero.png"
-                alt="Shikohabad Creative Co. — marketing, advertising and events"
-                fill
-                priority
-                sizes="(max-width: 1024px) 90vw, 42vw"
-                className="object-contain object-center drop-shadow-[0_36px_70px_rgba(0,0,0,0.4)]"
-              />
+          <div className="relative mx-auto w-full max-w-xl lg:ml-auto lg:max-w-none">
+            <div
+              className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-coral/20 blur-3xl"
+              aria-hidden
+            />
+            <div className="float-slow relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#160910]/80 shadow-[0_40px_90px_-36px_rgba(0,0,0,0.85)]">
+              <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+                <div className="flex gap-1.5" aria-hidden>
+                  <span className="size-2.5 rounded-full bg-white/20" />
+                  <span className="size-2.5 rounded-full bg-white/20" />
+                  <span className="size-2.5 rounded-full bg-white/20" />
+                </div>
+                <p className="text-[0.68rem] font-medium tracking-wide text-white/55">
+                  shikohabad.studio
+                </p>
+                <span className="rounded-full border border-coral/40 bg-coral/15 px-2 py-0.5 text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-coral">
+                  Live
+                </span>
+              </div>
+              <div className="relative aspect-[5/4]">
+                <Image
+                  src="/images/Hero.png"
+                  alt="Shikohabad Creative Co. — marketing, advertising and events"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 46vw"
+                  className="object-contain object-center p-6"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="pointer-events-none absolute inset-x-0 bottom-6 flex justify-center" aria-hidden>
-        <div className="scroll-cue flex flex-col items-center gap-2 text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-white/40">
-          <span>Scroll</span>
-          <span className="scroll-cue-line" />
         </div>
       </div>
     </section>

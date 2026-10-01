@@ -79,7 +79,7 @@ export function BrandIconGoogleSeo() {
       <span className="flex size-9 items-center justify-center rounded-lg bg-background shadow-sm ring-1 ring-border">
         <GoogleLogoMark className="size-5" />
       </span>
-      <span className="flex size-9 items-center justify-center rounded-lg bg-brand text-white shadow-sm">
+      <span className="flex size-9 items-center justify-center rounded-lg bg-coral text-white shadow-sm">
         <SeoLogoMark className="size-5" />
       </span>
     </span>

@@ -1,15 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope, Noto_Sans_Devanagari } from "next/font/google";
+import { Manrope, Noto_Sans_Devanagari, Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import "./globals.css";
 
-const display = Cormorant_Garamond({
+const display = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
   adjustFontFallback: true,
 });
 
@@ -33,7 +33,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#0B132B",
+  themeColor: "#0c060a",
   interactiveWidget: "resizes-content",
 };
 
@@ -85,10 +85,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${hindi.variable}`}>
       <body className="min-h-dvh bg-background font-sans text-foreground antialiased">
-        <ScrollProgress />
-        <Header />
-        {children}
-        <Footer />
+        <div className="theme-glow" aria-hidden />
+        <div className="relative z-[1]">
+          <ScrollProgress />
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

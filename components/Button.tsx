@@ -4,17 +4,17 @@ import type { ComponentProps } from "react";
 type Variant = "primary" | "secondary" | "ghost" | "outline";
 
 const base =
-  "btn-shine group relative inline-flex min-h-12 items-center justify-center gap-2 overflow-hidden px-6 py-3 text-[0.78rem] font-semibold tracking-[0.06em] uppercase transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
+  "btn-shine group relative inline-flex min-h-12 items-center justify-center gap-2 overflow-hidden rounded-full px-6 py-3 text-[0.84rem] font-semibold tracking-[-0.01em] transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-coral text-white hover:bg-accent-dim hover:shadow-[0_14px_36px_-12px_rgba(255,90,60,0.75)] focus-visible:outline-coral",
+    "bg-coral text-white hover:bg-accent-dim hover:shadow-[0_14px_36px_-12px_rgba(255,61,110,0.8)] focus-visible:outline-coral",
   secondary:
-    "border border-white/30 text-white hover:border-white hover:bg-white/8 focus-visible:outline-white",
+    "border border-white/20 bg-white/[0.03] text-white hover:border-white/50 hover:bg-white/8 focus-visible:outline-white",
   outline:
-    "border border-navy/20 bg-transparent text-navy hover:border-coral hover:text-coral focus-visible:outline-coral",
+    "border border-white/20 bg-transparent text-foreground hover:border-coral hover:text-coral focus-visible:outline-coral",
   ghost:
-    "bg-transparent px-0 text-navy hover:text-coral focus-visible:outline-coral",
+    "bg-transparent px-0 text-foreground hover:text-coral focus-visible:outline-coral",
 };
 
 type ButtonProps = {
