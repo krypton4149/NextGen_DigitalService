@@ -70,7 +70,7 @@ export function BrandLockup({ compact = false, large = false }: BrandLockupProps
     <span className="inline-flex max-w-full items-center gap-2 sm:gap-2.5">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/logo1.png"
+        src="/images/Logo1.png"
         alt=""
         width={1562}
         height={1007}
